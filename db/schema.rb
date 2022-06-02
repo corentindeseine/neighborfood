@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_173537) do
+ActiveRecord::Schema.define(version: 2022_06_02_180123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cookers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "unit_price"
+    t.text "ingredients"
+    t.text "allergens"
+    t.string "range_date_time"
+    t.integer "available_quantity"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "ordered_quantity"
+    t.bigint "orders_id", null: false
+    t.bigint "meals_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meals_id"], name: "index_order_details_on_meals_id"
+    t.index ["orders_id"], name: "index_order_details_on_orders_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "delivery_date_time"
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +61,18 @@ ActiveRecord::Schema.define(version: 2022_06_02_173537) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone_number"
+    t.string "city"
+    t.string "address"
+    t.integer "zip_code"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meals", "users"
+  add_foreign_key "order_details", "meals", column: "meals_id"
+  add_foreign_key "order_details", "orders", column: "orders_id"
+  add_foreign_key "orders", "users"
 end
