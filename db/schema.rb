@@ -43,17 +43,11 @@ ActiveRecord::Schema.define(version: 2022_06_04_130531) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cookers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.float "unit_price"
     t.text "ingredients"
-    t.text "allergens"
     t.string "range_date_time"
     t.integer "available_quantity"
     t.bigint "user_id", null: false
@@ -64,23 +58,23 @@ ActiveRecord::Schema.define(version: 2022_06_04_130531) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "ordered_quantity"
-    t.bigint "orders_id", null: false
-    t.bigint "meals_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "meal_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["meals_id"], name: "index_order_details_on_meals_id"
-    t.index ["orders_id"], name: "index_order_details_on_orders_id"
+    t.index ["meal_id"], name: "index_order_details_on_meal_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "delivery_date_time"
     t.integer "status"
-    t.bigint "user_id", null: false
+    t.bigint "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cooker_id"
+    t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["cooker_id"], name: "index_orders_on_cooker_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,8 +98,8 @@ ActiveRecord::Schema.define(version: 2022_06_04_130531) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "meals", "users"
-  add_foreign_key "order_details", "meals", column: "meals_id"
-  add_foreign_key "order_details", "orders", column: "orders_id"
-  add_foreign_key "orders", "users"
+  add_foreign_key "order_details", "meals"
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "orders", "users", column: "client_id"
   add_foreign_key "orders", "users", column: "cooker_id"
 end
