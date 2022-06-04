@@ -1,5 +1,4 @@
 class Meal < ApplicationRecord
-  belongs_to :cooker
-  belongs_to :order_detail
+  belongs_to :user
+  has_many :order_details
 end
-
