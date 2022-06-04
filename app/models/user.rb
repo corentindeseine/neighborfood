@@ -4,10 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :orders
-
+  has_many :meals
   has_many :clients, class_name: "Order", foreign_key: "client_id"
   has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
-
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -17,6 +16,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, format: { with: /\A((\+)33|0|0033)[1-9](\d{2}){4}\z/ }
 
-  # scope :cooker where user.id
-  # scope :cooker, -> { where(meals: !nil) }
+  def self.cookers
+    Meal.all.map(&:user).uniq
+  end
 end
