@@ -3,8 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :orders, foreign_key: "user_id"
-  has_many :orders_cooker, class_name: "Order", foreign_key: "cooker_id"
+  has_many :orders
+
+  has_many :clients, class_name: "Order", foreign_key: "client_id"
+  has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
+
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
@@ -15,6 +19,4 @@ class User < ApplicationRecord
 
   # scope :cooker where user.id
   # scope :cooker, -> { where(meals: !nil) }
-
-
 end

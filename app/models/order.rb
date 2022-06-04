@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :user
-  belongs_to :user, class_name: "Cooker"
+  belongs_to :client, class_name: "User"
+  belongs_to :cooker, class_name: "User"
   has_many :order_details
 end
