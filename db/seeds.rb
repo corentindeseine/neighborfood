@@ -42,7 +42,7 @@ Meal.create!(name: 'Couscous',
              ingredients: "['semoule', 'merguez', 'poulet', 'courgettes', 'aubergines', 'carotte', 'pois chiches']",
              range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
              available_quantity: 5,
-             user_id: user[0].id)
+             user_id: users[0].id)
 
 Meal.create!(name: "Tajine de poulet",
              description: 'Comme un retour au Maroc !',
@@ -50,12 +50,13 @@ Meal.create!(name: "Tajine de poulet",
              ingredients: "['pomme de terre', 'courgettes', 'poulet', 'carottes', 'oignon', 'tomates', 'cumin']",
              range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
              available_quantity: 2,
-             user_id: user[0].id)
+             user_id: users[0].id)
 
 Meal.create!(name: 'Pastilla',
              description: 'Mon plat le plus apprécié de tous !',
-             unit_price: 7.2,
+             unit_price: 5.5,
              ingredients: "['poulet', 'amandes', 'oignons', 'Pignon', 'aubergines', 'carotte', 'pois chiches']",
              range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
              available_quantity: 5,
-             user_id: user[0].id)
+             user_id: users[0].id)
+

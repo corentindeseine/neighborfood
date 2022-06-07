@@ -4,9 +4,16 @@ class MealsController < ApplicationController
   end
 
   def new
+    @meal = Meal.new
   end
 
   def create
+    @meal = Meal.new(meal_params)
+    if @meal.save
+      redirect_to @meal
+    else
+      render 'new'
+    end
   end
 
   private
