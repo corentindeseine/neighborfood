@@ -25,8 +25,6 @@ User.destroy_all
 end
 
 
-
-end
   user1 = User.first
   user1.address = "83 Rue Jean-Pierre Timbaud"
   user1.save!
@@ -42,9 +40,6 @@ end
 # 7 Rue de la Fontaine au Roi, 75011 Paris
 # 83 Bd de Ménilmontant, 75011 Paris
 # 18 Rue des Bluets, 75011 Paris
-
-
-
 
 # t.string "name"
   # t.text "description"
