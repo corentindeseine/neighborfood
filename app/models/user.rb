@@ -10,11 +10,11 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :address, presence: true
+  # validates :address, presence: true
   validates :city, presence: true
   validates :zip_code, presence: true, format: { with: /\d{5}/ }
   validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true, uniqueness: true, format: { with: /\A((\+)33|0|0033)[1-9](\d{2}){4}\z/ }
+  validates :phone_number, presence: true, format: { with: /\A((\+)33|0|0033)[1-9](\d{2}){4}\z/ }
 
   def self.cookers
     Meal.all.map(&:user).uniq
