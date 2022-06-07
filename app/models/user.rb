@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :orders
-  has_many :meals
+  has_many :meals, dependent: :destroy
   has_many :clients, class_name: "Order", foreign_key: "client_id"
   has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
 
