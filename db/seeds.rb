@@ -5,54 +5,57 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-OrderDetail.destroy_all
-Order.destroy_all
-Meal.destroy_all
 User.destroy_all
 
+# Seed Users
 
-2.times do
-  user = User.create!(
-    first_name:Faker::Name.first_name,
-    last_name:Faker::Name.last_name,
-    city: "Paris", zip_code:75011,
-    email: Faker::Internet.email,
-    phone_number:"+33601020304",
-    password:"neighborfood")
-
-
-
+10.times do
+  User.create!(first_name: Faker::Name.first_name,
+               last_name: Faker::Name.last_name,
+               city: "Paris",
+               zip_code: 75_011,
+               email: Faker::Internet.email,
+               phone_number: "+33601020304",
+               password: "neighborfood")
 end
 
+users = User.all
 
+users[0].address = "83 Rue Jean-Pierre Timbaud"
+users[1].address = "148 Rue Oberkampf"
+users[2].address = "1 Rue Saint-Hubert"
+users[3].address = "30 Rue Moret"
+users[4].address = "10 Rue des Nanettes"
+users[5].address = "7 Rue de la Fontaine au Roi"
+users[6].address = "83 Bd de Ménilmontant"
+users[7].address = "148 Rue Oberkampf"
+users[8].address = "18 Rue des Bluets"
+users[9].address = "121 Rue Saint-Maur"
 
-end
-  user1 = User.first
-  user1.address = "83 Rue Jean-Pierre Timbaud"
-  user1.save!
-  user2 = User.last
-  user2.address = "148 Rue Oberkampf"
-  user2.save!
+users.map(&:save!)
 
-# 83 Rue Jean-Pierre Timbaud, 75011 Paris
-# 148 Rue Oberkampf, 75011 Paris
-# Rue Saint-Hubert, 75011 Paris
-# 30 Rue Moret, 75011 Paris
-# 10 Rue des Nanettes, 75011 Paris
-# 7 Rue de la Fontaine au Roi, 75011 Paris
-# 83 Bd de Ménilmontant, 75011 Paris
-# 18 Rue des Bluets, 75011 Paris
+# Seed meals pour user 1
 
+Meal.create!(name: 'Couscous',
+             description: 'Le meilleur couscous de Paname !',
+             unit_price: 7.2,
+             ingredients: "['semoule', 'merguez', 'poulet', 'courgettes', 'aubergines', 'carotte', 'pois chiches']",
+             range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
+             available_quantity: 5,
+             user_id: user[0].id)
 
+Meal.create!(name: "Tajine de poulet",
+             description: 'Comme un retour au Maroc !',
+             unit_price: 9.2,
+             ingredients: "['pomme de terre', 'courgettes', 'poulet', 'carottes', 'oignon', 'tomates', 'cumin']",
+             range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
+             available_quantity: 2,
+             user_id: user[0].id)
 
-
-# t.string "name"
-  # t.text "description"
-  # t.float "unit_price"
-  # t.text "ingredients"
-  # t.string "range_date_time"
-  # t.integer "available_quantity"
-  # t.bigint "user_id", null: false
-  # t.datetime "created_at", precision: 6, null: false
-  # t.datetime "updated_at", precision: 6, null: false
-  # t.index ["user_id"], name: "index_meals_on_user_id"
+Meal.create!(name: 'Pastilla',
+             description: 'Mon plat le plus apprécié de tous !',
+             unit_price: 7.2,
+             ingredients: "['poulet', 'amandes', 'oignons', 'Pignon', 'aubergines', 'carotte', 'pois chiches']",
+             range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
+             available_quantity: 5,
+             user_id: user[0].id)
