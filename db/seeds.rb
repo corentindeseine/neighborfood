@@ -44,7 +44,7 @@ Meal.create!(name: "Tajine de poulet",
              ingredients: "pomme de terre, courgettes, poulet, carottes, oignon, tomates, cumin",
              range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
              available_quantity: 2,
-             user_id: users[0].id)
+             user_id: users[1].id)
 
 Meal.create!(name: 'Pastilla',
              description: 'Mon plat le plus apprécié de tous !',

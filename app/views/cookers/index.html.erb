@@ -2,7 +2,8 @@
   <div class="cookers">
     <ul>
       <% @cookers.each do |cooker| %>
-        <li> <%= link_to cooker.name, cookers_path %> </li>
+        <li> <%= link_to cooker.first_name , cooker_path(cooker) %> </li>
+      <% end %>
       </ul>
     </div>
   </div>
