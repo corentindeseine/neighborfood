@@ -44,7 +44,7 @@ Meal.create!(name: "Tajine de poulet",
              ingredients: "pomme de terre, courgettes, poulet, carottes, oignon, tomates, cumin",
              range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
              available_quantity: 2,
-             user_id: users[1].id)
+             user_id: users[0].id)
 
 Meal.create!(name: 'Pastilla',
              description: 'Mon plat le plus apprécié de tous !',
@@ -95,3 +95,13 @@ users.each_with_index do |user, index|
                available_quantity: rand(2..6),
                user_id: user.id)
 end
+
+# Seed user account
+
+User.create!(first_name: Jeanne,
+             last_name: Lafondue,
+             city: "Paris",
+             zip_code: 75_011,
+             email: "user@gmail.com",
+             phone_number: "+33601020304",
+             password: "neighborfood")
