@@ -5,5 +5,6 @@ class CookersController < ApplicationController
 
   def show
     @cooker = Cooker.find(params[:id])
+    @cooker_meals = @cooker.meals
   end
 end

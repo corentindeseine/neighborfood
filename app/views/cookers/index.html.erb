@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <div class="cookers">
+    <ul>
+      <% @cookers.each do |cooker| %>
+        <li> <%= link_to cooker.name, cookers_path %> </li>
+      </ul>
+    </div>
+  </div>
