@@ -2,29 +2,7 @@
   <%= link_to root_path,:"data-turbolinks" => false,  class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
-  <div class="search">
-    <%= form_tag cookers_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control zone-text",
-        placeholder: "Find new position"%>
-    <% end %>
-    <%= image_tag ("search.png"), class: "searchbtn" %>
-    <li class="nav-item dropdown">
-      <%= image_tag "sacha.png", class: "avatar dropdown-toggle avatar-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <%= link_to "Cookers", cookers_path, class: "dropdown-item" %>
-        <%= link_to "Orders", orders_path, class: "dropdown-item" %>
-        <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
-        <% end %>
-      </div>
-    </li>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
         <%= link_to "Cookers", cookers_path, class: "nav-link" %>

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="meal-show">
+    <div class="meal-show-banner">
+      <div class="meal-show-banner-header">
+        <%= link_to cooker_path(@cooker) do  %>
+          <i class="fas fa-chevron-left meal-show-banner-header-arrow"></i>
+        <% end %>
+      </div>
+      <%= image_tag "logo.png", alt: "pates"%>
+      <div class="meal-show-price"><span><%= @meal.unit_price %></span> €</div>
+    </div>
+    <div class="meal-show-body">
+      <div class= "meal-show-body-detail">
+        <h2><%= @meal.name %></h2>
+        <p> <%= @meal.description %></p>
+      </div>
+      <h2>Ingrédients</h2>
+      <% @ingredients= @meal.ingredients.split(",") %>
+      <% @ingredients.each do |ingredient|  %>
+        <ul class="meal-show-body-ingredients">
+          <li>
+            <p><%= ingredient.capitalize%></p>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+    <div class= "meal-show-body-footer">
+      <div class="meal-show-body-footer-quantity"><i class="fas fa-plus-circle"></i><span class="meal_quantity">0</span><i class="fas fa-minus-circle"></i></div>
+      <%= link_to "" do %>
+        <div class="meal-show-body-button">Ajouter</div>
+      <% end%>
+    </div>
+  </div>
+</div>
+</div>
