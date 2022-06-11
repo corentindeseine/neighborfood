@@ -99,9 +99,10 @@ end
 
 # Seed user account
 
+
 client = User.create!(first_name: "Jeanne",
                       last_name: "Lafondue",
-                      address: "14, Villa Gaudelet",
+                      address: "16, Villa Gaudelet",
                       city: "Paris",
                       zip_code: 75_011,
                       email: "user@gmail.com",
@@ -139,3 +140,5 @@ OrderDetail.create!(order_id: orders[1].id,
 OrderDetail.create!(order_id: orders[2].id,
                     meal_id: meals[4].id,
                     ordered_quantity: 1)
+
+
