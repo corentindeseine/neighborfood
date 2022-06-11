@@ -1,4 +1,5 @@
 # Seed Users
+Order.destroy_all
 User.destroy_all
 
 10.times do
@@ -57,17 +58,17 @@ Meal.create!(name: 'Pastilla',
 # Seed meals pour user 2
 
 Meal.create!(name: 'Tartare de thon',
-             description: 'Une reccete équilibrée me rappelant mon enfance à la mer !',
+             description: 'Une recette équilibrée me rappelant mon enfance à la mer !',
              unit_price: 10,
-             ingredients: "thon, ... ",
+             ingredients: "thon frais, capres, oignons, huile d'olive, sauce créoline ",
              range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
              available_quantity: 4,
              user_id: users[1].id)
 
 Meal.create!(name: 'Tataki de thon',
-             description: 'Pour les amateurs de thon ... ',
+             description: "Un tataki de thon frais avec du guacamole et une délicieuse salade d'ananas",
              unit_price: 12.5,
-             ingredients: "thon, ... ",
+             ingredients: "thon, avocat, ananas, poivron, piment doux, citron vert, persil, huile d'olive ",
              range_date_time: "06/14/2022 20:00 , 06/14/2022 22:00",
              available_quantity: 2,
              user_id: users[1].id)
@@ -97,11 +98,47 @@ users.each_with_index do |user, index|
 end
 
 # Seed user account
-User.create!(first_name: 'Jeanne',
-             last_name: 'Lafondue',
-             city: "Paris",
-             zip_code: 75_011,
-             email: "user@gmail.com",
-             phone_number: "+33601020304",
-             password: "neighborfood",
-             address: "16 villa gaudelet")
+
+
+client = User.create!(first_name: "Jeanne",
+                      last_name: "Lafondue",
+                      address: "16, Villa Gaudelet",
+                      city: "Paris",
+                      zip_code: 75_011,
+                      email: "user@gmail.com",
+                      phone_number: "+33601020304",
+                      password: "neighborfood")
+
+# Seed orders
+
+Order.create!(client_id: client.id,
+              cooker_id: users[0].id,
+              delivery_date_time: "Vendredi 10 Juin 2022 18H00",
+              status: 1)
+Order.create!(client_id: client.id,
+              cooker_id: users[0].id,
+              delivery_date_time: "Samedi 11 Juin 2022 18H00",
+              status: 0)
+Order.create!(client_id: client.id,
+              cooker_id: users[1].id,
+              delivery_date_time: "Lundi 13 Juin 2022 17H00",
+              status: 0)
+
+ # Seed orders_details
+meals = Meal.all
+orders = Order.all
+
+OrderDetail.create!(order_id: orders[0].id,
+                    meal_id: meals[0].id,
+                    ordered_quantity: 2)
+OrderDetail.create!(order_id: orders[1].id,
+                    meal_id: meals[0].id,
+                    ordered_quantity: 1)
+OrderDetail.create!(order_id: orders[1].id,
+                    meal_id: meals[1].id,
+                    ordered_quantity: 1)
+OrderDetail.create!(order_id: orders[2].id,
+                    meal_id: meals[4].id,
+                    ordered_quantity: 1)
+
+

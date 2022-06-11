@@ -1,0 +1,15 @@
+<div class="container-fluid">
+<%=current_user.first_name%> <%= current_user.last_name%>
+<%=current_user.address%> <%= current_user.city%> <%= current_user.zip_code%>
+<%if @current_user_orders.empty?%>
+  <p> Vous n'avez aucune commande</p>
+<%else%>
+  <ul>
+      <% @current_user_orders.each do |order| %>
+      <li>Commande numéro <%= link_to order.id, order_path(order) %>
+          du  <%= order.created_at %></li>
+          statut <%= order.status%>
+      <%end%>
+  </ul>
+  <%end%>
+</div>
