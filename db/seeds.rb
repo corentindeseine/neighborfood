@@ -97,7 +97,6 @@ users.each_with_index do |user, index|
 end
 
 # Seed user account
-
 User.create!(first_name: 'Jeanne',
              last_name: 'Lafondue',
              city: "Paris",

@@ -1,0 +1,20 @@
+.container-fluid {
+  padding: 0 1rem;
+}
+
+.swiper-container {
+  overflow: visible;
+
+  .pokemon-card {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+}
+
+.swiper-wrapper {
+  margin-top: 100px;
+}

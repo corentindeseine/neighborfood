@@ -1,31 +1,38 @@
 <div class="container-fluid">
-  <div class="cookers-show">
+  <div class="cookers-show ">
     <h1><%= @cooker.first_name %> <%= @cooker.last_name  %></h1>
-    <div class="cooker-show-cards">
-      <% @meals.each do |meal| %>
-        <%= link_to cooker_meal_path(@cooker) do %>
-          <div class="meal-card">
-            <div class="meal-card-header">
-              <div class="meal-card-header-img">
-                <%= image_tag "logo.png", alt: "pates"%>
+    <div class="cooker-show-cards swiper-container">
+      <div class="swiper-wrapper">
+        <% @meals.each do |meal| %>
+          <%= link_to cooker_meal_path(@cooker, meal) do %>
+            <div class="swiper-slide">
+              <div class="meal-card">
+                <div class="meal-card-header">
+                  <div class="meal-card-header-img">
+                    <%= image_tag "logo.png", alt: "pates"%>
+                  </div>
+                  <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
+                </div>
+                <div class="meal-card-body">
+                  <div class= "meal-card-body-detail">
+                    <h2><%= meal.name %></h2>
+                    <p> <%= meal.description %></p>
+                  </div>
+                  <div class= "meal-card-body-quantity">
+                    <i class="fas fa-plus-circle"></i><span class="meal_quantity">0</span><i class="fas fa-minus-circle"></i>
+                  </div>
+                </div>
+                <%= link_to "" do %>
+                  <div class="meal-card-body-button">Ajouter</div>
+                <% end%>
               </div>
-              <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
             </div>
-            <div class="meal-card-body">
-              <div class= "meal-card-body-detail">
-                <h2><%= meal.name %></h2>
-                <p> <%= meal.description %></p>
-              </div>
-              <div class= "meal-card-body-quantity">
-                <i class="fas fa-plus-circle"></i><span class="meal_quantity">0</span><i class="fas fa-minus-circle"></i>
-              </div>
-            </div>
-            <%= link_to "" do %>
-              <div class="meal-card-body-button">Ajouter</div>
-            <% end%>
-          </div>
-        <% end%>
-      <% end %>
+          <% end%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+<br>
+<br>
+

@@ -40,13 +40,11 @@ html {
   height: 100%;
   color: #000;
   overflow-x: hidden;
-  background-color:#E0E5EC;
+  overflow-y: auto;
+  background-color: #E0E5EC;
 }
 
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-}
+
 
 ::-webkit-scrollbar {
   width: 0;
@@ -72,6 +70,8 @@ h6 {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 abbr[title] {
