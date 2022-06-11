@@ -1,24 +1,40 @@
 <div class="container-fluid">
-<%=current_user.first_name%> <%= current_user.last_name%>
-<%=current_user.address%> <%= current_user.city%> <%= current_user.zip_code%>
+<ul>
+  <li> <%=current_user.first_name%> <%= current_user.last_name%> </li>
+  <li> <%=current_user.address%> <%= current_user.city%> <%= current_user.zip_code%> </li>
+</ul>
 <h1>Commande numéro <%= @order.id %></h1>
 
 <%if @orderdetails.empty?%>
-<p> Vous n'avez aucun plat dans cette commande</p>
+  <p> Vous n'avez aucun plat dans cette commande</p>
 <%else%>
-  <%total = 0%>
-  <ul>
-      <% @orderdetails.each do |d| %>
-        <%line_price = d.ordered_quantity * d.meal.unit_price%>
-        <li><%=d.ordered_quantity%>
-            <%=d.meal.name%>
-            <%=d.meal.unit_price%> €
-            <%=line_price%> €
-            <%total = total + line_price%>
-        </li>
-      <%end%>
-  </ul>
+  <div class="order-show ">
+    <%total = 0%>
 
+      <% @orderdetails.each do |d| %>
+        <div class="order-show-detail ">
+          <div class="order-show-detail-left">
+            <div class="order-show-detail-left-img">
+              <%= image_tag "logo.png", alt: "photo du plat" %>
+            </div>
+            <div class="order-show-detail-left-qty">
+              - <%=d.ordered_quantity%> +
+            </div>
+          </div>
+          <div class="order_show_detail_right">
+
+              <p><%=d.meal.unit_price%> €</p>
+              <p><%=d.meal.name%></p>
+
+              <%line_price = d.ordered_quantity * d.meal.unit_price%>
+              <%total = total + line_price%>
+          </div>
+        </div>
+
+      <%end%>
+
+  </div>
   <h3>Total <%=total%> €</h3>
+  </div>
   <%end%>
 </div>
