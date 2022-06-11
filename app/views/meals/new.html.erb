@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="meal-new">
+    <%= simple_form_for(@meal) do |f| %>
+      <h1>Add a Meal 😋</h1>
+      <%= f.input :image, as: :file %>
+      <%= f.input :name %>
+      <%= f.input :description%>
+      <%= f.input :ingredients%>
+      <%= f.input :available_quantity %>
+      <%= f.submit "Valider", class: "meal-card-body-button" %>
+    <% end %>
+  </div>
+</div>
