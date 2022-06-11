@@ -1,0 +1,41 @@
+.container-fluid {
+  padding: 0 1rem;
+}
+
+.order-show {
+  height: 100%;
+  width: 100%;
+
+}
+
+.order-show-detail {
+  display: flex;
+  align-items: center;
+  padding: 40px 0px;
+
+}
+
+.order-show-detail-left {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(145deg, #CACED4, #F0F5FD);
+  box-shadow: 20px 20px 60px #BEC3C9,
+    -20px -20px 60px #FFFFFF;
+  border-radius: 20px;
+  margin-right: 50px;
+
+}
+
+.order-show-detail-left-img img {
+width: 100px;
+height: 100px;
+margin-left: 20px;
+margin-bottom: 20px;
+}
+
+.order-show-detail-left-qty {
+ position: absolute;
+ bottom: -30px;
+ left: 10%;
+}
