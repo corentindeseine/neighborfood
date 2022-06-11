@@ -1,0 +1,15 @@
+<div class="container-fluid">
+
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="cookers">
+    <ul>
+      <% @cookers.each do |cooker| %>
+        <li> <%= link_to cooker.first_name , cooker_path(cooker) %> </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>

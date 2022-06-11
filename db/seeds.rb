@@ -98,10 +98,11 @@ end
 
 # Seed user account
 
-User.create!(first_name: Jeanne,
-             last_name: Lafondue,
+User.create!(first_name: 'Jeanne',
+             last_name: 'Lafondue',
              city: "Paris",
              zip_code: 75_011,
              email: "user@gmail.com",
              phone_number: "+33601020304",
-             password: "neighborfood")
+             password: "neighborfood",
+             address: "16 villa gaudelet")
