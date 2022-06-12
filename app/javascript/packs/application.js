@@ -12,6 +12,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
+import Swiper, { Navigation } from 'swiper'
+Swiper.use([Navigation])
+import 'swiper/swiper-bundle.min.css'
 import "controllers"
 import "bootstrap"
-require("packs/swiper")
+import "packs/swiper"
