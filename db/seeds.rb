@@ -1,7 +1,7 @@
 # Seed Users
 Order.destroy_all
 User.destroy_all
-
+require "open-uri"
 10.times do
   User.create!(first_name: Faker::Name.first_name,
                last_name: Faker::Name.last_name,
@@ -30,58 +30,69 @@ users[9].address = "121 Rue Saint-Maur"
 users.map(&:save!)
 
 # Seed meals pour user 1
-
-Meal.create!(name: 'Couscous',
+couscous_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655039167/couscous-removebg-preview_1_ay6jrr.png")
+couscous = Meal.create!(name: 'Couscous',
              description: 'Le meilleur couscous de Paname !',
              unit_price: 12,
              ingredients: "semoule, merguez, poulet, courgettes, aubergines, carotte, pois chiches",
              range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
              available_quantity: 3,
              user_id: users[0].id)
+couscous.image.attach(io: couscous_file, filename: 'couscous.jpg', content_type: 'image/jpg')
 
-Meal.create!(name: "Tajine de poulet",
+
+tajine_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655037823/tajine-removebg-preview_z0onqs.png")
+tajine = Meal.create!(name: "Tajine de poulet",
              description: 'Comme un retour au Maroc !',
              unit_price: 9.9,
              ingredients: "pomme de terre, courgettes, poulet, carottes, oignon, tomates, cumin",
              range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
              available_quantity: 2,
              user_id: users[0].id)
+tajine.image.attach(io: tajine_file, filename: 'Tajine.png', content_type: 'image/png')
 
-Meal.create!(name: 'Pastilla',
+pastilla_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655038011/Pastilla-au-poulet-et-amandes-le-traiteur-de-la-bourse-removebg-preview_fjyynx.png")
+pastilla = Meal.create!(name: 'Pastilla',
              description: 'Mon plat le plus apprécié de tous !',
              unit_price: 4.5,
              ingredients: "poulet, amandes, oignons, pignon, feuilles de brick, persil",
              range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
              available_quantity: 5,
              user_id: users[0].id)
+pastilla.image.attach(io: pastilla_file, filename: 'Pastilla.png', content_type: 'image/png')
 
 # Seed meals pour user 2
-
-Meal.create!(name: 'Tartare de thon',
+tartare_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1654947934/Tartare-thon_j1ufi0.png")
+tartare = Meal.create!(name: 'Tartare de thon',
              description: 'Une recette équilibrée me rappelant mon enfance à la mer !',
              unit_price: 10,
              ingredients: "thon frais, capres, oignons, huile d'olive, sauce créoline ",
              range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",
              available_quantity: 4,
              user_id: users[1].id)
+tartare.image.attach(io: tartare_file, filename: 'Tartare-thon.png', content_type: 'image/png')
 
-Meal.create!(name: 'Tataki de thon',
+tataki_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1654947895/Tataki-thon_biymqi.png")
+tataki = Meal.create!(name: 'Tataki de thon',
              description: "Un tataki de thon frais avec du guacamole et une délicieuse salade d'ananas",
              unit_price: 12.5,
              ingredients: "thon, avocat, ananas, poivron, piment doux, citron vert, persil, huile d'olive ",
              range_date_time: "06/14/2022 20:00 , 06/14/2022 22:00",
              available_quantity: 2,
              user_id: users[1].id)
+tataki.image.attach(io: tataki_file, filename: 'Tataki-thon.png', content_type: 'image/png')
 
 # Seed meals pour user 3
-
-Meal.create!(name: 'Falafels',
+falafels_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655037803/1200px-Bowl_of_falafel-removebg-preview_mi9x1u.png")
+falafels = Meal.create!(name: 'Falafels',
              description: 'Le Liban dans votre assiette',
              unit_price: 2.5,
              ingredients: "pois chiches, gousse d'ail, oignon, persil",
              range_date_time: "06/14/2022 18:00 , 06/14/2022 22:00",
              available_quantity: 15,
              user_id: users[2].id)
+falafels.image.attach(io: falafels_file, filename: 'Falafels.png', content_type: 'image/png')
+
 
 # Seed meals pour users de 4 à 10
 
@@ -140,5 +151,3 @@ OrderDetail.create!(order_id: orders[1].id,
 OrderDetail.create!(order_id: orders[2].id,
                     meal_id: meals[4].id,
                     ordered_quantity: 1)
-
-

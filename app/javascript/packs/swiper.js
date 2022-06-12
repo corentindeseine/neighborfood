@@ -1,6 +1,7 @@
 import Swiper, { Navigation } from 'swiper'
 Swiper.use([Navigation])
-import 'swiper/swiper-bundle.min.css'
+import style from "swiper/swiper-bundle.css"
+console.log(style);
 
 document.addEventListener("turbolinks:load", () => {
 
