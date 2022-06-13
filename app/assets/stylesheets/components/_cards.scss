@@ -25,17 +25,20 @@
   &-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
 
     &-img {
-      margin-top: -50px;
-      margin-left: 15px;
+      width: 120px;
+      height: 160px;
+      margin-top: -60px;
+      margin-left: 6px;
 
       img {
         width: 120px;
         height: auto;
-      }
     }
+    }
+
 
 
 
@@ -50,7 +53,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
     height: 200px;
     width: 100%;
 
@@ -61,7 +64,7 @@
     &-quantity {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content:flex-start;
       align-items: center;
       height: 200px;
 

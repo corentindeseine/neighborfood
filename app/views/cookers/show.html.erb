@@ -9,7 +9,7 @@
               <div class="meal-card">
                 <div class="meal-card-header">
                   <div class="meal-card-header-img">
-                    <%= image_tag "logo.png", alt: "pates"%>
+                    <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
                   </div>
                   <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
                 </div>
@@ -33,6 +33,4 @@
     </div>
   </div>
 </div>
-<br>
-<br>
 

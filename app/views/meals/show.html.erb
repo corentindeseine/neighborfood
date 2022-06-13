@@ -6,7 +6,7 @@
           <i class="fas fa-chevron-left meal-show-banner-header-arrow"></i>
         <% end %>
       </div>
-      <%= image_tag "logo.png", alt: "pates"%>
+      <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
       <div class="meal-show-price"><span><%= @meal.unit_price %></span> €</div>
     </div>
     <div class="meal-show-body">
@@ -33,3 +33,5 @@
   </div>
 </div>
 </div>
+
+
