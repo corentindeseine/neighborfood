@@ -30,7 +30,6 @@ users[9].address = "121 Rue Saint-Maur"
 users.map(&:save!)
 
 # Seed meals pour user 1
-
 Meal.create!(name: 'Couscous',
              description: 'Le meilleur couscous de Paname !',
              unit_price: 12,
@@ -99,7 +98,6 @@ end
 
 # Seed user account
 
-
 client = User.create!(first_name: "Jeanne",
                       last_name: "Lafondue",
                       address: "16, Villa Gaudelet",
@@ -124,7 +122,8 @@ Order.create!(client_id: client.id,
               delivery_date_time: "Lundi 13 Juin 2022 17H00",
               status: 0)
 
- # Seed orders_details
+# Seed orders_details
+
 meals = Meal.all
 orders = Order.all
 
@@ -140,5 +139,3 @@ OrderDetail.create!(order_id: orders[1].id,
 OrderDetail.create!(order_id: orders[2].id,
                     meal_id: meals[4].id,
                     ordered_quantity: 1)
-
-

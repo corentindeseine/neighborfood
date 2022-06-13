@@ -1,16 +1,29 @@
-<div class="container-fluid">
+<div>
+  <div class='container-mapbox'"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <div class="cookers">
-    <ul>
+    <div class="cooker-show-cards swiper-container">
+      <div class="swiper-wrapper cooker-home-card-container">
       <% @cookers.each do |cooker| %>
-        <li> <%= link_to cooker.first_name , cooker_path(cooker) %> </li>
+          <div class="swiper-slide ">
+            <div class="cooker-home-card">
+              <%= link_to cooker_path(cooker) do %>
+                <h3><%= cooker.full_name %></h3>
+                <p>Chef confirmé</p>
+                <div class="cooker-name-rating-container">
+                  <p class="speciality">Cuisine Marocaine</p>
+                  <p>
+                <%# RATING EN DUR JUSQUA CE QUE LE MODEL REVIEW SOIT FAIT %>
+                    4,5 <i class="fas fa-star" style="color: #FFDE3D"></i>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+          </div>
       <% end %>
-      </ul>
+      </div>
     </div>
   </div>
-
+</div>
