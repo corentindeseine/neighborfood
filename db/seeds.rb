@@ -14,18 +14,18 @@ end
 
 # Les trois addresses qui ont des plats différents
 users = User.all
-users[0].address = "83 Rue Jean-Pierre Timbaud"
+users[0].address = "89 Rue Jean-Pierre Timbaud"
 users[1].address = "148 Rue Oberkampf"
 users[2].address = "117 Rue Saint-Maur"
 
 # Les autres addresses qui ont un même plat commun
-users[3].address = "30 Rue Moret"
+users[3].address = "1O rue Servan"
 users[4].address = "10 Rue des Nanettes"
 users[5].address = "7 Rue de la Fontaine au Roi"
-users[6].address = "83 Bd de Ménilmontant"
+users[6].address = "107 avenue Parmentier"
 users[7].address = "1 Rue Saint-Hubert"
-users[8].address = "18 Rue des Bluets"
-users[9].address = "121 Rue Saint-Maur"
+users[8].address = "20 rue de l'Orillon"
+users[9].address = "4 villa gaudelet"
 
 users.map(&:save!)
 
