@@ -7,7 +7,7 @@ class PagesController < ApplicationController
       {
         lat: cooker.latitude,
         lng: cooker.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { user: cooker })
+        image_url: helpers.asset_url("sacha.png")
       }
     end
   end

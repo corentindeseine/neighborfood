@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.container-mapbox {
+  position: relative;
+  height: 40rem;
+}
+
+
+.cooker-home-card-container {
+  position: absolute;
+  top: 22rem;
+}
+
+.cooker-home-card {
+  padding: 8px;
+  margin: 1.5rem 4rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+
+  .speciality {
+    width: fit-content;
+    padding: 4px;
+    border-radius: 4px;
+    color: #FF6161;
+    background-color: #FFEFEF;
+  }
+
+}
+
+.cooker-name-rating-container {
+  display: flex;
+  justify-content: space-between;
+}
