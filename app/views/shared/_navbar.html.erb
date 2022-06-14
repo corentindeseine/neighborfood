@@ -1,25 +1,75 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path,:"data-turbolinks" => false,  class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
-  <% end %>
-  <div class="" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <%= link_to "Cookers", cookers_path, class: "nav-link" %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Orders", orders_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+<div id="navbarContainer" >
+  <div id="navbars">
+    <div id="bubbleWrapper">
+      <div id="bubble1" class="bubble">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </div>
+      <div id="bubble2" class="bubble">
+        <span class="icon">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+      </div>
+      <div id="bubble3" class="bubble">
+        <span class="icon">
+          <i class="fas fa-address-book"></i>
+        </span>
+      </div>
+      <div id="bubble4" class="bubble">
+        <span class="icon">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+    </div>
+    <div id="menuWrapper">
+      <div id="menu1" class="menuElement">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+      </div>
+      <div id="menu2" class="menuElement">
+        <%= link_to orders_path do %>
+          <i class="fas fa-shopping-bag"></i>
+        <% end %>
+      </div>
+      <div id="menu3" class="menuElement">
+        <%= link_to cookers_path do %>
+          <i class="fas fa-address-book"></i>
+        <% end %>
+      </div>
+      <div id="menu4" class="menuElement">
+
+          <i class="fas fa-user "></i>
+
+      </div>
+    </div>
+  </div>
+  <div id="bgWrapper">
+    <div id="bg"></div>
+    <div id="bgBubble"></div>
   </div>
 </div>
+<svg width="0" height="0" >  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" id="blurFilter"/>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15" result="goo" />
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+  <div class="menu ">
+      <nav class="navigation">
+        <ul class="mobile_menu_list">
+            <li><%= link_to "Profil", cookers_path, class: "mobile_menu_link" %></li>
+            <li><%= link_to "Commandes", orders_path, class: "mobile_menu_link" %></li>
+            <li><%= link_to "Aide", orders_path, class: "mobile_menu_link" %></li>
+             <% if user_signed_in? %>
+            <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "mobile_menu_link" %></li>
+            <% else %>
+              <li><%= link_to "Connexion", new_user_session_path, class: "mobile_menu_link" %></li>
+              <li><%= link_to "Inscription", new_user_registration_path, class: "mobile_menu_link" %></li>
+            <% end %>
+        </ul>
+      </nav>
+    </div>
