@@ -1,7 +1,7 @@
 import Swiper, { Navigation } from 'swiper'
 Swiper.use([Navigation])
-import style from "swiper/swiper-bundle.css"
-console.log(style);
+require('swiper/swiper-bundle.css');
+
 
 document.addEventListener("turbolinks:load", () => {
 
@@ -52,4 +52,5 @@ document.addEventListener("turbolinks:load", () => {
       },
     }
   });
+
 })
