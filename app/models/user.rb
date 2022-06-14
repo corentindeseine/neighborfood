@@ -23,6 +23,10 @@ class User < ApplicationRecord
   has_many :clients, class_name: "Order", foreign_key: "client_id"
   has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
 
+  # Cloudinary
+  has_one_attached :image
+  
+
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true
