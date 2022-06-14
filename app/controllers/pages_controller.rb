@@ -7,7 +7,7 @@ class PagesController < ApplicationController
       {
         lat: cooker.latitude,
         lng: cooker.longitude,
-        image_url: helpers.asset_url("sacha.png")
+        image_url: Cloudinary::Utils.cloudinary_url(cooker.image.url)
       }
     end
   end
