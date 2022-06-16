@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @orderdetails = @order.order_details
-    @meals = Meal.all
+    @orderdetails = @order.order_details.includes(:meal)
+    @cooker = @order.cooker
   end
 
   def create
