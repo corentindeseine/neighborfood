@@ -55,4 +55,7 @@ document.addEventListener("turbolinks:load", () => {
     }
   });
 
+  swiper.on('slideChange', function () {
+    console.log(document.querySelector('.swiper-slide-active'));
+  });
 })
