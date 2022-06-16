@@ -1,53 +1,48 @@
 <div class="container-fluid">
   <p> <%=current_user.first_name%> <%= current_user.last_name%> </p>
-<h1>Commande numéro <%= @order.id %></h1>
-
-<%if @orderdetails.empty?%>
-  <p> Vous n'avez aucun plat dans cette commande</p>
-<%else%>
-  <h3> Votre cuisinier: <%=@cooker.first_name%> <%= @cooker.last_name%></h3>
-  <p><%=@cooker.address%></p>
-
-  <div class="order-show ">
-    <%total = 0%>
-    <% @orderdetails.each do |d| %>
-      <div class="order-show-detail ">
-        <div class="order-show-detail-left">
-          <div class="order-show-detail-left-img">
-            <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
-            <%# <%= image_tag "logo.png", alt: "photo du plat" %>
+  <h1>Commande numéro <%= @order.id %></h1>
+  <%if @orderdetails.empty?%>
+    <p> Vous n'avez aucun plat dans cette commande</p>
+  <%else%>
+    <h3> Votre cuisinier: <%=@cooker.first_name%> <%= @cooker.last_name%></h3>
+    <p><%=@cooker.address%></p>
+    <div class="order-show ">
+      <%total = 0%>
+      <% @orderdetails.each do |d| %>
+        <div class="order-show-detail ">
+          <div class="order-show-detail-left">
+            <div class="order-show-detail-left-img">
+              <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
+              <%# <%= image_tag "logo.png", alt: "photo du plat" %>
+            </div>
           </div>
-        </div>
-        <div class="order_show_detail_right">
-          <div class="order-show-detail-qty">
+          <div class="order_show_detail_center">
             <% if @order.status != 0 %>
               <p> <%=d.ordered_quantity%> <%= d.meal.name%></p>
             <% else %>
               <p><%= d.meal.name%></p>
-              <i class="fas fa-minus-circle"></i>
-              <%=d.ordered_quantity%>
-              <i class="fas fa-plus-circle"></i>
+              <div class= "meal-card-body-quantity-order">
+                <span class="less">-</span> <span class="meal_quantity"><%= d.ordered_quantity %> </span><span class="more">+</span>
+              </div>
             <% end %>
           </div>
-          <div class="order-show-detail-subtotal">
-              <p><%=line_price = d.ordered_quantity * d.meal.unit_price%> €</p>
+          <div class="order-show-detail-subtotal-right">
+            <p><%=line_price = d.ordered_quantity * d.meal.unit_price%> €</p>
           </div>
         </div>
+        <%total = total + line_price%>
+      <%end%>
+    </div>
+    <div class= "meal-show-body-footer">
+      <div class="order-show-body-footer-quantity">
+        <h3>Total: <%=total%> €</h3>
       </div>
-      <%total = total + line_price%>
-    <%end%>
-
-  </div>
-  <div class= "meal-show-body-footer">
-
-      <div class="meal-show-body-footer-quantity"><h3>Total <%=total%> €</h3></div>
       <% if @order.status == 0%>
         <%= link_to "" do %>
           <div class="meal-show-body-button">Confirmer</div>
         <% end %>
       <% end %>
     </div>
-
   </div>
-  <%end%>
+<%end%>
 </div>

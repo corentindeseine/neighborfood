@@ -45,9 +45,27 @@
       </div>
     </div>
     <div class="cookers-show-reviews">
-
+      <% if @cooker.reviews.size > 1 %>
+        <p><%=  @cooker.reviews.size%> reviews</p>
+      <% else %>
+        <p><%= @cooker.reviews.size  %> review</p>
+      <% end %>
+    </h2>
+    <div id="reviews">
+      <% if @cooker.reviews.blank? %>
+        <p> Soyez le premier à laisser un avis à <%= @cooker.first_name %></p>
+      <% else %>
+        <% @cooker.reviews.each do |review| %>
+          <p><%= review.content %></p>
+        <% end %>
+      <% end %>
     </div>
+    <%= simple_form_for([ @cooker, @review ], url: cooker_reviews_path(@cooker)) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.button :submit %>
+    <% end %>
   </div>
+</div>
 </div>
 <br>
 <br>

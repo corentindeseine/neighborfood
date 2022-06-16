@@ -10,37 +10,62 @@
 
 
 .order-show-detail {
-  border-radius: 15% 15% 15% 15% / 50% 50% 50% 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  margin: 40px 0px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   background: linear-gradient(145deg, #CACED4, #F0F5FD);
   box-shadow: 20px 20px 60px #BEC3C9,
-            -20px -20px 60px #FFFFFF;
+    -20px -20px 60px #FFFFFF;
+
+
+}
+
+
+.order_show_detail_center {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin: 40px 0px;
+  p{
+    font-weight: bold;
+  }
+}
+
+.order-show-detail-subtotal-right {}
+
+.meal-card-body-quantity-order {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 8px;
+  width: 92px;
+  background: linear-gradient(145deg, #caced4, #f0f5fd);
+  box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
+  border-radius: 30px;
+  margin-top: 30px;
 }
 
 
-.order-show-detail-left {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(145deg, #CACED4, #F0F5FD);
-  border-radius: 20px;
-  margin-right: 50px;
 
-}
+
 
 .order-show-detail-left-img img {
   width: 100px;
-  height: 100px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.order-show-detail-qty {
+  height: auto;
 
 }
 
-.order-show-detail-subtotal {
+.order-show-detail-qty {}
 
+.order-show-detail-subtotal-right {
+  color: #ff6161;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
