@@ -25,7 +25,6 @@ class User < ApplicationRecord
 
   # Cloudinary
   has_one_attached :image
-  
 
   # Validations
   validates :first_name, presence: true

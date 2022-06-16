@@ -1,20 +1,20 @@
-<div>
+<div class='home-show' data-controller='pin-nav'>
   <div class='container-mapbox'"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
     <div class="cooker-show-cards swiper-container">
-      <div class="swiper-wrapper cooker-home-card-container">
-      <% @cookers.each do |cooker| %>
-          <div class="swiper-slide ">
+      <div class="swiper-wrapper cooker-home-card-container d-none">
+        <% @cookers.each do |cooker| %>
+          <div class="swiper-slide " data-user-id="<%= cooker.id %>">
             <div class="cooker-home-card">
               <%= link_to cooker_path(cooker) do %>
                 <div class="cooker-top-container">
                   <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
                   <div class='cooker-infos'>
                     <h6><%= cooker.first_name %></h6>
-                    <p class='cooker-address'>à 1 km de chez vous</p>
+                    <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
                   </div>
                   <h6>
                     <%# RATING EN DUR JUSQUA CE QUE LE MODEL REVIEW SOIT FAIT %>
@@ -28,7 +28,7 @@
               <% end %>
             </div>
           </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>

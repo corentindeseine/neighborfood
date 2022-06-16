@@ -1,13 +1,17 @@
 // Specific CSS for your home-page
-.container-mapbox {
+.home-show {
   position: relative;
-  height: 40rem;
+  height: 100%;
+}
+
+.container-mapbox {
+  height: 100%;
 }
 
 
 .cooker-home-card-container {
   position: absolute;
-  top: 22rem;
+  top: 20rem;
 }
 
 .cooker-home-card {
