@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_09_174244) do
+ActiveRecord::Schema.define(version: 2022_06_15_194724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,14 @@ ActiveRecord::Schema.define(version: 2022_06_09_174244) do
     t.index ["cooker_id"], name: "index_orders_on_cooker_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "cooker_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cooker_id"], name: "index_reviews_on_cooker_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -104,4 +112,5 @@ ActiveRecord::Schema.define(version: 2022_06_09_174244) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "users", column: "client_id"
   add_foreign_key "orders", "users", column: "cooker_id"
+  add_foreign_key "reviews", "users", column: "cooker_id"
 end

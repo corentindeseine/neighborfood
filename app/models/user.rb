@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :meals, dependent: :destroy
   has_many :clients, class_name: "Order", foreign_key: "client_id"
   has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
+  has_many :reviews, class_name: "Review", foreign_key: "cooker_id", dependent: :destroy
 
   # Cloudinary
   has_one_attached :image
