@@ -14,7 +14,9 @@
                   <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
                   <div class='cooker-infos'>
                     <h6><%= cooker.first_name %></h6>
+                    <% if user_signed_in? %>
                     <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
+                    <% end %>
                   </div>
                   <h6>
                     <%# RATING EN DUR JUSQUA CE QUE LE MODEL REVIEW SOIT FAIT %>
