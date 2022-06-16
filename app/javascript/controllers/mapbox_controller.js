@@ -15,17 +15,18 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/corentindeseine/cl49xyz8g003z14nvdtqxj6gy",
-      center:[2.3798866, 48.8636688], // mettre current_user position au lieu des données en dur
+      center:[2.378057, 48.864597], // mettre current_user position au lieu des données en dur
       zoom: 14,
+
     })
     this.addMarkersToMap();
 
     // Barre de recherche de l'adresse sur la map
-    this.map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      placeholder: 'Saisissez votre adresse'
-    }));
+    // this.map.addControl(new MapboxGeocoder({
+    //   accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl,
+    //   placeholder: 'Saisissez votre adresse'
+    // }));
   }
 
   addMarkersToMap() {
@@ -40,14 +41,19 @@ export default class extends Controller {
       customMarker.style.height = "30px"
       customMarker.style.border = '1px solid  rgb(200, 200, 200)'
       customMarker.style.borderRadius = "50%"
-      customMarker.setAttribute("data-action", "click ->")
+
+      customMarker.setAttribute("data-action", "click->pin-nav#navigateTo")
+      customMarker.setAttribute('data-user-id', marker.user_id)
+
       const markers = new mapboxgl.Marker(customMarker).setLngLat([ marker.lng, marker.lat ])
 
       // On récupère les markers affichés
       const element = markers.getElement();
+      const cardCooker = document.querySelector('.cooker-home-card-container')
 
       // Entoure le marqueur selectionné quand on click dessus
       element.addEventListener('mouseenter', () => {
+        cardCooker.classList.remove('d-none')
         element.style.border = '2px solid  #ff6161'
         element.style.width = '40px'
         element.style.height = '40px'
