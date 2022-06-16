@@ -2,14 +2,13 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   width: 400px;
   min-width: 400px;
   height: 100px;
   background-color: #ff6161;
-  border-radius: 20px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   z-index: 500;

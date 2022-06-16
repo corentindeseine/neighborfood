@@ -35,7 +35,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker', '~> 2.10', '>= 2.10.2'
-
+gem "turbolinks_render"
 # Gem map
 gem "geocoder"
 

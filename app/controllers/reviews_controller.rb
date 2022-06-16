@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.cooker = @cooker
     puts "#####################"
     puts "#{@review.valid?}"
- 
+
     if @review.save
 
       redirect_to cooker_path(@cooker)
@@ -17,6 +17,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating)
   end
 end

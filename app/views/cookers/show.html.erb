@@ -60,8 +60,9 @@
         <% end %>
       <% end %>
     </div>
-    <%= simple_form_for([ @cooker, @review ], url: cooker_reviews_path(@cooker)) do |f| %>
-      <%= f.input :content, as: :text %>
+    <%= simple_form_for([ @cooker, @review ], url: cooker_reviews_path(@cooker), remote: true) do |f| %>
+      <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5] %>
+      <%= f.input :content, as: :text  %>
       <%= f.button :submit %>
     <% end %>
   </div>
