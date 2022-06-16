@@ -23,6 +23,8 @@
             <% if @order.status != 0 %>
               <p> <%=d.ordered_quantity%> <%= d.meal.name%></p>
             <% else %>
+
+            
               <p><%= d.meal.name%></p>
               <i class="fas fa-minus-circle"></i>
               <%=d.ordered_quantity%>

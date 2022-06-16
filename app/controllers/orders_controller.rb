@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @current_user_orders = Order.where(["client_id = ?", current_user.id])
+    
   end
 
   def show
