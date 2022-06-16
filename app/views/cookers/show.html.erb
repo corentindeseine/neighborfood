@@ -1,10 +1,23 @@
 <div class="container-fluid">
   <div class="cookers-show ">
-    <h1><%= @cooker.first_name %> <%= @cooker.last_name  %></h1>
+    <div class="cookers-show-header">
+      <div class="head">
+        <%= cl_image_tag(@cooker.image.key, class:'avatar-large' ) %>
+        <h1><%= @cooker.first_name %> </h1>
+        <span class = "rating">4.5<i class="fas fa-star" style="color: #ffb016"></i></span>
+      </div>
+      <div class="cookers-show-header-description">
+        <p><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod exercitationem distinctio tempora quam autem doloribus aliquam aut cumque quia error corporis.<i class="fas fa-quote-right"></i></p>
+      </div>
+      <div class = "cookers-show-header-footer" >
+        <p class="speciality">Cuisine marocaine</p>
+        <p class="speciality"> Chef expert</p>
+      </div>
+    </div>
     <div class="cooker-show-cards swiper-container">
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
-          <%= link_to cooker_meal_path(@cooker, meal) do %>
+          <%= link_to cooker_test_path(@cooker, meal) do %>
             <div class="swiper-slide">
               <div class="meal-card">
                 <div class="meal-card-header">
@@ -13,24 +26,49 @@
                   </div>
                   <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
                 </div>
-                <div class="meal-card-body">
-                  <div class= "meal-card-body-detail">
-                    <h2><%= meal.name %></h2>
-                    <p> <%= meal.description %></p>
-                  </div>
-                  <div class= "meal-card-body-quantity">
-                    <i class="fas fa-plus-circle"></i><span class="meal_quantity">0</span><i class="fas fa-minus-circle"></i>
-                  </div>
+              <% end%>
+              <div class="meal-card-body">
+                <div class= "meal-card-body-detail">
+                  <h2><%= meal.name %></h2>
+                  <p> <%= meal.description %></p>
                 </div>
-                <%= link_to "" do %>
-                  <div class="meal-card-body-button">Ajouter</div>
-                <% end%>
+                <div class= "meal-card-body-quantity">
+                  <span class="more">+</span>   <span class="meal_quantity">0</span><span class="less">-</span>
+                </div>
               </div>
+              <%= link_to "" do %>
+                <div class="meal-card-body-button">Ajouter</div>
+              <% end%>
             </div>
-          <% end%>
+          </div>
         <% end %>
       </div>
     </div>
+    <div class="cookers-show-reviews">
+     <!-- <h2>
+         <% if @cooker.reviews.size > 1 %>
+          <p><%=  @cooker.reviews.size%> reviews</p>
+        <% else %>
+          <p><%= @cooker.reviews.size  %> review</p>
+        <% end %>
+      </h2>
+       <div id="reviews">
+        <% if @cooker.reviews.blank? %>
+          <p> Soyez le premier à laisser un avis à <%= @cooker.first_name %></p>
+        <% else %>
+          <% @cooker.reviews.each do |review| %>
+            <p><%= review.content %></p>
+          <% end %>
+        <% end %>
+      </div>
+      <%=# simple_form_for([ @cooker, url: cooker_reviews_path(@review) ]) do |f| %>
+        <%= f.input :content, as: :text %>
+        <%= f.button :submit %>
+      <% end %>
+      -->
+    </div>
   </div>
 </div>
-
+<br>
+<br>
+<%#= link_to "Add New Meal", new_cooker_test_path(@cooker) %>

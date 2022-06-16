@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="meal-new">
-    <%= simple_form_for[@cooker,@meal] do |f| %>
+    <%= simple_form_for [@cooker, @meal] do |f| %>
       <h1>Add a Meal 😋</h1>
       <%= f.input :image, as: :file %>
       <%= f.input :name %>

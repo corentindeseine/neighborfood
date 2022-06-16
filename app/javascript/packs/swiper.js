@@ -8,10 +8,12 @@ document.addEventListener("turbolinks:load", () => {
   const swiper = new Swiper(".swiper-container", {
     slidesPerView: 5,
     slidesPerGroup: 2,
-    // spaceBetween: 30,
+    spaceBetween: 10,
     centeredSlides: true,
     grabCursor: true,
     loop: false,
+
+    // responsive
     breakpoints: {
       // when window width is >= 600px
       300: {

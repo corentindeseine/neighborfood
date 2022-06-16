@@ -1,4 +1,5 @@
 // Graphical variables
+@import url('https://fonts.googleapis.com/css2?family=Junge&family=Playfair+Display+SC&family=Poppins&display=swap');
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -59,14 +60,22 @@ html {
   background: #FF0000;
 }
 
-h1,
+h1 {
+  font-family: 'Playfair Display SC', serif;
+  color: #555555;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Antonio', sans-serif;
-  color: #555555;
+  font-family: 'Poppins', sans-serif;
+}
+
+p,
+li {
+  font-family: 'Junge', serif;
 }
 
 ul {

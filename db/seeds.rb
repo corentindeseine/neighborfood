@@ -129,13 +129,15 @@ falafels.image.attach(io: falafels_file, filename: 'Falafels.png', content_type:
 users.each_with_index do |user, index|
   next if index < 3
 
-  Meal.create!(name: 'Quiche Lorraine',
+ quiche = Meal.create!(name: 'Quiche Lorraine',
                description: 'Un classique de la gastronomie française revisité par mes soins',
                unit_price: rand(5..8),
                ingredients: "pâte brisée, lardons, oeufs ,crème fraîche",
                range_date_time: "06/14/2022 18:00 , 06/14/2022 22:00",
                available_quantity: rand(2..6),
                user_id: user.id)
+others_users_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655243158/quiche-removebg-preview_fqgtbe.png")
+quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type: 'image/png')
 end
 
 # Seed user account

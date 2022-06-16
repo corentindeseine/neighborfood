@@ -1,3 +1,59 @@
+.cookers-show {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 160px;
+
+  &-header {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 30px;
+    background: #e0e5ec;
+    box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
+    margin: 0 -1rem;
+    padding: 1rem;
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+
+      }
+
+      .rating {
+        font-size: 1.2rem;
+      }
+
+    }
+
+    &-description {
+      padding-bottom: 1rem;
+
+      p {
+        text-align: center;
+      }
+
+      i {
+        color: #FF6161;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+}
+
+
+
+
 .container-fluid {
   padding: 0 1rem;
 }

@@ -26,9 +26,9 @@
         justify-content: center;
         align-items: center;
         font-size: 1.2rem;
-        height: 50PX;
-        width: 50PX;
-        border-radius: 20px;
+        height: 40PX;
+        width: 40PX;
+        border-radius: 15px;
         background: rgba(224, 229, 236, 1);
         box-shadow: inset 5px 5px 8px 1px rgba(0, 0, 0, 0.2),
           inset -5px -5px 8px 0px rgba(224, 229, 236, 0.3),
@@ -39,8 +39,9 @@
   }
 
   &-price {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
+    color: #FF6161;
   }
 
   &-body {
@@ -68,6 +69,12 @@
       &-quantity {
         display: flex;
         align-items: center;
+        justify-content: space-around;
+        padding: 10px 0;
+        width: 30%;
+        background: linear-gradient(145deg, #caced4, #f0f5fd);
+        box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
+        border-radius: 30px;
       }
 
       i {
