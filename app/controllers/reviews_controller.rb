@@ -3,16 +3,17 @@ class ReviewsController < ApplicationController
     @cooker = User.find(params[:cooker_id])
     @review = Review.new(review_params)
     @review.cooker = @cooker
-    puts "#####################"
-    puts "#{@review.valid?}"
 
+    respond_to do |format|
     if @review.save
-
-      redirect_to cooker_path(@cooker)
+      format.html { redirect_to cooker_path(@cooker, anchor: "review-#{@review.id}") }
+      format.json # Follow the classic Rails flow and look for a create.json view
     else
-      render 'cookers/show'
+      format.html { render 'cookers/show' }
+      format.json
     end
   end
+end
 
   private
 
