@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", () => {
   const menu3 = document.querySelector("#menu3 ");
   const menu4 = document.querySelector("#menu4 ");
 
-// Fonction qui fait avancer les bulles d'icons de la navbar
+  // Fonction qui fait avancer les bulles d'icons de la navbar
 
   function move(id, position, color) {
     tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
@@ -24,10 +24,11 @@ document.addEventListener("turbolinks:load", () => {
       .to("#bg", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
       .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
   }
-  
-// Déclenchement de la fonction move() lorsque l'on clique sur un des liens de la navbar
+
+  // Déclenchement de la fonction move() lorsque l'on clique sur un des liens de la navbar
 
   menu1.addEventListener("click", (event) => {
+
     move('1', '50px', '#FF6161');
   })
 
