@@ -141,7 +141,7 @@ quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type:
 end
 
 # Seed user account
-
+client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot8_ywb2np.png")
 client = User.create!(first_name: "Jeanne",
                       last_name: "Lafondue",
                       address: "16, Villa Gaudelet",
@@ -150,6 +150,7 @@ client = User.create!(first_name: "Jeanne",
                       email: "user@gmail.com",
                       phone_number: "+33601020304",
                       password: "neighborfood")
+client.image.attach(io: client_avatar, filename: 'client.png', content_type: 'image/png')
 
 # Seed orders
 

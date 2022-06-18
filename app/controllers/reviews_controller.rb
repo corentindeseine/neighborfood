@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @cooker = User.find(params[:cooker_id])
     @review = Review.new(review_params)
     @review.cooker = @cooker
+    @review.user = current_user
 
     respond_to do |format|
     if @review.save
@@ -13,7 +14,7 @@ class ReviewsController < ApplicationController
       format.json
     end
   end
-end
+  end
 
   private
 
