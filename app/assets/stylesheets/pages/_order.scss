@@ -7,10 +7,23 @@
   padding: 2px 8px;
 }
 .orders-list-order {
-  height: 40px;
-  padding: 2px 8px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  margin: 40px 0px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  background: linear-gradient(145deg, #CACED4, #F0F5FD);
+  box-shadow: 20px 20px 60px #BEC3C9,
+    -20px -20px 60px #FFFFFF;
 }
+//   height: 40px;
+//   padding: 2px 8px;
+//   margin-top: 20px;
+// }
 
 .order-show {
   height: 100%;

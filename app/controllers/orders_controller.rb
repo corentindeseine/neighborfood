@@ -9,9 +9,6 @@ class OrdersController < ApplicationController
     @cooker = @order.cooker
   end
 
-  def create
-    @order = Order.new(order_params)
-  end
 
   def update
     @order = Order.find(params[:id])
@@ -23,5 +20,9 @@ class OrdersController < ApplicationController
 
   def order_params_validation
     params.require(:order).permit(:status)
+  end
+
+  def order_params
+    params.require(:order).permit(:cooker_id, :client_id )
   end
 end

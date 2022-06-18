@@ -15,5 +15,7 @@ class CookersController < ApplicationController
     @cooker = User.find(params[:id])
     @meals = @cooker.meals
     @review = Review.new
+    @orderdetail = OrderDetail.new
+
   end
 end

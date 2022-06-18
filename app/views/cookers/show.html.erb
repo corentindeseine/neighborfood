@@ -38,11 +38,12 @@
                 <%= link_to cooker_test_path(@cooker, meal) do %>
                   <p class="meal-card-body-more-info">Plus d'infos</p>
                 <% end%>
-                <%= link_to "" do %>
-                  <div class="meal-card-body-button">
-                    <p>Ajouter</p>
-                  </div>
-                <% end%>
+                <%= simple_form_for([@cooker, @orderdetail],
+                url: cooker_order_details_path(@cooker)) do |f| %>
+                   <%= hidden_field_tag :meal_id, meal.id %>
+                  <%= f.button :submit, "Ajouter", class: 'meal-card-body-button' %>
+
+                <% end %>
               </div>
             </div>
           </div>
