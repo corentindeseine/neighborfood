@@ -1,15 +1,21 @@
 <div class="container-fluid">
-<%=current_user.first_name%> <%= current_user.last_name%>
-<%=current_user.address%> <%= current_user.city%> <%= current_user.zip_code%>
-<%if @current_user_orders.empty?%>
-  <p> Vous n'avez aucune commande</p>
-<%else%>
-  <ul>
+  <%=current_user.first_name%> <%= current_user.last_name%>
+  <%=current_user.address%> <%= current_user.city%>
+  <%if @current_user_orders.empty?%>
+    <p> Vous n'avez aucune commande</p>
+  <%else%>
+    <div class="orders-list">
+
       <% @current_user_orders.each do |order| %>
-      <li>Commande numéro <%= link_to order.id, order_path(order) %>
-          du  <%= order.created_at %></li>
-          statut <%= order.status%>
+        <%= link_to order_path(order) do %>
+          <div class="orders-list-order">
+            <p>Commande  <%= order.id %>
+                du  <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
+                statut <%= order.status%></p>
+            <p>chez <%= order.cooker.first_name %></p>
+          </div>
+        <%end%>
       <%end%>
-  </ul>
+    </div>
   <%end%>
 </div>
