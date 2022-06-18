@@ -17,16 +17,14 @@
     <div class="cooker-show-cards swiper-container">
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
-          <%= link_to cooker_test_path(@cooker, meal) do %>
-            <div class="swiper-slide">
-              <div class="meal-card">
-                <div class="meal-card-header">
-                  <div class="meal-card-header-img">
-                    <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
-                  </div>
-                  <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
+          <div class="swiper-slide">
+            <div class="meal-card">
+              <div class="meal-card-header">
+                <div class="meal-card-header-img">
+                  <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
                 </div>
-              <% end%>
+                <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
+              </div>
               <div class="meal-card-body">
                 <div class= "meal-card-body-detail">
                   <h2><%= meal.name %></h2>
@@ -36,9 +34,16 @@
                   <span class="more">+</span>   <span class="meal_quantity">0</span><span class="less">-</span>
                 </div>
               </div>
-              <%= link_to "" do %>
-                <div class="meal-card-body-button">Ajouter</div>
-              <% end%>
+              <div class="meal-card-body-footer">
+                <%= link_to cooker_test_path(@cooker, meal) do %>
+                  <p class="meal-card-body-more-info">Plus d'infos</p>
+                <% end%>
+                <%= link_to "" do %>
+                  <div class="meal-card-body-button">
+                    <p>Ajouter</p>
+                  </div>
+                <% end%>
+              </div>
             </div>
           </div>
         <% end %>
@@ -46,19 +51,28 @@
     </div>
     <div class="cookers-show-reviews" >
       <h2>
-        <% if @cooker.reviews.size > 1 %>
-          <p><%=  @cooker.reviews.size%> reviews</p>
-        <% else %>
-          <p><%= @cooker.reviews.size  %> review</p>
-        <% end %>
+        <p><%= @cooker.reviews.size  %> Avis</p>
       </h2>
-      <div data-controller="insert-in-list">
+      <div data-controller="insert-in-list" >
         <div id="reviews" data-insert-in-list-target="items">
           <% if @cooker.reviews.blank? %>
-            <p> Soyez le premier à laisser un avis à <%= @cooker.first_name %></p>
+            <p> Soyez le premier à laisser un avis à <strong><%= @cooker.first_name %></strong> </p>
+            <br>
           <% else %>
             <% @cooker.reviews.each do |review| %>
-              <%= render 'review', review: review %>
+              <div class="review-content">
+                <div class="review-content-header">
+                  <%= cl_image_tag(review.user.image.key, class:'avatar' ) %>
+                  <h3><%= review.user.first_name.capitalize %></h3>
+                  <div class="rating">
+                    <% for i in 1..review.rating %>
+                      <i class="fas fa-star" style="color: #ffb016"></i>
+                    <% end %>
+                  </div>
+                </div>
+                <p id="review-<%= review.id %>"><%= review.content %></p>
+                <p class="review-content-created">Le: <%= review.created_at.strftime("%d-%m-%y") %></p>
+              </div>
             <% end %>
           <% end %>
         </div>
