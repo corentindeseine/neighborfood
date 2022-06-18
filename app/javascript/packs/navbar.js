@@ -3,6 +3,7 @@ document.addEventListener("turbolinks:load", () => {
   const tlnav = gsap.timeline();
   const menu = document.querySelector(".menu ");
   const menu1 = document.querySelector("#menu1");
+  console.log(menu1)
   const menu2 = document.querySelector("#menu2 ");
   const menu3 = document.querySelector("#menu3 ");
   const menu4 = document.querySelector("#menu4 ");
@@ -24,7 +25,7 @@ document.addEventListener("turbolinks:load", () => {
       .to("#bg", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
       .to("#bgBubble", { duration: 0.3, backgroundColor: color, ease: "ease-in-out" }, 0)
   }
-  
+
 // Déclenchement de la fonction move() lorsque l'on clique sur un des liens de la navbar
 
   menu1.addEventListener("click", (event) => {

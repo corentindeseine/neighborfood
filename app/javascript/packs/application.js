@@ -21,7 +21,7 @@ require("packs/navbar")
 require("packs/quantity_button")
 import Swiper, { Navigation } from 'swiper'
 Swiper.use([Navigation])
-import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper-bundle.min.css';
 
 
 document.addEventListener("turbolinks:load", () => {
@@ -75,6 +75,7 @@ document.addEventListener("turbolinks:load", () => {
       },
     }
   });
+  console.log(swiper)
 
   swiper.on('slideChange', function () {
     console.log(document.querySelector('.swiper-slide-active'));
