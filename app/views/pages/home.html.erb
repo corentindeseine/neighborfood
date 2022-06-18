@@ -1,37 +1,22 @@
-<div class='home-show' data-controller='pin-nav'>
-  <div class='container-mapbox'"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
-    <div class="cooker-show-cards swiper-container">
-      <div class="swiper-wrapper cooker-home-card-container d-none">
-        <% @cookers.each do |cooker| %>
-          <div class="swiper-slide " data-user-id="<%= cooker.id %>">
-            <div class="cooker-home-card">
-              <%= link_to cooker_path(cooker) do %>
-                <div class="cooker-top-container">
-                  <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
-                  <div class='cooker-infos'>
-                    <h6><%= cooker.first_name %></h6>
-                    <% if user_signed_in? %>
-                    <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
-                    <% end %>
-                  </div>
-                  <h6>
-                    <%# RATING EN DUR JUSQUA CE QUE LE MODEL REVIEW SOIT FAIT %>
-                    4.83 <i class="fas fa-star" style="color: #ffb016"></i>
-                  </h6>
-                </div>
-                <ul>
-                <li class="speciality">Cuisine marocaine</li>
-                <li class="speciality"> Chef expert</li>
-                </ul>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<div class='home-container'>
+  <div class="container-fluid">
+      <div class='home-top-container'></div>
+      <h3>Neighborfood</h3>
+      <h6>Mon voison est un chef</h6>
+      <p>
+        Réserver votre plat du soir à l'un des nombreux chefs cuistots de votre quartier !
+        Avec neighborfood, rencontrez vos voisins et découvrez de nouvelles saveures à des prix raisonnables
+      <div>
+    <div class='list-homepage'>
+      <h6>Comment ça marche ?</h6>
+      <ul>
+        <div class='list-homepage-card'>Les cuistots préparent leurs plats et les proposent sur neighborfood</div>
+        <div class='list-homepage-card'>Je réserve mon plat sur l'application</div>
+        <div class='list-homepage-card'>Je récupère mon plat chez le cuistot le jour même</div>
+      </ul>
     </div>
+      </div>
+    <%= link_to 'Voir les cookers',cookers_path %>
   </div>
 </div>
+

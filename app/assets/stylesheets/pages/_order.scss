@@ -2,12 +2,20 @@
   padding: 0 1rem;
 }
 
+.orders-list {
+  margin-top: 20px;
+  padding: 2px 8px;
+}
+.orders-list-order {
+  height: 40px;
+  padding: 2px 8px;
+  margin-top: 20px;
+}
+
 .order-show {
   height: 100%;
   width: 100%;
-
 }
-
 
 .order-show-detail {
   display: flex;
@@ -22,12 +30,14 @@
   background: linear-gradient(145deg, #CACED4, #F0F5FD);
   box-shadow: 20px 20px 60px #BEC3C9,
     -20px -20px 60px #FFFFFF;
-
-
 }
 
+.order-show-detail-left-img img {
+  width: 100px;
+  height: auto;
 
-.order_show_detail_center {
+}
+.order-show-detail-center {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,9 +47,7 @@
   }
 }
 
-.order-show-detail-subtotal-right {}
-
-.meal-card-body-quantity-order {
+.order-show-detail-center-quantity {
   display: flex;
   /* flex-direction: column; */
   justify-content: space-between;
@@ -52,20 +60,19 @@
   margin-top: 30px;
 }
 
-
-
-
-
-.order-show-detail-left-img img {
-  width: 100px;
-  height: auto;
-
-}
-
-.order-show-detail-qty {}
-
-.order-show-detail-subtotal-right {
+.order-show-detail-right-subtotal {
   color: #ff6161;
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.order-show-button {
+    padding: 10px 40px;
+    color: #ffffff;
+    background: #ff6161;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;
+    font-size: 1.3rem;
+  }
