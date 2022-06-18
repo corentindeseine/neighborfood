@@ -75,6 +75,7 @@ document.addEventListener("turbolinks:load", () => {
       },
     }
   });
+  console.log(swiper)
 
   swiper.on('slideChange', function () {
     console.log(document.querySelector('.swiper-slide-active'));
