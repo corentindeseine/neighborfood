@@ -53,7 +53,7 @@ export default class extends Controller {
 
       // Entoure le marqueur selectionné quand on click dessus
       element.addEventListener('mouseenter', () => {
-        cardCooker.classList.remove('d-none')
+        cardCooker.classList.remove('invisible')
         element.style.border = '2px solid  #ff6161'
         element.style.width = '40px'
         element.style.height = '40px'
