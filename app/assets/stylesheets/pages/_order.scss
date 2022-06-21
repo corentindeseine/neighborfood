@@ -58,6 +58,7 @@
 .orders-list {
   margin-top: 20px;
   padding: 2px 8px;
+  margin-bottom: 50px;
 
 }
 
@@ -151,4 +152,15 @@
     width: 60px;
     height: auto;
     border-radius: 50%;
+  }
+
+  .order-show-body-footer {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      bottom: 10px;
+      left: 0;
+      padding: 1rem;
+      width: 100%;
   }
