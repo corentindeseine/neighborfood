@@ -19,4 +19,3 @@ import "bootstrap"
 import "packs/swiper"
 import "@popperjs/core"
 require("packs/navbar")
-require("packs/quantity_button")
