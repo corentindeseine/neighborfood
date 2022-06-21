@@ -14,7 +14,7 @@
     <%else%>
       <div class="order-show-body">
         <p>Chez: <span class = "order-show-body-name"><%=@cooker.first_name%></span>  </p>
-        <p> <strong>Au: </strong>  <%=@cooker.address%></p>
+        <p> <%=@cooker.address%></p>
       </div>
       <div class="order-show-contact">
         <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
@@ -43,7 +43,7 @@
         </div>
         <%total = total + line_price%>
       <%end%>
-      <div class= "meal-show-body-footer">
+      <div class= "order-show-body-footer">
         <div class="order-show-body-footer-quantity">
           <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
         </div>
