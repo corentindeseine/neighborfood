@@ -18,8 +18,4 @@ class CookersController < ApplicationController
     @review = Review.new
     @orderdetail = OrderDetail.new
   end
-
-  def average_rating
-    @cooker
-  end
 end

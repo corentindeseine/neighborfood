@@ -17,4 +17,5 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 import "packs/swiper"
+import "@popperjs/core"
 require("packs/navbar")
