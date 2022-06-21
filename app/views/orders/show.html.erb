@@ -4,8 +4,7 @@
   <%if @orderdetails.empty?%>
     <p> Vous n'avez aucun plat dans cette commande</p>
   <%else%>
-    <h3> Votre cuisinier: </h3>
-    <h3> <%=@cooker.first_name%> <%= @cooker.last_name%></h3>
+    <h4> Votre Chef: <strong><%=@cooker.first_name%></strong></h4>
     <p><%=@cooker.address%></p>
     <div class="order-show ">
       <%total = 0%>

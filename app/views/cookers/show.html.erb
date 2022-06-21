@@ -7,10 +7,10 @@
         <span class = "rating">4.5<i class="fas fa-star" style="color: #ffb016"></i></span>
       </div>
       <div class="cookers-show-header-description">
-        <p><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod exercitationem distinctio tempora quam autem doloribus aliquam aut cumque quia error corporis.<i class="fas fa-quote-right"></i></p>
+        <p><i class="fas fa-quote-left"></i> <%= @cooker.description %><i class="fas fa-quote-right"></i></p>
       </div>
       <div class = "cookers-show-header-footer" >
-        <p class="speciality">Cuisine marocaine</p>
+        <p class="speciality"><%= @cooker.speciality %></p>
         <p class="speciality"> Chef expert</p>
       </div>
     </div>
