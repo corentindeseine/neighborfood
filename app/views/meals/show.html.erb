@@ -9,7 +9,7 @@
       <div class='meal-show-container-img'>
         <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
       </div>
-      <div class="meal-show-price" data-quantity-button-target="price"><%= @meal.unit_price %> €</div>
+      <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
       <div class= "meal-show-body-detail">
         <h2><%= @meal.name %></h2>
       </div>
@@ -38,7 +38,11 @@
         <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
       </div>
         <div class="meal-show-body-button" data-quantity-button-target="add">
-          <h6>AJOUTER</h6>
+                <%= simple_form_for([@cooker, @orderdetail],
+                url: cooker_order_details_path(@cooker)) do |f| %>
+                  <%= hidden_field_tag :meal_id, @meal.id %>
+                  <%= f.button :submit, "AJOUTER" %>
+                <% end %>
         </div>
     </div>
   </div>

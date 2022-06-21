@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { event } from "jquery";
 
 export default class extends Controller {
-  static targets = ["quantity","available","less","more","add"]
+  static targets = ["quantity","available","less","more","add","price"]
 
   initialize() {
     this.quantityTarget.innerHTML = 0
@@ -15,9 +15,13 @@ export default class extends Controller {
 
   increment() {
     this.lessTarget.style.color = '#ff6161'
+    console.log(parseInt(this.priceTarget.innerHTML)*parseInt(this.quantityTarget.innerHTML))
+
     if (this.quantityTarget.innerHTML < parseInt(this.availableTarget.innerHTML)) {
-      this.addTarget.style.backgroundColor = '#ff6161'
       this.quantityTarget.innerHTML++
+      this.addTarget.style.backgroundColor = '#ff6161'
+
+
       if (parseInt(this.quantityTarget.innerHTML) === parseInt(this.availableTarget.innerHTML)) {
         this.moreTarget.style.color = 'rgb(180,180,180)';
       }
