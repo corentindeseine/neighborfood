@@ -1,17 +1,17 @@
 <div id="navbarContainer" >
   <div id="navbars">
     <div id="bubbleWrapper">
-      <div id="bubble1" class="bubble <%= 'active_bubble' if controller_name == 'cookers' %> ">
+      <div id="bubble1" class="bubble  <%#= 'active_bubble' if controller_name == 'cookers' %> ">
         <span class="icon">
           <i class="fas fa-home"></i>
         </span>
       </div>
-      <div id="bubble2" class="bubble  <%= 'active_bubble' if controller_name == 'orders' %>">
+      <div id="bubble2" class="bubble  <%#= 'active_bubble' if controller_name == 'orders' %>">
         <span class="icon">
           <i class="fas fa-shopping-bag"></i>
         </span>
       </div>
-      <div id="bubble3" class="bubble" >
+      <div id="bubble3" class="bubble <%#= 'active_bubble' if controller_name == 'chatrooms' %>" >
         <span class="icon">
           <i class="fas fa-address-book"></i>
         </span>
@@ -34,7 +34,9 @@
         <% end %>
       </div>
       <div id="menu3" class="menuElement">
+        <%= link_to  chatrooms_path do %>
           <i class="fas fa-address-book"></i>
+        <% end %>
       </div>
       <div id="menu4" class="menuElement">
         <i class="fas fa-user "></i>
@@ -43,7 +45,7 @@
   </div>
   <div id="bgWrapper">
     <div id="bg"></div>
-    <div id="bgBubble" style=" <%= 'left: 50px' if controller_name == 'cookers'%> <%= 'left: 150px' if controller_name == 'orders'%>"></div>
+    <div id="bgBubble" ></div>
   </div>
 </div>
 <svg width="0" height="0" >  <defs>

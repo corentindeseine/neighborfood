@@ -6,5 +6,5 @@
                     }) do |f| %>
   <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5], label: 'Note' %>
   <%= f.input :content, as: :text, label: 'Avis', :input_html => {:rows => 5} %>
-  <%= f.button :submit, "Envoyer", class: 'meal-show-body-button' %>
+  <%= f.button :submit, "Envoyer", class: 'modal-content-button' %>
 <% end %>

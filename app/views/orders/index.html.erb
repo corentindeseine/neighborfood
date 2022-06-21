@@ -1,22 +1,20 @@
 <div class="container-fluid">
-  <%=current_user.first_name%> <%= current_user.last_name%>
-
+  <h1 class = "text-center">Commandes</h1>
   <%if @current_user_orders.empty?%>
     <p> Vous n'avez aucune commande</p>
   <%else%>
     <div class="orders-list">
-
       <% @current_user_orders.each do |order| %>
         <%= link_to order_path(order) do %>
           <div class="orders-list-order">
-          <div class="order-show-detail-left-img">
-          <%= cl_image_tag(order.cooker.image.key, class:'avatar-large' ) %>
-          </div>
-          <div>
-            <p>Commande  <%= order.id %>
+            <div class="order-show-detail-left-img">
+              <%= cl_image_tag(order.cooker.image.key, class:'avatar-large' ) %>
+            </div>
+            <div>
+              <p>Commande  <%= order.id %>
                 du  <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
                 statut <%= order.status%></p>
-            <p>chez <%= order.cooker.first_name %></p>
+              <p>chez <%= order.cooker.first_name %></p>
             </div>
           </div>
         <%end%>
