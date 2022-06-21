@@ -87,7 +87,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: 120px;
   margin: 40px 0px;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
@@ -137,12 +137,18 @@
 }
 
 .order-show-button {
-  padding: 10px 40px;
-  color: #ffffff;
-  background: #ff6161;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-top-right-radius: 50px;
-  text-align: center;
-  font-size: 1.3rem;
-}
+    padding: 10px 40px;
+    color: #ffffff;
+    background: #ff6161;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .avatar-order {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+  }

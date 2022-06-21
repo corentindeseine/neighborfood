@@ -7,8 +7,9 @@
       <% @current_user_orders.each do |order| %>
         <%= link_to order_path(order) do %>
           <div class="orders-list-order">
+
             <div class="order-show-detail-left-img">
-              <%= cl_image_tag(order.cooker.image.key, class:'avatar-large' ) %>
+              <%= cl_image_tag(order.cooker.image.key, class:'avatar-order' ) %>
             </div>
             <div>
               <p>Commande  <%= order.id %>
