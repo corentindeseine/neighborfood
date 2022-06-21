@@ -24,8 +24,14 @@
                   </h6>
                 </div>
                 <ul>
-                <li class="speciality">Cuisine marocaine</li>
-                <li class="speciality"> Chef expert</li>
+                  <li> <%= cooker.speciality %> </li>
+                  <li>
+                    <% if Order.where(cooker_id: cooker.id).count > 5 %>
+                      Chef expert
+                    <% else %>
+                      Nouveau chef
+                    <% end %>
+                  </li>
                 </ul>
               <% end %>
             </div>

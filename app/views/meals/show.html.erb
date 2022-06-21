@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" data-controller='quantity-button'>
   <div class="meal-show">
     <div class="meal-show-banner">
       <div class="meal-show-banner-header">
@@ -6,15 +6,15 @@
           <i class="fas fa-chevron-left meal-show-banner-header-arrow"></i>
         <% end %>
       </div>
-      <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
-      <div class="meal-show-price"><span><%= @meal.unit_price %></span> €</div>
-    </div>
-    <div class="meal-show-body">
+      <div class='meal-show-container-img'>
+        <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
+      </div>
+      <div class="meal-show-price" data-quantity-button-target="price"><%= @meal.unit_price %> €</div>
       <div class= "meal-show-body-detail">
         <h2><%= @meal.name %></h2>
-        <p> <%= @meal.description %></p>
       </div>
-      <h2>Ingrédients</h2>
+    </div>
+    <div class="meal-show-body">
       <% @ingredients= @meal.ingredients.split(",") %>
       <% @ingredients.each do |ingredient|  %>
         <ul class="meal-show-body-ingredients">
@@ -23,16 +23,23 @@
           </li>
         </ul>
       <% end %>
+      <div class='meal-show-cooker-description'>
+        Le mot du cuistot
+      </div>
+        <p> <%= @meal.description %></p>
     </div>
+        <p data-quantity-button-target="available">
+          <%= @meal.available_quantity %>
+        </p>
     <div class= "meal-show-body-footer">
       <div class="meal-show-body-footer-quantity">
-        <span class="less">-</span>  <span class="meal_quantity">0</span> <span class="more">+</span>
+        <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+        <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
+        <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
       </div>
-      <%= link_to "" do %>
-        <div class="meal-show-body-button">
-          <p>Ajouter</p>
+        <div class="meal-show-body-button" data-quantity-button-target="add">
+          <h6>AJOUTER</h6>
         </div>
-      <% end%>
     </div>
   </div>
 </div>

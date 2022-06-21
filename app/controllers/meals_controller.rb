@@ -4,6 +4,7 @@ class MealsController < ApplicationController
     @meals = Meal.all
     @cooker = User.find(params[:cooker_id])
     @meal = @cooker.meals.find(params[:id])
+    @orderdetail = OrderDetail.new
   end
 
   def new

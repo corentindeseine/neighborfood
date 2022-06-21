@@ -18,4 +18,3 @@ import "controllers"
 import "bootstrap"
 import "packs/swiper"
 require("packs/navbar")
-require("packs/quantity_button")

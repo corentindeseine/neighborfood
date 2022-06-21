@@ -47,10 +47,9 @@ export default class extends Controller {
 
       const markers = new mapboxgl.Marker(customMarker).setLngLat([ marker.lng, marker.lat ])
 
-      // On récupère les markers affichés
+      // On récupère les informations
       const element = markers.getElement();
       const cardCooker = document.querySelector('.cooker-home-card-container')
-
       // Entoure le marqueur selectionné quand on click dessus
       element.addEventListener('mouseenter', () => {
         cardCooker.classList.remove('invisible')

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" data-controller="quantity-buttom">
   <div class="cookers-show ">
     <div class="cookers-show-header">
       <div class="head">
@@ -42,7 +42,6 @@
                 url: cooker_order_details_path(@cooker)) do |f| %>
                    <%= hidden_field_tag :meal_id, meal.id %>
                   <%= f.button :submit, "Ajouter", class: 'meal-card-body-button' %>
-
                 <% end %>
               </div>
             </div>
