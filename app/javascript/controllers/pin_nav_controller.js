@@ -10,9 +10,8 @@ export default class extends Controller {
     swiperInstance.slideTo(indexDeLaSlide)
 
     swiperInstance.on('slideChange', (e) => {
-      console.log(e)
+      const instanceId = document.querySelector('.swiper-slide-active').dataset.userId
+      const marker = document.querySelector("[data-user-id='328']")
     })
   }
-
-
 }

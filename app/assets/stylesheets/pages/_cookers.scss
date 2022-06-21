@@ -8,10 +8,13 @@
   height: 100%;
 }
 
+.pop-up-cooker {
+  position: absolute;
+}
 
 .cooker-home-card-container {
   position: absolute;
-  top: 30rem;
+  top: 32rem;
 }
 
 .cooker-home-card {
@@ -24,7 +27,7 @@
   ul {
     display: flex;
   }
-  .speciality {
+  li {
     width: fit-content;
     padding: 4px;
     border-radius: 4px;
