@@ -1,0 +1,29 @@
+<div data-controller="chatrooms" class = "chatrooms-index container-fluid" >
+  <h1>Vos messages</h1>
+  <div id="user_list">
+    <ul>
+      <% @chatrooms.each do |chatroom| %>
+        <%= link_to chatroom_path(chatroom) do %>
+          <li class="chatrooms-index-card" data-action="click->chatrooms#show" data-url="<%= chatroom_path(chatroom) %>">
+            <div class="chatrooms-index-card-header">
+              <div class= "chatrooms-index-card-header-left" >
+                <%= cl_image_tag(chatroom.interlocutor(current_user).image.key, class:'avatar' ) %>
+                <h2 class="interlocutor"><%= chatroom.interlocutor(current_user).first_name   %></h2>
+              </div>
+              <p><strong>Le:</strong>  <%= chatroom.created_at.strftime("%d-%m-%y") %></p>
+            </div>
+            <p class="chatroom_message">
+              <% if chatroom.messages.last %>
+                <%= chatroom.messages.last.content.truncate(70)   %>....
+              <% else %>
+                <p>Discutez avec <strong><%= chatroom.cooker.first_name %></strong> </p>
+              <% end %>
+            </p>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div id="conversation" data-chatrooms-target="chatroomContainer"></div>
+  <div id="content"></div>
+</div>

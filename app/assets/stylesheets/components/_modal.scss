@@ -1,0 +1,54 @@
+.modal {
+  position: fixed;
+  //center the modal in the middle of the screen
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 40px;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+  &-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    border-radius: 20px;
+    pointer-events: auto;
+    background-color: #e6e7ee;
+    background-clip: padding-box;
+
+    outline: 0;
+    border: none;
+
+    &-button {
+      padding: 5px 20px;
+      color: #ffffff;
+      background: #FF6161;
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-top-right-radius: 50px;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    &-close {
+      top: -35px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      position: absolute;
+
+      i {
+        font-size: 2rem;
+      }
+
+    }
+
+  }
+}
