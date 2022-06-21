@@ -1,12 +1,25 @@
 <div class="container-fluid">
-  <p> <%=current_user.first_name%> <%= current_user.last_name%> </p>
-  <p>Commande numéro <%= @order.id %></p>
-  <%if @orderdetails.empty?%>
-    <p> Vous n'avez aucun plat dans cette commande</p>
-  <%else%>
-    <h4> Votre Chef: <strong><%=@cooker.first_name%></strong></h4>
-    <p><%=@cooker.address%></p>
-    <div class="order-show ">
+  <div class="order-show" data-controller="review">
+    <div class="order-show-header">
+      <span>
+        <%= link_to orders_path do  %>
+          <i class="fas fa-chevron-left order-show-arrow"></i>
+        <% end %>
+      </span>
+      <h1> <%=current_user.first_name%> </h1>
+      <p> <strong>Commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
+    </div>
+    <%if @orderdetails.empty?%>
+      <p> Vous n'avez aucun plat dans cette commande</p>
+    <%else%>
+      <div class="order-show-body">
+        <p>Chez: <span class = "order-show-body-name"><%=@cooker.first_name%></span>  </p>
+        <p> <strong>Au: </strong>  <%=@cooker.address%></p>
+      </div>
+      <div class="order-show-contact">
+        <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
+        <p data-action="click->review#launchReview">Laisser un avis</p>
+      </div>
       <%total = 0%>
       <% @orderdetails.each do |d| %>
         <div class="order-show-detail ">
@@ -30,17 +43,24 @@
         </div>
         <%total = total + line_price%>
       <%end%>
-    </div>
-    <div class= "meal-show-body-footer">
-      <div class="order-show-body-footer-quantity">
-        <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-      </div>
-      <% if @order.status == 0%>
-        <%= link_to "" do %>
-          <div class="order-show-button">Confirmer</div>
+      <div class= "meal-show-body-footer">
+        <div class="order-show-body-footer-quantity">
+          <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
+        </div>
+        <% if @order.status == 0%>
+          <%= link_to "" do %>
+            <div class="order-show-button">Confirmer</div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+      <div class="modal" data-controller="modal" data-review-target="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <button class ="modal-content-close" data-action="click->modal#close"><i class="fas fa-times"></i></button>
+            <%= render 'reviews/form', cooker: @cooker, review: @review %>
+          </div>
+        </div>
+      </div>
+    <%end%>
   </div>
-<%end%>
 </div>

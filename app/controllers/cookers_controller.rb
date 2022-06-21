@@ -16,6 +16,5 @@ class CookersController < ApplicationController
     @meals = @cooker.meals
     @review = Review.new
     @orderdetail = OrderDetail.new
-
   end
 end

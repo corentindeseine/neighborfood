@@ -1,0 +1,33 @@
+<%#= render 'chatrooms/chatroom', chatroom: @chatroom, message: @message %>
+<div class="container-fluid chatroom-show" data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="overflow-y-scroll"
+       data-chatrooms-target="scrollableMessages"
+       data-chatroom-subscription-target="scrollableMessages">
+    <div class = "chatroom-show-header">
+      <span>
+        <%= link_to chatrooms_path do  %>
+          <i class="fas fa-chevron-left chatroom-show-arrow"></i>
+        <% end %>
+      </span>
+      <h1><%= @chatroom.interlocutor(current_user).first_name %></h1>
+      <h2></h2>
+    </div>
+    <div class="chatroom-show-messages"  data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+  </div>
+  <%= simple_form_for [@chatroom, @message],
+    remote: true,
+    html: {class: "chatroom-show-inputs",data: {action: "ajax:success->chatroom-subscription#resetForm"}} do |f|
+  %>
+  <%= f.input :content,
+      label: false,
+      placeholder: "Message",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+  <%= f.submit "Envoyer", class: "chatroom-show-button" %>
+<% end %>
+</div>
