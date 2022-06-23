@@ -2,10 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 import { event } from "jquery";
 
 export default class extends Controller {
-  static targets = ["quantity","available","less","more","add","price"]
+  static targets = ["quantity","available","less","more","add","price","input"]
+
 
   initialize() {
     this.quantityTarget.innerHTML = 1
+    this.unitPrice = parseFloat(this.priceTarget.innerHTML)
   }
 
   connect() {
@@ -17,8 +19,7 @@ export default class extends Controller {
     this.lessTarget.style.color = '#ff6161'
     if (this.quantityTarget.innerHTML < parseInt(this.availableTarget.innerHTML)) {
       this.quantityTarget.innerHTML++
-      console.log(parseFloat(this.priceTarget.innerHTML)*(parseFloat(this.quantityTarget.innerHTML)))
-      this.priceTarget.innerHTML = (parseFloat(this.priceTarget.innerHTML) * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
+      this.priceTarget.innerHTML = (this.unitPrice * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
 
       if (parseInt(this.quantityTarget.innerHTML) === parseInt(this.availableTarget.innerHTML)) {
         this.moreTarget.style.color = 'rgb(180,180,180)';
@@ -30,11 +31,14 @@ export default class extends Controller {
     this.moreTarget.style.color = '#ff6161'
     if (this.quantityTarget.innerHTML > 1) {
       this.quantityTarget.innerHTML--;
-      console.log(parseInt(this.priceTarget.innerHTML)*(parseInt(this.quantityTarget.innerHTML)))
-      this.priceTarget.innerHTML = (parseFloat(this.priceTarget.innerHTML) * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
+      this.priceTarget.innerHTML = (this.unitPrice * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
       if (parseInt(this.quantityTarget.innerHTML) <= 1) {
         this.lessTarget.style.color = 'rgb(180,180,180)';
       }
     }
+  }
+
+  updateQuantity () {
+    console.log()
   }
 }

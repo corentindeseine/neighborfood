@@ -184,7 +184,8 @@
     width: 100%;
     transform: translate(-50%, -50%);
     color: #000;
-
+  }
+}
   .order-show-body-footer {
     position: fixed;
     display: flex;
@@ -212,7 +213,7 @@
     border-width: 1px;
     background: #ff6161;
   }
-}
+
 
 .loader-order.is-active {
   visibility: visible;
