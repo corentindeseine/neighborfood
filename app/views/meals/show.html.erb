@@ -9,15 +9,22 @@
           <h2><%= @meal.name %></h2>
         </div>
       </div>
-    </div>
-      <div class='meal-show-container-img'>
         <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
+        <div class="meal-show-body-footer-quantity-container">
         <div class="meal-show-body-footer-quantity">
           <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
           <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
           <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
         </div>
-      </div>
+        </div>
+    </div>
+        <div class='meal-show-available' data-quantity-button-target="available">
+        <% if @meal.available_quantity == 1 %>
+           <%= @meal.available_quantity %> plat disponible !
+        <% else %>
+          <%= @meal.available_quantity %> plats sont encore disponibles !
+        <% end %>
+        </div>
     <div class="meal-show-body">
       <div class="meal-show-body-title">
         <h6>Ingrédients</h6>
@@ -36,24 +43,18 @@
           <p><%= @cooker.full_name %></p>
         </div>
       </div>
-        <div class='meal-show-available' data-quantity-button-target="available">
-        <% if @meal.available_quantity == 1 %>
-           Plus que <%= @meal.available_quantity %> plat disponible !
-        <% else %>
-          <%= @meal.available_quantity %> plats sont encore disponibles !
-        <% end %>
-        </div>
     <div class= "meal-show-body-footer">
+        <div class='meal-show-body-footer-price-container'>
+          <p>Prix total</p>
+          <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
+        </div>
         <div class="meal-show-body-button" data-quantity-button-target="add">
                 <%= simple_form_for([@cooker, @orderdetail],
                 url: cooker_order_details_path(@cooker)) do |f| %>
                   <%= hidden_field_tag :meal_id, @meal.id %>
+                  <%= hidden_field_tag :quantity, data: {target: "input"} %>
                   <%= f.button :submit, "AJOUTER" %>
                 <% end %>
-        </div>
-        <div class='meal-show-body-footer-price-container'>
-          <p>Prix total</p>
-          <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
         </div>
     </div>
   </div>
