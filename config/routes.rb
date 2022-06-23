@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   resources :order_details, only: %i[destroy]
-  resources :orders, only: %i[show index destroy]
+  resources :orders, only: %i[show index destroy update]
 end

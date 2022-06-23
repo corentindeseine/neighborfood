@@ -4,7 +4,7 @@
       <div class="head">
         <%= cl_image_tag(@cooker.image.key, class:'avatar-large' ) %>
         <h1><%= @cooker.first_name %> </h1>
-        <span class = "rating">4.5<i class="fas fa-star" style="color: #ffb016"></i></span>
+        <span class = "rating"><%= @cooker.average_rating%><i class="fas fa-star" style="color: #ffb016"></i></span>
       </div>
       <div class="cookers-show-header-description">
         <p><i class="fas fa-quote-left"></i> <%= @cooker.description %><i class="fas fa-quote-right"></i></p>
@@ -77,7 +77,6 @@
           <% end %>
         </div>
       </div>
-     
     </div>
   </div>
 </div>

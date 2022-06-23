@@ -9,12 +9,18 @@
       <div class='meal-show-container-img'>
         <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
       </div>
-      <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
-      <div class= "meal-show-body-detail">
-        <h2><%= @meal.name %></h2>
+      <div class="meal-show-price" data-quantity-button-target="price">
+        <p><%=sprintf('%.2f', @meal.unit_price) %> €</p>
+        <div class= "meal-show-body-detail">
+          <h2><%= @meal.name %></h2>
+        </div>
       </div>
     </div>
+    <p data-quantity-button-target="available" class = "quantité-disponible">
+      <strong>Quantité disponible:</strong>  <%= @meal.available_quantity %>
+    </p>
     <div class="meal-show-body">
+      <h3>Les ingrédients</h3>
       <% @ingredients= @meal.ingredients.split(",") %>
       <% @ingredients.each do |ingredient|  %>
         <ul class="meal-show-body-ingredients">
@@ -24,26 +30,23 @@
         </ul>
       <% end %>
       <div class='meal-show-cooker-description'>
-        Le mot du cuistot
+        <h3>Le mot du cuistot</h3>
       </div>
-        <p> <%= @meal.description %></p>
+      <p> <%= @meal.description %></p>
     </div>
-        <p data-quantity-button-target="available">
-          <%= @meal.available_quantity %>
-        </p>
     <div class= "meal-show-body-footer">
       <div class="meal-show-body-footer-quantity">
         <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
         <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
         <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
       </div>
-        <div class="meal-show-body-button" data-quantity-button-target="add">
-                <%= simple_form_for([@cooker, @orderdetail],
+      <div class="meal-show-body-button" data-quantity-button-target="add">
+        <%= simple_form_for([@cooker, @orderdetail],
                 url: cooker_order_details_path(@cooker)) do |f| %>
-                  <%= hidden_field_tag :meal_id, @meal.id %>
-                  <%= f.button :submit, "AJOUTER" %>
-                <% end %>
-        </div>
+          <%= hidden_field_tag :meal_id, @meal.id %>
+          <%= f.button :submit, "AJOUTER" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

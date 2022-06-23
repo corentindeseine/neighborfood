@@ -45,4 +45,8 @@ class User < ApplicationRecord
   def chatrooms
     chatrooms_as_client + chatrooms_as_cooker
   end
+
+  def average_rating
+    reviews.average(:rating)
+  end
 end

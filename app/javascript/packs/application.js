@@ -18,4 +18,5 @@ import "controllers"
 import "bootstrap"
 import "packs/swiper"
 import "@popperjs/core"
+import "packs/home"
 require("packs/navbar")

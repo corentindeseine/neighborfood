@@ -1,16 +1,175 @@
-.home-container {
-  background-color: #ff6161;
+.container-fluid{
   height: 100%;
-  color: white;
+  width: 100%;
+}
+.home-container {
+  position: relative;
+  background-color: #e6e7ee;
+  height: 100%;
+  color: #fff;
   text-align: center;
+  // background: image-url("wave.svg") no-repeat center center/ cover;
+
 
   ul {
     display: flex;
+  }
+
+  &-top {
+    position: relative;
+    height: 50%;
+    width: 100%;
+    background-color: #FF6161;
+    clip-path: url(#wave-top);
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    margin-top: -1px;
+
+    img:nth-child(1) {
+      position: absolute;
+      top: 9px;
+      right: 18px;
+    }
+
+    img:nth-child(2) {
+      position: absolute;
+      top: 0px;
+      left: 100px;
+    }
+
+    img:nth-child(3) {
+      position: absolute;
+      bottom: 118px;
+      right: 13px;
+    }
+
+    img:nth-child(4) {
+      position: absolute;
+      bottom: 223px;
+      right: 30px;
+    }
+
+
+    img:nth-child(5) {
+      position: absolute;
+      top: 76px;
+      right: 117px;
+    }
+  }
+
+
+
+
+
+
+  &-bottom {
+    position: relative;
+    height: 50%;
+    width: 100%;
+    clip-path: url(#wave-bottom);
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    background-color: #FF6161;
+    margin-left: -1px;
+
+    img:nth-child(1) {
+      position: absolute;
+      bottom: 25px;
+      left: 20px;
+    }
+
+    img:nth-child(2) {
+      position: absolute;
+      bottom: 24px;
+      right: 105px;
+    }
+
+    img:nth-child(3) {
+      position: absolute;
+      bottom: 90px;
+      right: 198px;
+    }
+
+    img:nth-child(4) {
+      position: absolute;
+      bottom: 170px;
+      left: 30px;
+    }
+
+    img:nth-child(5) {
+      position: absolute;
+      top: 79px;
+      left: 4px;
+    }
+  }
+
+
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #000;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    z-index: 1;
+
+    &-button {
+      color: #ffffff;
+      background: #ff6161;
+      height: 50px;
+      border: none;
+      padding: 15px 20px;
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-top-right-radius: 50px;
+      text-align: center;
+    }
+
+    &-more-info {
+      position: absolute;
+      left: 36%;
+      top: 245px;
+      border-bottom: 1px solid #ff6161;
+      padding-bottom: 3px;
+    }
   }
 }
 
 
 
 .list-homepage-card {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+.légumes {
+  width: 80px;
+  height: 80px;
+
+}
+
+.loader-home {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e6e7ee;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+
+  h1 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #000;
+
   }
+}
+
+.loader-home.is-active {
+  visibility: visible;
+  opacity: 1;
+}
