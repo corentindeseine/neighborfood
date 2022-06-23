@@ -52,7 +52,6 @@ document.addEventListener("turbolinks:load", () => {
   // })
   if (window.location.pathname.includes("/chatrooms")) {
     move('3', '258px', '#FF6161');
-
   }
 
   if (menu4) {
