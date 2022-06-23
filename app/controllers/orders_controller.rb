@@ -20,17 +20,20 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params_validation)
+    @cooker = @order.cooker
+    # @order.update(order_params)
+    @order.update(status: 1)
+
     redirect_to order_path(@order)
   end
 
   private
 
-  def order_params_validation
-    params.require(:order).permit(:status)
-  end
+  # def order_params_validation
+  #   params.require(:order).permit(:status)
+  # end
 
-  def order_params
-    params.require(:order).permit(:cooker_id, :client_id )
-  end
+  # def order_params
+  #   params.require(:order).permit(:status)
+  # end
 end

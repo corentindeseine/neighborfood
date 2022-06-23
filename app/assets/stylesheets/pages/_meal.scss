@@ -27,7 +27,14 @@
     background: #e0e5ec;
     box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
     margin: 0 -1rem;
-    height: 4.5rem;
+
+    img {
+      width: 60%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
 
     &-header {
 
@@ -212,4 +219,8 @@
       }
     }
   }
+}
+
+.quantité-disponible {
+  margin-top: 20px;
 }

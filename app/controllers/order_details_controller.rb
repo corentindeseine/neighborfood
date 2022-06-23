@@ -4,11 +4,11 @@ class OrderDetailsController < ApplicationController
     @cooker = User.find(params[:cooker_id])
     @meal = Meal.find(params[:meal_id])
     @order = Order.find_or_create_by(client_id: current_user.id, cooker_id: @cooker.id, status: 0)
-    @orderdetail = OrderDetail.where(meal_id: @meal.id, order_id: @order.id)
+    @orderdetail = OrderDetail.find_by(order_id: @order.id, meal_id: @meal.id)
     if @orderdetail
-      @orderdetail.upsert(ordered_quantity: 8)
+      @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity + 1)
     else
-      @orderdetail = OrderDetail.new(order_id: @order.id, ordered_quantity: 3, meal_id: @meal.id)
+      @orderdetail = OrderDetail.create(order_id: @order.id, ordered_quantity: 1, meal_id: @meal.id)
     end
 
     if @orderdetail.save

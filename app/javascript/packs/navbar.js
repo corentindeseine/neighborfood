@@ -43,7 +43,7 @@ document.addEventListener("turbolinks:load", () => {
   //   move('2', '150px', '#FF6161');
   // })
   if (window.location.pathname.includes("/orders")) {
-    move('2', '150px', '#FF6161');
+    move('2', '154px', '#FF6161');
 
   }
   // console.log(window.location.pathname);
@@ -51,15 +51,17 @@ document.addEventListener("turbolinks:load", () => {
   //   move('3', '250px', '#FF6161');
   // })
   if (window.location.pathname.includes("/chatrooms")) {
-    move('3', '250px', '#FF6161');
+    move('3', '258px', '#FF6161');
 
   }
 
-  tl.set('.navigation li', { x: "-125%" });
+  if (menu4) {
+    tl.set('.navigation li', { x: "-125%" });
+    menu4.addEventListener("click", (event) => {
+      move('4', '361px', '#FF6161');
+      tlnav.to(menu, 0.3, { scale: 1, ease: Back.easeOut })
+        .staggerTo('.navigation li', 0.4, { x: 0, ease: Sine.easeOut }, 0.2, 0.5)
+    })
+  }
 
-  menu4.addEventListener("click", (event) => {
-    move('4', '350px', '#FF6161');
-    tlnav.to(menu, 0.3, { scale: 1, ease: Back.easeOut })
-      .staggerTo('.navigation li', 0.4, { x: 0, ease: Sine.easeOut }, 0.2, 0.5)
-  })
 })
