@@ -12,7 +12,7 @@
               <p>Commande du
                 <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
               </p>
-              <p>chez <%= order.cooker.first_name %></p>
+              <p>chez <strong><%= order.cooker.first_name %></strong></p>
             </div>
             <div>
               <% if order.status == 0%>
