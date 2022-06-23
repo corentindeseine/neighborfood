@@ -29,7 +29,7 @@
             <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
           </div>
           <div class="order-show-detail-center">
-          <p> <%=d.ordered_quantity%> x <%= d.meal.name%></p>
+            <p> <%=d.ordered_quantity%> x <%= d.meal.name%></p>
           </div>
           <div class="order-show-detail-right-subtotal">
             <%line_price = (d.ordered_quantity * d.meal.unit_price)%>
@@ -43,9 +43,9 @@
           <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
         </div>
         <% if @order.status == 0%>
-          <div class="order-show-button" data-order-show-target ="button" data-action="click->order-show#play">
+          <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
             <%= simple_form_for([@cooker, @order],
-            url: cooker_order_path(@cooker)) do |f| %>
+            url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
               <%= f.button :submit, "Confirmer" %>
             <% end %>
           </div>
