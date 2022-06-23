@@ -25,7 +25,7 @@ users[0].description = "J'adore cuisiner les meilleurs poissons que je trouve au
 
 users[1].first_name = "Boris"
 users[1].last_name = "Bourdet"
-users[1].address = "148 Rue Oberkampf"
+users[1].address = "22 Rue de la Folie Méricourt"
 user_2_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot2_dvxnbh.png")
 users[1].image.attach(io: user_2_avatar, filename: 'user2.png', content_type: 'image/png')
 users[1].speciality = "Cuisine Marocaine"
@@ -38,6 +38,7 @@ user_3_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v165
 users[2].image.attach(io: user_3_avatar, filename: 'user3.png', content_type: 'image/png')
 users[2].speciality = "Cuisine Libanaise"
 users[2].description = "Découvrez mes recettes inspirées de la cuisine libanaise. "
+
 # Les autres addresses qui ont un même plat commun
 
 users[3].first_name = "Cheffe"
@@ -93,7 +94,7 @@ users[9].last_name = "de Dianous"
 users[9].address = "4 villa gaudelet"
 user_10_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot10_icg0tz.png")
 users[9].image.attach(io: user_10_avatar, filename: 'user10.png', content_type: 'image/png')
-users[9].speciality = "Salades de graines germées"
+users[9].speciality = "Salades de graines"
 users[9].description = "Toutes mes salades sont à base de graines germées. Outre leur goût très agréable, elles ont des vertus indéniables pour la santé "
 
 users.map(&:save!)
@@ -133,7 +134,7 @@ pastilla.image.attach(io: pastilla_file, filename: 'Pastilla.png', content_type:
 # Seed meals pour user 2
 tartare_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1654947934/Tartare-thon_j1ufi0.png")
 tartare = Meal.create!(name: 'Tartare de thon',
-                       description: 'Tartare de thon frais à la créole',
+                       description: "Tartare de thon frais façon créole. Mes amis et ma famille se régalent à chaque bouchée de ce plat ! J'espère qu'il sera vous satisfaire ",
                        unit_price: 10,
                        ingredients: "thon frais, capres, oignons, huile d'olive, sauce créoline ",
                        range_date_time: "['06/14/2022 17:00' , '06/14/2022 19:00']",

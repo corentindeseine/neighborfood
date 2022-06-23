@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["quantity","available","less","more","add","price"]
 
   initialize() {
-    this.quantityTarget.innerHTML = 0
+    this.quantityTarget.innerHTML = 1
   }
 
   connect() {
@@ -15,12 +15,10 @@ export default class extends Controller {
 
   increment() {
     this.lessTarget.style.color = '#ff6161'
-    console.log(parseInt(this.priceTarget.innerHTML)*parseInt(this.quantityTarget.innerHTML))
-
     if (this.quantityTarget.innerHTML < parseInt(this.availableTarget.innerHTML)) {
       this.quantityTarget.innerHTML++
-      this.addTarget.style.backgroundColor = '#ff6161'
-
+      console.log(parseFloat(this.priceTarget.innerHTML)*(parseFloat(this.quantityTarget.innerHTML)))
+      this.priceTarget.innerHTML = (parseFloat(this.priceTarget.innerHTML) * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
 
       if (parseInt(this.quantityTarget.innerHTML) === parseInt(this.availableTarget.innerHTML)) {
         this.moreTarget.style.color = 'rgb(180,180,180)';
@@ -29,23 +27,14 @@ export default class extends Controller {
   }
 
   decrement() {
-    console.log(this.quantityTarget)
     this.moreTarget.style.color = '#ff6161'
-    if (this.quantityTarget.innerHTML > 0) {
+    if (this.quantityTarget.innerHTML > 1) {
       this.quantityTarget.innerHTML--;
-      if (parseInt(this.quantityTarget.innerHTML) <= 0) {
+      console.log(parseInt(this.priceTarget.innerHTML)*(parseInt(this.quantityTarget.innerHTML)))
+      this.priceTarget.innerHTML = (parseFloat(this.priceTarget.innerHTML) * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + " €";
+      if (parseInt(this.quantityTarget.innerHTML) <= 1) {
         this.lessTarget.style.color = 'rgb(180,180,180)';
-        this.addTarget.style.backgroundColor = 'rgb(180,180,180';
       }
     }
   }
 }
-
-
-// if (this.quantityTarget.innerHTML > 0) {
-//   this.quantityTarget.innerHTML--
-// } elsif (this.quantityTarget.innerHTML === 0) {
-//   console.log(this.element);
-// } else {
-
-// }
