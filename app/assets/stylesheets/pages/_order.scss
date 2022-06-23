@@ -59,7 +59,9 @@
 .orders-list {
   margin-top: 20px;
   padding: 2px 8px;
-  margin-bottom: 50px;
+  margin-bottom: 10rem;
+  height : 100%;
+  width: 100%;
 
 }
 
@@ -184,7 +186,8 @@
     width: 100%;
     transform: translate(-50%, -50%);
     color: #000;
-
+  }
+}
   .order-show-body-footer {
     position: fixed;
     display: flex;
@@ -212,7 +215,7 @@
     border-width: 1px;
     background: #ff6161;
   }
-}
+
 
 .loader-order.is-active {
   visibility: visible;
