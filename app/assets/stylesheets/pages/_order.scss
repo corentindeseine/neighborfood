@@ -59,7 +59,9 @@
 .orders-list {
   margin-top: 20px;
   padding: 2px 8px;
-  margin-bottom: 50px;
+  margin-bottom: 10rem;
+  height : 100%;
+  width: 100%;
 
 }
 
@@ -184,6 +186,7 @@
     width: 100%;
     transform: translate(-50%, -50%);
     color: #000;
+
   }
 }
 
@@ -197,6 +200,7 @@
   padding: 1rem;
   width: 100%;
 }
+
 
 .circle-empty {
   width: 30px;
