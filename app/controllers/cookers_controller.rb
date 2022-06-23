@@ -7,7 +7,7 @@ class CookersController < ApplicationController
         lat: cooker.latitude,
         lng: cooker.longitude,
         image_url: Cloudinary::Utils.cloudinary_url(cooker.image.url),
-        user_id: cooker.id,
+        user_id: cooker.id
       }
     end
   end

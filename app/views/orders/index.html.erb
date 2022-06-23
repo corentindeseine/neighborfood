@@ -4,18 +4,22 @@
     <p> Vous n'avez aucune commande</p>
   <%else%>
     <div class="orders-list">
-      <% @current_user_orders.each do |order| %>
+      <% @current_user_orders.order(created_at: :desc).each do |order| %>
         <%= link_to order_path(order) do %>
           <div class="orders-list-order">
-
-
               <%= cl_image_tag(order.cooker.image.key, class:'avatar-order' ) %>
-            
             <div>
-              <p>Commande  <%= order.id %>
-                du  <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
-                statut <%= order.status%></p>
+              <p>Commande du
+                <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
+              </p>
               <p>chez <%= order.cooker.first_name %></p>
+            </div>
+            <div>
+              <% if order.status == 0%>
+                <div class="circle-empty"></div>
+              <% else %>
+                <div class="circle-full"> </div>
+              <% end %>
             </div>
           </div>
         <%end%>

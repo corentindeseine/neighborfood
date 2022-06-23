@@ -10,6 +10,7 @@ class OrderDetailsController < ApplicationController
     else
       @orderdetail = OrderDetail.create(order_id: @order.id, ordered_quantity: 1, meal_id: @meal.id)
     end
+
     if @orderdetail.save
       redirect_to cooker_path(@cooker)
     else
