@@ -2,47 +2,58 @@
   <div class="meal-show">
     <div class="meal-show-banner">
       <div class="meal-show-banner-header">
+        <div class= "meal-show-body-detail">
         <%= link_to cooker_path(@cooker) do  %>
-          <i class="fas fa-chevron-left meal-show-banner-header-arrow"></i>
+          <i class="fas fa-chevron-left meal-show-banner-header-arrow" style='color:black'></i>
         <% end %>
+          <h2><%= @meal.name %></h2>
+        </div>
       </div>
+    </div>
       <div class='meal-show-container-img'>
         <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
+        <div class="meal-show-body-footer-quantity">
+          <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+          <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
+          <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
+        </div>
       </div>
-      <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
-      <div class= "meal-show-body-detail">
-        <h2><%= @meal.name %></h2>
-      </div>
-    </div>
     <div class="meal-show-body">
-      <% @ingredients= @meal.ingredients.split(",") %>
-      <% @ingredients.each do |ingredient|  %>
-        <ul class="meal-show-body-ingredients">
-          <li>
-            <p><%= ingredient.capitalize%></p>
-          </li>
-        </ul>
-      <% end %>
+      <div class="meal-show-body-title">
+        <h6>Ingrédients</h6>
+      </div>
+      <% ingredients= @meal.ingredients %>
+       <p class="meal-show-body-ingredients"><%= ingredients.capitalize%></p>
+      <div class="meal-show-body-title">
+        <h6>Le mot du cuistot</h6>
+      </div>
       <div class='meal-show-cooker-description'>
-        Le mot du cuistot
+        <p><i class="fas fa-quote-left"></i>  <%= @meal.description %> <i class="fas fa-quote-right"></i></p>
       </div>
-        <p> <%= @meal.description %></p>
-    </div>
-        <p data-quantity-button-target="available">
-          <%= @meal.available_quantity %>
-        </p>
+      <div class='meal-show-cooker-signature-container'>
+        <div class='meal-show-cooker-signature'>
+          <%= cl_image_tag @cooker.image.key, alt: @cooker.full_name, class:'avatar-signature' if @cooker.image.key != nil%>
+          <p><%= @cooker.full_name %></p>
+        </div>
+      </div>
+        <div class='meal-show-available' data-quantity-button-target="available">
+        <% if @meal.available_quantity == 1 %>
+           Plus que <%= @meal.available_quantity %> plat disponible !
+        <% else %>
+          <%= @meal.available_quantity %> plats sont encore disponibles !
+        <% end %>
+        </div>
     <div class= "meal-show-body-footer">
-      <div class="meal-show-body-footer-quantity">
-        <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
-        <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
-        <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
-      </div>
         <div class="meal-show-body-button" data-quantity-button-target="add">
                 <%= simple_form_for([@cooker, @orderdetail],
                 url: cooker_order_details_path(@cooker)) do |f| %>
                   <%= hidden_field_tag :meal_id, @meal.id %>
                   <%= f.button :submit, "AJOUTER" %>
                 <% end %>
+        </div>
+        <div class='meal-show-body-footer-price-container'>
+          <p>Prix total</p>
+          <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
         </div>
     </div>
   </div>

@@ -37,8 +37,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
-      customMarker.style.width = "30px"
-      customMarker.style.height = "30px"
+      customMarker.style.width = "38px"
+      customMarker.style.height = "38px"
       customMarker.style.border = '1px solid  rgb(200, 200, 200)'
       customMarker.style.borderRadius = "50%"
 
@@ -54,14 +54,14 @@ export default class extends Controller {
       element.addEventListener('mouseenter', () => {
         cardCooker.classList.remove('invisible')
         element.style.border = '2px solid  #ff6161'
-        element.style.width = '40px'
-        element.style.height = '40px'
+        element.style.width = '45px'
+        element.style.height = '45px'
       });
 
       element.addEventListener('mouseleave', () => {
         element.style.border = '1px solid  rgb(200, 200, 200)'
-        element.style.width = '30px'
-        element.style.height = '30px'
+        element.style.width = '38px'
+        element.style.height = '38px'
       });
 
       // Centre sur le marker sur lequel on clique

@@ -19,7 +19,7 @@
 
 .cooker-home-card {
   padding: 8px;
-  margin: 1rem 4rem;
+  margin: 2rem 5rem;
   border-radius: 16px;
   background: white;
   box-shadow: 0 0 1rem rgba(0,0,0,0.2);
@@ -34,6 +34,7 @@
     color: #FF6161;
     background-color: #FFEFEF;
     margin-right: 12px;
+    font-size: 12px;
   }
 
   .cooker-address {
@@ -51,4 +52,18 @@
   margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
+
+  &-rating {
+    display: flex;
+  }
+
+  img {
+    margin-left: 4px;
+  }
+}
+
+.cooker-infos {
+  p {
+    font-size: 14px;
+  }
 }
