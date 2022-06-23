@@ -1,6 +1,8 @@
 # Seed Users
 Order.destroy_all
+Review.destroy_all
 User.destroy_all
+
 require "open-uri"
 10.times do
   User.create!(first_name: Faker::Name.first_name,

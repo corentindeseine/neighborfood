@@ -16,6 +16,7 @@
               <% if chatroom.messages.last %>
                 <%= chatroom.messages.last.content.truncate(70)   %>....
               <% else %>
+           
                 <p>Discutez avec <strong><%= chatroom.cooker.first_name %></strong> </p>
               <% end %>
             </p>
