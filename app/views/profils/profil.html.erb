@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="profil">
+    <h1> <%=current_user.first_name%> </h1>
+    <h2>Vos plats en vente</h2>
+    <% if  @meals.empty? %>
+      <p>Vous n'avez pas de plats en vente</p>
+    <% else %>
+      <div class="cooker-show-cards swiper-container">
+        <div class="swiper-wrapper">
+          <%  @meals.each do |meal| %>
+            <div class="swiper-slide">
+              <div class="meal-card">
+                <div class="meal-card-header">
+                  <div class="meal-card-header-img">
+                    <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
+                  </div>
+                  <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
+                </div>
+                <div class="meal-card-body">
+                  <div class= "meal-card-body-detail">
+                    <h2><%= meal.name %></h2>
+                    <p> <%= meal.description %></p>
+                  </div>
+                </div>
+                <div class="profil-actions">
+                  <%#= simple_form_for(meal) do |f| %>
+                    <%#= f.submit "Modifier", class: "profil-more-info" %>
+                    <%#end %>
+                    <div class="profil-more-info">
+                      <%= link_to "Modifier", cooker_meal_path(meal,@cooker), method: :patch, class: "" %>
+                    </div>
+                    <div class="profil-more-info">
+                      <%= link_to "Supprimer", cooker_meal_path(meal, @cooker), method: :delete, data: { confirm: "Voulez-vous supprimer #{meal.name}"}, class: 'text-danger' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>

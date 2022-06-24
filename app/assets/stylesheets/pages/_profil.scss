@@ -1,0 +1,19 @@
+.profil {
+  height: 100%;
+  width: 100%;
+
+  &-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  &-more-info {
+    left: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid #ff6161;
+    padding-bottom: 3px;
+  }
+}

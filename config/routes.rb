@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/profil', to: 'profils#profil'
   resources :cookers, only: %i[index show] do
-    resources :meals, only: %i[new show], as: :test
+    resources :meals, only: %i[new show update]
     resources :orders, only: %i[create update]
     resources :reviews, only: :create
     resources :order_details, only: %i[create update]
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   end
   resources :order_details, only: %i[destroy]
   resources :orders, only: %i[show index destroy update]
+  resources :meals, only: %i[update destroy]
 end

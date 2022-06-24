@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", () => {
   const menu3 = document.querySelector("#menu3 ");
   const menu4 = document.querySelector("#menu4 ");
 
-  // Fonction qui fait avancer les bulles d'icons de la navbar
+  //   // Fonction qui fait avancer les bulles d'icons de la navbar
 
   function move(id, position, color) {
     console.log(position);
@@ -29,27 +29,24 @@ document.addEventListener("turbolinks:load", () => {
 
   }
 
-  // Déclenchement de la fonction move() lorsque l'on clique sur un des liens de la navbar
+  //   // Déclenchement de la fonction move() lorsque l'on clique sur un des liens de la navbar
 
-  // menu1.addEventListener("click", (event) => {
 
-  //   move('1', '50px', '#FF6161');
-  // })
   if (window.location.pathname.includes("/cookers")) {
     move('1', '50px', '#FF6161');
   }
 
-  // menu2.addEventListener("click", (event) => {
-  //   move('2', '150px', '#FF6161');
-  // })
+  //   // menu2.addEventListener("click", (event) => {
+  //   //   move('2', '150px', '#FF6161');
+  //   // })
   if (window.location.pathname.includes("/orders")) {
     move('2', '154px', '#FF6161');
 
   }
-  // console.log(window.location.pathname);
-  // menu3.addEventListener("click", (event) => {
-  //   move('3', '250px', '#FF6161');
-  // })
+
+  //   // menu3.addEventListener("click", (event) => {
+  //   //   move('3', '250px', '#FF6161');
+  //   // })
   if (window.location.pathname.includes("/chatrooms")) {
     move('3', '258px', '#FF6161');
   }

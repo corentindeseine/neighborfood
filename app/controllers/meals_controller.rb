@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   # before_action :set_cooker, only: [:new, :show, :create]
+
   def show
     @meals = Meal.all
     @cooker = User.find(params[:cooker_id])
@@ -22,13 +23,19 @@ class MealsController < ApplicationController
     end
   end
 
+ def update
+  @meal = Meal.find(params[:id])
+  @meal.update(meal_params)
+  redirect_to profil_path(@cooker)
+ end
   private
 
   # def set_cooker
   #   @cooker = User.find(params[:cooker_id])
   # end
 
+
   def meal_params
-    params.require(:meal.permit(:name, :description, :ingredients, :range_date_time, :available_quantity, :image))
+    params.permit(:name, :description, :unit_price, :ingredients, :range_date_time, :available_quantity, :image)
   end
 end

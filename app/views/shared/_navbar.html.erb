@@ -1,4 +1,4 @@
-<div id="navbarContainer" >
+<div id="navbarContainer"  >
   <div id="navbars">
     <div id="bubbleWrapper">
       <div id="bubble1" class="bubble  <%#= 'active_bubble' if controller_name == 'cookers' %> ">
@@ -23,22 +23,22 @@
       </div>
     </div>
     <div id="menuWrapper">
-      <div id="menu1" class="menuElement">
+      <div id="menu1" class="menuElement" data-nav-target = "menu1" >
         <%= link_to cookers_path do %>
           <i class="fas fa-home"></i>
         <% end %>
       </div>
-      <div id="menu2" class="menuElement">
+      <div id="menu2" class="menuElement" data-nav-target = "menu2" >
         <%= link_to orders_path do %>
           <i class="fas fa-shopping-bag"></i>
         <% end %>
       </div>
-      <div id="menu3" class="menuElement">
+      <div id="menu3" class="menuElement"data-nav-target = "menu3" >
         <%= link_to  chatrooms_path do %>
           <i class="fas fa-address-book"></i>
         <% end %>
       </div>
-      <div id="menu4" class="menuElement">
+      <div id="menu4" class="menuElement"data-nav-target = "menu4" >
         <i class="fas fa-user "></i>
       </div>
     </div>
@@ -56,10 +56,10 @@
     </filter>
   </defs>
 </svg>
-<div class="menu ">
+<div class="menu" >
   <nav class="navigation">
     <ul class="mobile_menu_list">
-      <li><%= link_to "Profil", cookers_path, class: "mobile_menu_link" %></li>
+      <li><%= link_to "Profil",  profil_path, class: "mobile_menu_link" %></li>
       <li><%= link_to "Commandes", orders_path, class: "mobile_menu_link" %></li>
       <li><%= link_to "Aide", orders_path, class: "mobile_menu_link" %></li>
       <% if user_signed_in? %>

@@ -35,7 +35,7 @@
                 </div>
               </div>
               <div class="meal-card-body-footer">
-                <%= link_to cooker_test_path(@cooker, meal) do %>
+                <%= link_to cooker_meal_path(@cooker, meal) do %>
                   <p class="meal-card-body-more-info">Plus d'infos</p>
                 <% end%>
                 <%= simple_form_for([@cooker, @orderdetail],
@@ -82,4 +82,4 @@
 </div>
 <br>
 <br>
-<%#= link_to "Add New Meal", new_cooker_test_path(@cooker) %>
+<%#= link_to "Add New Meal", new_cooker_meal_path(@cooker) %>
