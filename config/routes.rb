@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     resources :meals, only: %i[new show update]
     resources :orders, only: %i[create update]
     resources :reviews, only: :create
-    resources :order_details, only: %i[create update]
+    resources :order_details, only: %i[create]
   end
   resources :chatrooms, only: [:create, :show, :index] do
     resources :messages, only: :create
   end
-  resources :order_details, only: %i[destroy]
+  resources :order_details, only: %i[destroy update]
   resources :orders, only: %i[show index destroy update]
   resources :meals, only: %i[update destroy]
 end
