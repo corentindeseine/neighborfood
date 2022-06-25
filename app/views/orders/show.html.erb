@@ -2,9 +2,15 @@
   <div class="order-show" data-controller="review" >
     <div class="order-show-header">
       <span>
+      <% if @order.status != 0 %>
         <%= link_to orders_path do  %>
           <i class="fas fa-chevron-left order-show-arrow"></i>
         <% end %>
+      <% else %>
+        <%= link_to cooker_path(@cooker) do  %>
+          <i class="fas fa-chevron-left order-show-arrow"></i>
+        <% end %>
+      <% end %>
       </span>
       <h1> <%=current_user.first_name%> </h1>
       <p> <strong>Commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>

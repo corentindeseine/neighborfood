@@ -17,23 +17,18 @@ class OrdersController < ApplicationController
     @messages = @single_chatroom.messages.order(created_at: :asc) if @single_chatroom
   end
 
-
   def update
     @order = Order.find(params[:id])
     @cooker = @order.cooker
-    # @order.update(order_params)
     @order.update(status: 1)
+
+    order_details = OrderDetail.where(order_id: @order)
+    order_details.each do |detail|
+      meal = Meal.find(detail.meal_id)
+      meal.available_quantity -= detail.ordered_quantity
+      meal.save
+    end
 
     redirect_to order_path(@order)
   end
-
-  private
-
-  # def order_params_validation
-  #   params.require(:order).permit(:status)
-  # end
-
-  # def order_params
-  #   params.require(:order).permit(:status)
-  # end
 end

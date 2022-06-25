@@ -3,17 +3,17 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["quantity","available","less","more","add","price","input"]
+  static values = { quantity: Number }
 
 
   initialize() {
-    this.quantityTarget.innerHTML = 1
+    this.quantityTarget.innerHTML = this.quantityValue
     this.unitPrice = parseFloat(this.priceTarget.innerHTML)
   }
 
   connect() {
-    console.log("hello stimulus")
+    this.inputTarget.value = this.quantityValue
   }
-
 
   increment() {
     this.lessTarget.style.color = '#ff6161'
@@ -25,6 +25,7 @@ export default class extends Controller {
         this.moreTarget.style.color = 'rgb(180,180,180)';
       }
     }
+    this.inputTarget.value = this.quantityTarget.innerHTML
   }
 
   decrement() {
@@ -36,6 +37,7 @@ export default class extends Controller {
         this.lessTarget.style.color = 'rgb(180,180,180)';
       }
     }
+    this.inputTarget.value = this.quantityTarget.innerHTML
   }
 
   updateQuantity () {

@@ -14,17 +14,21 @@
 
   &-banner {
     padding: 1rem;
-    border-bottom-right-radius: 24px;
-    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 70px;
     background: #e0e5ec;
     box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
     margin: 0 -1rem;
 
+    a {
+      position: absolute;
+      top: 16px;
+    }
+
     img {
       width: 60%;
       height: auto;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 20px auto 0 auto;
       display: block;
     }
 
@@ -49,6 +53,11 @@
 
     &-description {
       margin-top: 16px;
+        p {
+          text-align: center;
+          font-family: 'Mali', cursive;
+          color: rgb(120, 120, 120)
+        }
 
       p {
         text-align: center;
@@ -115,10 +124,10 @@
     }
 
     &-detail {
-      color: rgb(120, 120, 120);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      color: rgb(120,120,120);
+      text-align: center;
+      margin-top: 8px;
+
 
       h2 {
         margin: 4px auto 0px auto;
@@ -128,7 +137,7 @@
 
     &-ingredients {
       margin: 6px 0px 24px 12px;
-      color: rgb(140, 140, 140);
+      color:rgb(120, 120, 120);
       font-family: 'Mali', cursive;
     }
 
@@ -142,10 +151,13 @@
       left: 0;
       padding: 1rem;
       width: 100%;
+      background-color: #e6e7ee;
 
       &-price-container {
+        margin-left: 18px;
         p {
           color: black;
+          font-size: 18px;
         }
       }
 
@@ -175,7 +187,11 @@
 
       &-less {
         font-size: 20px;
-        color: rgb(180, 180, 180);
+        color: #FF6161;
+        &-one {
+          font-size: 20px;
+          color: rgb(140,140,140);
+        }
       }
 
       i {
@@ -200,16 +216,15 @@
     }
 
     &-button {
-      width: 70%;
-      padding: 10px 70px;
-      background: #FF6161;
-      border-bottom-right-radius: 50px;
-      border-bottom-left-radius: 50px;
-      border-top-right-radius: 50px;
-      text-align: center;
-      font-size: 1.3rem;
-
       input {
+        width: 100%;
+        padding: 10px 80px;
+        background: #FF6161;
+        border-bottom-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        text-align: center;
+        font-size: 1.3rem;
         color: #ffffff;
       }
 
