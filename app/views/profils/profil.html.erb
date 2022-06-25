@@ -47,5 +47,33 @@
           </div>
         </div>
       <%end%>
+
+    <h2 class="mt-5">Vos Commandes</h2>
+      <%if @current_user_orders_cooker_accepted.empty?%>
+    <p> Vous n'avez aucune commande</p>
+  <%else%>
+    <div class="orders-list">
+      <% @current_user_orders_cooker_accepted.order(created_at: :desc).each do |order| %>
+        <%= link_to order_path(order) do %>
+          <div class="orders-list-order">
+              <%= cl_image_tag(order.client.image.key, class:'avatar-order' ) %>
+            <div>
+              <p>Commande du
+                <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
+              </p>
+              <p>De: <strong><%= order.client.first_name %></strong></p>
+            </div>
+            <div>
+              <% if order.status == 0%>
+                <div class="circle-empty"></div>
+              <% else %>
+                <div class="circle-full"></div>
+              <% end %>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
     </div>
+  <%end%>
   </div>
+</div>
