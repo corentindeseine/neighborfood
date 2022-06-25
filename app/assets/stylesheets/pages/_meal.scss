@@ -1,12 +1,12 @@
 .meal-show {
   height: 100%;
   width: 100%;
-  padding-bottom: 80px;
+
 
   &-available {
     margin-top: 30px;
     font-size: 16px;
-    color:#FF6161;
+    color: #FF6161;
     text-align: center;
     font-family: 'Poppins', sans-serif;
   }
@@ -45,23 +45,24 @@
     }
   }
 
-  &-cooker{
+  &-cooker {
 
     &-description {
       margin-top: 16px;
-        p {
-          text-align: center;
-          font-family: 'Mali', cursive;
-          color: rgb(140, 140, 140)
-        }
 
-        i {
-          color: #FF6161;
-        }
+      p {
+        text-align: center;
+        font-family: 'Mali', cursive;
+        color: rgb(140, 140, 140)
+      }
+
+      i {
+        color: #FF6161;
+      }
     }
 
     &-signature {
-      display:flex;
+      display: flex;
       align-items: center;
       width: fit-content;
       color: white;
@@ -78,7 +79,7 @@
 
       p {
         font-size: 14px;
-        color: rgb(140,140,140);
+        color: rgb(140, 140, 140);
       }
 
       img {
@@ -114,7 +115,7 @@
     }
 
     &-detail {
-      color: rgb(120,120,120);
+      color: rgb(120, 120, 120);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -127,7 +128,7 @@
 
     &-ingredients {
       margin: 6px 0px 24px 12px;
-      color:rgb(140, 140, 140);
+      color: rgb(140, 140, 140);
       font-family: 'Mali', cursive;
     }
 
@@ -160,7 +161,7 @@
         background: linear-gradient(145deg, #caced4, #f0f5fd);
         box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 
-        &-container{
+        &-container {
           position: relative;
           top: 35px;
         }
@@ -199,7 +200,7 @@
     }
 
     &-button {
-      width:70%;
+      width: 70%;
       padding: 10px 70px;
       background: #FF6161;
       border-bottom-right-radius: 50px;
@@ -221,4 +222,14 @@
 
 .quantité-disponible {
   margin-top: 20px;
+}
+
+.meal-new {
+  margin-top: 2rem;
+  height: 100%;
+  width: 100%;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
 }

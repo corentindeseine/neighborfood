@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { event } from "jquery";
+
 
 export default class extends Controller {
   static targets = ["button", "loader"]
