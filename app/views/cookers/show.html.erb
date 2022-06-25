@@ -28,7 +28,7 @@
               <div class="meal-card-body">
                 <div class= "meal-card-body-detail">
                   <h2><%= meal.name %></h2>
-                  <p> <%= meal.description %></p>
+                  <p> <%= meal.description.truncate(80) %> </p>
                 </div>
                 <div class= "meal-card-body-quantity">
                   <span class="more">+</span>   <span class="meal_quantity">0</span><span class="less">-</span>

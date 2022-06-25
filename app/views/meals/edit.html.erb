@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div class="meal-new">
     <%= simple_form_for @meal do |f| %>
-      <h1>Add a Meal 😋</h1>
+      <h1 class="text-center" >Modifiez Votre plat 😋</h1>
       <%= f.input :image, as: :file %>
-      <%= f.input :unit_price, label: "Prix unitaire"%>
       <%= f.input :name %>
       <%= f.input :description%>
       <%= f.input :ingredients%>

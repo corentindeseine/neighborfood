@@ -2,6 +2,9 @@
   <div class="profil">
     <h1> <%=current_user.first_name%> </h1>
     <h2>Vos plats en vente</h2>
+    <div class="profil-add-meal">
+      <%= link_to 'Ajouter un plat', new_meal_path %>
+    </div>
     <% if  @meals.empty? %>
       <p>Vous n'avez pas de plats en vente</p>
     <% else %>
@@ -19,19 +22,24 @@
                 <div class="meal-card-body">
                   <div class= "meal-card-body-detail">
                     <h2><%= meal.name %></h2>
-                    <p> <%= meal.description %></p>
+                    <p> <%= meal.description.truncate(80) %></p>
                   </div>
+                </div>
+                <div class="profil-available-quantity">
+                  <p>Quantité disponible : <%= meal.available_quantity %></p>
                 </div>
                 <div class="profil-actions">
                   <%#= simple_form_for(meal) do |f| %>
                     <%#= f.submit "Modifier", class: "profil-more-info" %>
                     <%#end %>
                     <div class="profil-more-info">
-                      <%= link_to "Modifier", cooker_meal_path(meal,@cooker), method: :patch, class: "" %>
+                      <%= link_to "Modifier", edit_meal_path(meal), class: "" %>
                     </div>
+                    <% if meal.order_details.empty? %>
                     <div class="profil-more-info">
-                      <%= link_to "Supprimer", cooker_meal_path(meal, @cooker), method: :delete, data: { confirm: "Voulez-vous supprimer #{meal.name}"}, class: 'text-danger' %>
+                      <%= link_to "Supprimer", meal_path(meal), method: :delete, data: { confirm: "Voulez-vous supprimer #{meal.name}"}, class: 'text-danger' %>
                     </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
