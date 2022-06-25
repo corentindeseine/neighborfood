@@ -33,8 +33,8 @@ users[1].image.attach(io: user_2_avatar, filename: 'user2.png', content_type: 'i
 users[1].speciality = "Cuisine Marocaine"
 users[1].description = "Je mitonne pour vous les meilleures recettes traditionnelles de la cuisine marocaine. "
 
-users[2].first_name = "Chef"
-users[2].last_name = "Top"
+users[2].first_name = "Mohamed"
+users[2].last_name = "Cheikh"
 users[2].address = "117 Rue Saint-Maur"
 user_3_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot3_gbtqwu.png")
 users[2].image.attach(io: user_3_avatar, filename: 'user3.png', content_type: 'image/png')
@@ -43,8 +43,8 @@ users[2].description = "Découvrez mes recettes inspirées de la cuisine libanai
 
 # Les autres addresses qui ont un même plat commun
 
-users[3].first_name = "Cheffe"
-users[3].last_name = "Top"
+users[3].first_name = "Sarah"
+users[3].last_name = "Mainguy"
 users[3].address = "3 rue Rochebrune"
 user_4_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot4._zccuac.png")
 users[3].image.attach(io: user_4_avatar, filename: 'user4.png', content_type: 'image/png')
@@ -165,6 +165,7 @@ falafels = Meal.create!(name: 'Falafels',
 falafels_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655037803/1200px-Bowl_of_falafel-removebg-preview_mi9x1u.png")
 falafels.image.attach(io: falafels_file, filename: 'Falafels.png', content_type: 'image/png')
 
+
 # Seed meals pour users de 4 à 10
 
 users.each_with_index do |user, index|
@@ -182,7 +183,7 @@ quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type:
 end
 
 # Seed user account
-client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655189785/cuistot8_ywb2np.png")
+client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656160313/photo_profil_2_of09cw.jpg")
 client = User.create!(first_name: "Corentin",
                       last_name: "Deseine",
                       address: "16, Villa Gaudelet",
@@ -195,30 +196,73 @@ client.image.attach(io: client_avatar, filename: 'client.png', content_type: 'im
 
 # Seed orders
 
+# Order 1 - User
+
 order1 = Order.create!(client_id: client.id,
                        cooker_id: User.find_by(first_name: "Ibrahima").id,
                        delivery_date_time: "Vendredi 10 Juin 2022 18H00",
                        status: 1)
-order2 = Order.create!(client_id: client.id,
-                       cooker_id: User.find_by(first_name: "Ibrahima").id,
-                       delivery_date_time: "Samedi 11 Juin 2022 18H00",
-                       status: 0)
-order3 = Order.create!(client_id: client.id,
-                       cooker_id: User.find_by(first_name: "Boris").id,
-                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
-                       status: 0)
-
-# Seed orders_details
-
 OrderDetail.create!(order_id: order1.id,
                     meal_id: tataki.id,
                     ordered_quantity: 2)
+
+# Order 2 - User
+
+order2 = Order.create!(client_id: client.id,
+                       cooker_id: User.find_by(first_name: "Ibrahima").id,
+                       delivery_date_time: "Samedi 11 Juin 2022 18H00",
+                       status: 1)
 OrderDetail.create!(order_id: order2.id,
                     meal_id: tartare.id,
                     ordered_quantity: 1)
-OrderDetail.create!(order_id: order2.id,
-                    meal_id: tataki.id,
-                    ordered_quantity: 1)
+
+# Order 3 - User
+order3 = Order.create!(client_id: client.id,
+                       cooker_id: User.find_by(first_name: "Boris").id,
+                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
+                       status: 1)
+
 OrderDetail.create!(order_id: order3.id,
                     meal_id: couscous.id,
                     ordered_quantity: 1)
+
+# Order 4 - Cuistot pour Ibra
+
+order4 = Order.create!(client_id: User.find_by(first_name: "Mohamed").id,
+                       cooker_id: User.find_by(first_name: "Ibrahima").id,
+                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
+                       status: 1)
+
+OrderDetail.create!(order_id: order4.id,
+                    meal_id: tataki.id,
+                    ordered_quantity: 1)
+
+# Order 5 - Cuistot pour Ibra
+
+order5 = Order.create!(client_id: User.find_by(first_name: "Sarah").id,
+                       cooker_id: User.find_by(first_name: "Ibrahima").id,
+                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
+                       status: 1)
+OrderDetail.create!(order_id: order5.id,
+                    meal_id: tataki.id,
+                    ordered_quantity: 4)
+
+# Order 6 - Cuistot pour Boris
+
+order6 = Order.create!(client_id: User.find_by(first_name: "Mohamed").id,
+                       cooker_id: User.find_by(first_name: "Boris").id,
+                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
+                       status: 1)
+OrderDetail.create!(order_id: order6.id,
+                    meal_id: couscous.id,
+                    ordered_quantity: 4)
+
+# Order 7 - Cuistot pour Boris
+
+order7 = Order.create!(client_id: User.find_by(first_name: "Sarah").id,
+                       cooker_id: User.find_by(first_name: "Boris").id,
+                       delivery_date_time: "Lundi 13 Juin 2022 17H00",
+                       status: 1)
+OrderDetail.create!(order_id: order7.id,
+                    meal_id: couscous.id,
+                    ordered_quantity: 4)
