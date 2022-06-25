@@ -18,14 +18,13 @@
                     <% end %>
                   </div>
                   <h6>
-                    <%# RATING EN DUR JUSQUA CE QUE LE MODEL REVIEW SOIT FAIT %>
-                    <%= cooker.average_rating %><i class="fas fa-star" style="color: #ffb016"></i>
+                    <%= cooker.average_rating %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%> " style="color: #ffb016"></i>
                   </h6>
                 </div>
                 <ul>
                   <li> <%= cooker.speciality %> </li>
                   <li>
-                    <% if Order.where(cooker_id: cooker.id).count > 5 %>
+                    <% if Order.where(cooker_id: cooker.id).count >= 2 %>
                       Chef expert
                     <% else %>
                       Nouveau chef
