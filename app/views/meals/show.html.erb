@@ -1,21 +1,27 @@
-<div class="container-fluid" data-controller='quantity-button'>
+<div class="container-fluid" data-controller='quantity-button'
+     data-quantity-button-quantity-value="<%= @quantity %>">
   <div class="meal-show">
     <div class="meal-show-banner">
       <div class="meal-show-banner-header">
-        <div class= "meal-show-body-detail">
         <%= link_to cooker_path(@cooker) do  %>
-          <i class="fas fa-chevron-left meal-show-banner-header-arrow" style='color:black'></i>
+          <i class="fas fa-chevron-left meal-show-banner-header-arrow" style='color:black style='position:absolute'></i>
         <% end %>
+        <div class= "meal-show-body-detail">
           <h2><%= @meal.name %></h2>
+          <div></div>
         </div>
       </div>
         <%= cl_image_tag @meal.image.key, alt: @meal.name if @meal.image.key != nil%>
         <div class="meal-show-body-footer-quantity-container">
-        <div class="meal-show-body-footer-quantity">
-          <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
-          <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
-          <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
-        </div>
+          <div class="meal-show-body-footer-quantity">
+            <% if @quantity == 1 %>
+              <div class="meal-show-body-footer-less-one" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+            <% else %>
+              <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+            <% end %>
+            <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
+            <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
+          </div>
         </div>
     </div>
         <div class='meal-show-available' data-quantity-button-target="available">
@@ -50,10 +56,19 @@
         </div>
         <div class="meal-show-body-button" data-quantity-button-target="add">
                 <%= simple_form_for([@cooker, @orderdetail],
-                url: cooker_order_details_path(@cooker)) do |f| %>
+                url: @orderdetail.persisted? ? order_detail_path(@orderdetail) : cooker_order_details_path(@cooker)) do |f| %>
                   <%= hidden_field_tag :meal_id, @meal.id %>
-                  <%= hidden_field_tag :quantity, data: {target: "input"} %>
-                  <%= f.button :submit, "AJOUTER" %>
+                  <%= f.input :ordered_quantity, wrapper_html: {
+                                         class: 'd-none'
+                                       },
+                                       input_html: {
+                                         data: {quantity_button_target: "input"}
+                                       } %>
+                    <% if @old_order && @old_order.cooker_id != @cooker.id %>
+                      <%= f.button :submit, "AJOUTER", data: { confirm: "Vous avez une commande en cours chez #{@old_order.cooker.first_name}" } %>
+                    <% else %>
+                      <%= f.button :submit, "AJOUTER" %>
+                    <% end %>
                 <% end %>
         </div>
     </div>
