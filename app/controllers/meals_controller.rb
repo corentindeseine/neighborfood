@@ -4,7 +4,10 @@ class MealsController < ApplicationController
     @meals = Meal.all
     @cooker = User.find(params[:cooker_id])
     @meal = @cooker.meals.find(params[:id])
-    @orderdetail = OrderDetail.new
+    @order = Order.find_by(client: current_user, cooker: @cooker, status: 0) || Order.new(client: current_user, cooker: @cooker)
+    @orderdetail = OrderDetail.find_by(order: @order, meal: @meal) || OrderDetail.new
+    @quantity = @orderdetail.ordered_quantity || 1
+    @old_order = Order.find_by(client: current_user.id, status: 0)
   end
 
   def new

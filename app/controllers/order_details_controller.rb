@@ -5,25 +5,45 @@ class OrderDetailsController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     @order = Order.find_or_create_by(client_id: current_user.id, cooker_id: @cooker.id, status: 0)
     @orderdetail = OrderDetail.find_by(order_id: @order.id, meal_id: @meal.id)
-    if @orderdetail
-      @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity + 1)
-    else
-      @orderdetail = OrderDetail.create(order_id: @order.id, ordered_quantity: 1, meal_id: @meal.id)
+    @old_order = Order.find_by(client: current_user.id, status: 0)
+
+    if @old_order
+      @old_order.destroy if @old_order.cooker_id != @cooker.id
     end
 
-    if @orderdetail.save
-      redirect_to cooker_path(@cooker)
-    else
-      render "cooker"
-    end
+
+      if @orderdetail
+        @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity)
+      else
+        @orderdetail = OrderDetail.new(order_details_params)
+        @orderdetail.order = @order
+        @orderdetail.meal = @meal
+      end
+
+      if @orderdetail.save
+        redirect_to cooker_path(@cooker)
+      else
+        redirect_to cooker_path(@cooker), warning: "Nope"
+      end
   end
 
   def update
-    @orderdetail = OrderDetail.find(params[:id])
-    @orderDetail.update(ordersdetails_params_validation)
-    redirect_to order_path(@order)
+    @order_detail = OrderDetail.find(params[:id])
+    if @order_detail.update(order_details_params)
+      redirect_to order_path(@order_detail.order)
+    else
+      render 'meals/show'
+    end
   end
 
   def destroy
+    @order = Order.find_or_create_by(client_id: current_user.id, status: 0)
+    @order.destroy
+  end
+
+  private
+
+  def order_details_params
+    params.require(:order_detail).permit(:ordered_quantity)
   end
 end
