@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="profil">
     <h1> <%=current_user.first_name%> </h1>
-    <h2>Vos plats en vente</h2>
-    <div class="profil-add-meal">
-      <%= link_to 'Ajouter un plat', new_meal_path %>
-    </div>
+    <h2 class="text-center" >Vos plats en vente</h2>
     <% if  @meals.empty? %>
-      <p>Vous n'avez pas de plats en vente</p>
+      <p class ="text-center" >Vous n'avez pas de plats en vente</p>
+      <div class="profil-add-meal">
+        <%= link_to 'Ajouter un plat', new_meal_path %>
+      </div>
     <% else %>
       <div class="cooker-show-cards swiper-container">
         <div class="swiper-wrapper">
@@ -36,9 +36,9 @@
                       <%= link_to "Modifier", edit_meal_path(meal), class: "" %>
                     </div>
                     <% if meal.order_details.empty? %>
-                    <div class="profil-more-info">
-                      <%= link_to "Supprimer", meal_path(meal), method: :delete, data: { confirm: "Voulez-vous supprimer #{meal.name}"}, class: 'text-danger' %>
-                    </div>
+                      <div class="profil-more-info">
+                        <%= link_to "Supprimer", meal_path(meal), method: :delete, data: { confirm: "Voulez-vous supprimer #{meal.name}"}, class: 'text-danger' %>
+                      </div>
                     <% end %>
                   </div>
                 </div>
@@ -47,33 +47,32 @@
           </div>
         </div>
       <%end%>
-
-    <h2 class="mt-5">Vos Commandes</h2>
+      <h2 class="mt-5 text-center">Vos Commandes</h2>
       <%if @current_user_orders_cooker_accepted.empty?%>
-    <p> Vous n'avez aucune commande</p>
-  <%else%>
-    <div class="orders-list">
-      <% @current_user_orders_cooker_accepted.order(created_at: :desc).each do |order| %>
-        <%= link_to order_path(order) do %>
-          <div class="orders-list-order">
-              <%= cl_image_tag(order.client.image.key, class:'avatar-order' ) %>
-            <div>
-              <p>Commande du
-                <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
-              </p>
-              <p>De: <strong><%= order.client.first_name %></strong></p>
-            </div>
-            <div>
-              <% if order.status == 0%>
-                <div class="circle-empty"></div>
-              <% else %>
-                <div class="circle-full"></div>
-              <% end %>
-            </div>
-          </div>
-        <%end%>
+        <p class ="text-center" > Vous n'avez aucune commande</p>
+      <%else%>
+        <div class="orders-list">
+          <% @current_user_orders_cooker_accepted.order(created_at: :desc).each do |order| %>
+            <%= link_to order_path(order) do %>
+              <div class="orders-list-order">
+                <%= cl_image_tag(order.client.image.key, class:'avatar-order' ) %>
+                <div>
+                  <p>Commande du
+                    <%= order.created_at.mday %>/<%= order.created_at.mon %>/<%= order.created_at.year %>
+                  </p>
+                  <p>De: <strong><%= order.client.first_name %></strong></p>
+                </div>
+                <div>
+                  <% if order.status == 0%>
+                    <div class="circle-empty"></div>
+                  <% else %>
+                    <div class="circle-full"></div>
+                  <% end %>
+                </div>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
       <%end%>
     </div>
-  <%end%>
   </div>
-</div>

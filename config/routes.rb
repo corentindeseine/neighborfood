@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/profil', to: 'profils#profil'
+  get '/about', to: 'pages#about'
   resources :cookers, only: %i[index show] do
     resources :meals, only: %i[show]
     resources :orders, only: %i[create update]

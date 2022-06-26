@@ -3,39 +3,39 @@
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    <div class="cooker-show-cards swiper-container">
-      <div class="swiper-wrapper cooker-home-card-container invisible">
-        <% @cookers.each do |cooker| %>
-          <div class="swiper-slide " data-user-id="<%= cooker.id %>">
-            <div class="cooker-home-card">
-              <%= link_to cooker_path(cooker) do %>
-                <div class="cooker-top-container">
-                  <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
-                  <div class='cooker-infos'>
-                    <h6><%= cooker.first_name %></h6>
-                    <% if user_signed_in? %>
-                      <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
-                    <% end %>
-                  </div>
-                  <h6>
-                    <%= cooker.average_rating %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%> " style="color: #ffb016"></i>
-                  </h6>
+  </div>
+  <div class="cooker-index-cards swiper-container">
+    <div class="swiper-wrapper  invisible">
+      <% @cookers.each do |cooker| %>
+        <div class="swiper-slide " data-user-id="<%= cooker.id %>">
+          <div class="cooker-home-card">
+            <%= link_to cooker_path(cooker) do %>
+              <div class="cooker-top-container">
+                <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
+                <div class='cooker-infos'>
+                  <h6><%= cooker.first_name %></h6>
+                  <% if user_signed_in? %>
+                    <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
+                  <% end %>
                 </div>
-                <ul>
-                  <li> <%= cooker.speciality %> </li>
-                  <li>
-                    <% if Order.where(cooker_id: cooker.id).count >= 2 %>
-                      Chef expert
-                    <% else %>
-                      Nouveau chef
-                    <% end %>
-                  </li>
-                </ul>
-              <% end %>
-            </div>
+                <h6>
+                  <%= cooker.average_rating %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%> " style="color: #ffb016"></i>
+                </h6>
+              </div>
+              <ul>
+                <li> <%= cooker.speciality %> </li>
+                <li>
+                  <% if Order.where(cooker_id: cooker.id).count >= 2 %>
+                    Chef expert
+                  <% else %>
+                    Nouveau chef
+                  <% end %>
+                </li>
+              </ul>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

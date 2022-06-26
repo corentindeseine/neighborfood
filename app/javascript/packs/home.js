@@ -3,7 +3,7 @@ document.addEventListener("turbolinks:load", () => {
 
   const tlhome = gsap.timeline();
   const légumes = gsap.utils.toArray('.légumes');
-  console.log(légumes);
+
   tlhome.from(légumes, {
 
     transformOrigin: "50% 50%",

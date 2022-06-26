@@ -18,7 +18,7 @@
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
           <div class="swiper-slide">
-            <div class="meal-card">
+            <div class="meal-card" >
               <div class="meal-card-header">
                 <div class="meal-card-header-img">
                   <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
@@ -50,36 +50,21 @@
       </div>
     </div>
     <div class="cookers-show-reviews" >
-      <h2>
-        <p><%= @cooker.reviews.size  %> Avis</p>
-      </h2>
-      <div data-controller="insert-in-list" >
-        <div id="reviews" data-insert-in-list-target="items">
-          <% if @cooker.reviews.blank? %>
-            <p> Soyez le premier à laisser un avis à <strong><%= @cooker.first_name %></strong> </p>
-            <br>
-          <% else %>
-            <% @cooker.reviews.each do |review| %>
-              <div class="review-content">
-                <div class="review-content-header">
-                  <%= cl_image_tag(review.user.image.key, class:'avatar' ) %>
-                  <h3><%= review.user.first_name.capitalize %></h3>
-                  <div class="rating">
-                    <% for i in 1..review.rating %>
-                      <i class="fas fa-star" style="color: #ffb016"></i>
-                    <% end %>
-                  </div>
-                </div>
-                <p id="review-<%= review.id %>"><%= review.content %></p>
-                <p class="review-content-created">Le: <%= review.created_at.strftime("%d-%m-%y") %></p>
-              </div>
-            <% end %>
-          <% end %>
+      <% @cooker.reviews.each do |review| %>
+        <div class="review-content">
+          <div class="review-content-header">
+            <%= cl_image_tag(review.user.image.key, class:'avatar' ) %>
+            <h3><%= review.user.first_name.capitalize %></h3>
+            <div class="rating">
+              <% for i in 1..review.rating %>
+                <i class="fas fa-star" style="color: #ffb016"></i>
+              <% end %>
+            </div>
+          </div>
+          <p id="review-<%= review.id %>"><%= review.content %></p>
+          <p class="review-content-created">Le: <%= review.created_at.strftime("%d-%m-%y") %></p>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
-<br>
-<br>
-<%#= link_to "Add New Meal", new_cooker_meal_path(@cooker) %>

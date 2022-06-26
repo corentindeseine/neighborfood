@@ -9,14 +9,12 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello stimulus")
 
-    console.log(this.formsTarget);
   }
 
   play(e) {
     e.preventDefault()
-    console.log(e);
+
     const loadAnim = bodymovin.loadAnimation({
       wrapper: this.loaderTarget,
       animType: 'svg',
@@ -26,7 +24,7 @@ export default class extends Controller {
       preserveAspectRatio: 'xMidYMid meet',
     });
     let target = e.target.href;
-    console.log(target);
+    
     this.loaderTarget.classList.add("is-active")
     loadAnim.goToAndPlay(0, true);
     setTimeout(() => {
