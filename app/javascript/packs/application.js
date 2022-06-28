@@ -20,3 +20,19 @@ import "packs/swiper"
 import "@popperjs/core"
 import "packs/home"
 require("packs/navbar")
+
+document.addEventListener("turbolinks:load", () => {
+  const illust1 = document.querySelector(".about-content-illustration-1")
+  if (illust1) {
+    const Ilust = bodymovin.loadAnimation({
+      wrapper: illust1,
+      animType: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets10.lottiefiles.com/packages/lf20_hgbosl8c.json',
+      preserveAspectRatio: 'xMidYMid meet',
+    });
+    Ilust.goToAndPlay(0, true);
+
+  }
+})

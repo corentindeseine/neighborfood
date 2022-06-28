@@ -3,7 +3,9 @@
     <div id="bubbleWrapper">
       <div id="bubble1" class="bubble  <%#= 'active_bubble' if controller_name == 'cookers' %> ">
         <span class="icon">
-          <i class="fas fa-home"></i>
+          <%= link_to cookers_path do %>
+            <i class="fas fa-home"></i>
+          <% end %>
         </span>
       </div>
       <div id="bubble2" class="bubble  <%#= 'active_bubble' if controller_name == 'orders' %>">
@@ -61,7 +63,7 @@
     <ul class="mobile_menu_list">
       <li><%= link_to "Profil",  profil_path, class: "mobile_menu_link" %></li>
       <li><%= link_to "Commandes", orders_path, class: "mobile_menu_link" %></li>
-      <li><%= link_to "Aide", orders_path, class: "mobile_menu_link" %></li>
+      <li><%= link_to "A propos", about_path, class: "mobile_menu_link" %></li>
       <% if user_signed_in? %>
         <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "mobile_menu_link" %></li>
       <% else %>

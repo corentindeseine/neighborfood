@@ -49,4 +49,9 @@ class User < ApplicationRecord
   def average_rating
     reviews.average(:rating)
   end
+
+  def is_cooker?
+    meals.any?
+  end
+
 end

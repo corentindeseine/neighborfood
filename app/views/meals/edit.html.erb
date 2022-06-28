@@ -3,11 +3,12 @@
     <%= simple_form_for @meal do |f| %>
       <h1 class="text-center" >Modifiez Votre plat 😋</h1>
       <%= f.input :image, as: :file %>
-      <%= f.input :name %>
+      <%= f.input :unit_price, label: "Prix unitaire"%>
+      <%= f.input :name, label: "Nom" %>
       <%= f.input :description%>
       <%= f.input :ingredients%>
       <%= f.input :available_quantity %>
-      <%= f.submit "Valider", class: "" %>
+      <%= f.submit "Valider", class: "meal-add" %>
     <% end %>
   </div>
 </div>
