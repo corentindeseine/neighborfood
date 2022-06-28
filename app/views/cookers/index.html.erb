@@ -4,7 +4,7 @@
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="cooker-index-cards swiper-container">
+  <div class="cooker-index-cards swiper-container-map">
     <div class="swiper-wrapper  invisible">
       <% @cookers.each do |cooker| %>
         <div class="swiper-slide " data-user-id="<%= cooker.id %>">
