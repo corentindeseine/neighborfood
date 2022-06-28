@@ -18,14 +18,14 @@ class User < ApplicationRecord
   end
 
   # Foreign key
-  has_many :orders
+  has_many :orders, class_name: "Order", foreign_key: "client_id"
   has_many :meals, dependent: :destroy
-  has_many :clients, class_name: "Order", foreign_key: "client_id"
-  has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
+  # has_many :clients, class_name: "Order", foreign_key: "client_id"
+  # has_many :cookers, class_name: "Order", foreign_key: "cooker_id"
   has_many :reviews, class_name: "Review", foreign_key: "cooker_id", dependent: :destroy
   has_many :messages, through: :chatrooms
-  has_many :chatrooms_as_client, :class_name => 'Chatroom', :foreign_key => 'client_id', dependent: :destroy
-  has_many :chatrooms_as_cooker, :class_name => 'Chatroom', :foreign_key => 'cooker_id', dependent: :destroy
+  has_many :chatrooms_as_client, class_name: 'Chatroom', foreign_key: 'client_id', dependent: :destroy
+  has_many :chatrooms_as_cooker, class_name: 'Chatroom', foreign_key: 'cooker_id', dependent: :destroy
 
   # Cloudinary
   has_one_attached :image
@@ -47,6 +47,10 @@ class User < ApplicationRecord
   end
 
   def average_rating
-    reviews.average(:rating)
+    reviews.average(:rating).round(1) unless reviews.empty?
+  end
+
+  def current_order
+    orders.find { |e| e.status.zero? } || false
   end
 end

@@ -1,9 +1,9 @@
 {
   "background_color": "#e6e7ee",
-  "description": "Neighborfood Réservez vos plats du soir à l'un des nombreux chefs cuistots de votre quartier !
-      Avec neighborfood, rencontrez vos voisins et découvrez de nouvelles saveures à des prix raisonnables",
+  "description": "Neighborfood Réservez vos plats du soir à l'un des nombreux chefs cuistots de votre quartier ! \n Avec neighborfood, rencontrez vos voisins et découvrez de nouvelles saveures à des prix raisonnables",
   "display": "fullscreen",
   "name": "Neighborfood",
+  "orientation": "portrait",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
     <% files.each_with_index do |file, index| %>
@@ -16,4 +16,3 @@
     <% end %>
   ]
 }
-

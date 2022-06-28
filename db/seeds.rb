@@ -22,7 +22,7 @@ users[0].last_name = "Kaba"
 users[0].address = "89 Rue Jean-Pierre Timbaud"
 user_1_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655193961/cuistot1_p0veba.png")
 users[0].image.attach(io: user_1_avatar, filename: 'user1.png', content_type: 'image/png')
-users[0].speciality = "Poissons"
+users[0].speciality = "Poissons & desserts"
 users[0].description = "J'adore cuisiner les meilleurs poissons que je trouve au marché. "
 
 users[1].first_name = "Boris"
@@ -183,7 +183,7 @@ quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type:
 end
 
 # Seed user account
-client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656160313/photo_profil_2_of09cw.jpg")
+client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656175247/Capture_d_e%CC%81cran_2022-06-25_a%CC%80_18.40.24_d513bm.png")
 client = User.create!(first_name: "Corentin",
                       last_name: "Deseine",
                       address: "16, Villa Gaudelet",

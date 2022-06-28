@@ -23,21 +23,29 @@
                 <div class="meal-card-header-img">
                   <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
                 </div>
-                <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
               </div>
               <div class="meal-card-body">
+                <div class="meal-card-body-quantity-container">
+                  <div class="meal-card-body-quantity">
+                    <% if @quantity == 1 %>
+                      <div class="meal-show-body-footer-less-one" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+                    <% else %>
+                      <div class="meal-show-body-footer-less" data-action="click->quantity-button#decrement" data-quantity-button-target="less"><i class="fas fa-minus-circle"></i></div>
+                    <% end %>
+                    <div class="meal-show-body-footer-meal-quantity" data-quantity-button-target="quantity"></div>
+                    <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
+                  </div>
+                </div>
                 <div class= "meal-card-body-detail">
                   <h2><%= meal.name %></h2>
-                  <p> <%= meal.description.truncate(80) %> </p>
+                  <p> <%= meal.description.truncate(60) %> </p>
                 </div>
-                <div class= "meal-card-body-quantity">
-                  <span class="more">+</span>   <span class="meal_quantity">0</span><span class="less">-</span>
-                </div>
-              </div>
-              <div class="meal-card-body-footer">
                 <%= link_to cooker_meal_path(@cooker, meal) do %>
                   <p class="meal-card-body-more-info">Plus d'infos</p>
                 <% end%>
+              </div>
+              <div class="meal-card-body-footer">
+                <div class="meal-card-header-price"><span><%= sprintf('%.2f', meal.unit_price) %></span> €</div>
                 <%= simple_form_for([@cooker, @orderdetail],
                 url: cooker_order_details_path(@cooker)) do |f| %>
                   <%= hidden_field_tag :meal_id, meal.id %>

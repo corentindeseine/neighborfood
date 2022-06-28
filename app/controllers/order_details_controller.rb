@@ -30,7 +30,7 @@ class OrderDetailsController < ApplicationController
   def update
     @order_detail = OrderDetail.find(params[:id])
     if @order_detail.update(order_details_params)
-      redirect_to order_path(@order_detail.order)
+      redirect_to cooker_path(@order_detail.meal.user)
     else
       render 'meals/show'
     end

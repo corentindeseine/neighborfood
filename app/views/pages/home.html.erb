@@ -86,6 +86,9 @@
     <br>
     <p data-home-target = "button" data-action="click->home#play"><%= link_to 'Voir les Cuistots',cookers_path, class: "home-container-content-button" %></p>
     <p class="home-container-content-more-info" >En savoir plus</p>
+    <% if !user_signed_in? %>
+      <%= link_to "Connexion", new_user_session_path, class: "home-container-content-connexion" %>
+    <% end %>
   </div>
   <div class="home-container-bottom">
     <%= image_tag("choux.png", :alt => "choux", class:"légumes") %>

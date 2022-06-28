@@ -45,7 +45,7 @@ export default class extends Controller {
       customMarker.setAttribute("data-action", "click->pin-nav#navigateTo")
       customMarker.setAttribute('data-user-id', marker.user_id)
 
-      const markers = new mapboxgl.Marker(customMarker).setLngLat([ marker.lng, marker.lat ])
+      const markers = new mapboxgl.Marker(customMarker).setLngLat([ marker.lng, marker.lat])
 
       // On récupère les informations
       const element = markers.getElement();
@@ -65,7 +65,7 @@ export default class extends Controller {
       });
 
       // Centre sur le marker sur lequel on clique
-      element.addEventListener('click', () => { this.map.flyTo({ center: [marker.lng, marker.lat] }) });
+      element.addEventListener('click', () => { this.map.flyTo({ center: [marker.lng, marker.lat - 0.005] }) });
 
       // Ajoute les markers à la map
       markers.addTo(this.map)

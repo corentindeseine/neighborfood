@@ -19,26 +19,27 @@
 
 .cooker-home-card {
   padding: 8px;
-  margin: 2rem 5rem;
+  margin: -1rem auto;
   border-radius: 16px;
   background: white;
-  width: 260px;
-  height: auto;
+  width: 22rem;
+  height: 8rem;
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 
 
   ul {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 12px;
   }
 
   li {
     width: fit-content;
-    padding: 4px;
+    padding: 4px 10px;
     border-radius: 4px;
     color: #FF6161;
     background-color: #FFEFEF;
-    margin-right: 12px;
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .cooker-address {
@@ -47,9 +48,10 @@
   }
 
   h6 {
-    color: rgb(120, 120, 120)
+    color: rgb(120, 120, 120);
+    font-size: 22px;
+    margin-right: 8px;
   }
-
 }
 
 .cooker-top-container {
@@ -62,12 +64,16 @@
   }
 
   img {
-    margin-left: 4px;
+    margin: 0px 12px 0px 8px;
   }
 }
 
 .cooker-infos {
   p {
-    font-size: 14px;
+    font-size: 18px;
   }
+}
+
+.cooker-top-description-container {
+  display: flex;
 }

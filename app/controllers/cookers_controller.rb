@@ -1,4 +1,6 @@
 class CookersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @cookers = User.cookers
     @orders = Order.all
