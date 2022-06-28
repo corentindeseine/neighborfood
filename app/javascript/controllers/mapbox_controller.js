@@ -49,7 +49,7 @@ export default class extends Controller {
 
       // On récupère les informations
       const element = markers.getElement();
-      const cardCooker = document.querySelector('.cooker-home-card-container')
+      const cardCooker = document.querySelector('.swiper-wrapper')
       // Entoure le marqueur selectionné quand on click dessus
       element.addEventListener('mouseenter', () => {
         cardCooker.classList.remove('invisible')

@@ -8,5 +8,4 @@ class ProfilsController < ApplicationController
     @current_user_orders_cooker_accepted = Order.where(["cooker_id = ? AND status = ?", current_user.id, 1])
     @meal = Meal.new
   end
-
 end
