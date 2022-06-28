@@ -12,8 +12,6 @@
         <% end %>
       <% end %>
       </span>
-      <h1> <%=current_user.first_name%> </h1>
-      <p> <strong>Commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
     </div>
     <%if @orderdetails.empty?%>
       <p> Vous n'avez aucun plat dans cette commande</p>
@@ -21,13 +19,9 @@
       <div class="order-show-body">
         <p>Chez: <span class = "order-show-body-name"><%=@cooker.first_name%></span>  </p>
         <p> <%=@cooker.address%></p>
+        <p> <strong> Votre commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
       </div>
-      <div class="order-show-contact">
-        <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
-        <% if @order.status != 0 %>
-          <p data-action="click->review#launchReview">Laisser un avis</p>
-        <% end %>
-      </div>
+
       <%total = 0%>
       <% @orderdetails.each do |d| %>
         <div class="order-show-detail ">
@@ -44,11 +38,16 @@
         </div>
         <%total = total + line_price%>
       <%end%>
-      <div class= "order-show-body-footer"  >
-        <div class="order-show-body-footer-quantity">
+      <div class= "order-show-body-total"  >
+
           <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-        </div>
-        <% if @order.status == 0%>
+<%#  %>
+      </div>
+      <div class="order-show-footer">
+        <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
+        <% if @order.status != 0 %>
+          <p data-action="click->review#launchReview">Laisser un avis</p>
+        <% else %>
           <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
             <%= simple_form_for([@cooker, @order],
             url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
@@ -57,6 +56,9 @@
           </div>
         <% end %>
       </div>
+
+
+
       <div class="modal" data-controller="modal" data-review-target="modal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -65,9 +67,10 @@
           </div>
         </div>
       </div>
-    <%end%>
+    </div>
     <div data-order-show-target = "loader" class = "loader-order">
       <h1>En cours de préparation</h1>
     </div>
+    <% end%>
   </div>
 </div>
