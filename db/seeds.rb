@@ -17,14 +17,17 @@ end
 # Les trois addresses qui ont des plats différents + ajout des avatars
 
 users = User.all
+
+users[0].email = "ibrahima@gmail.com"
 users[0].first_name = "Ibrahima"
 users[0].last_name = "Kaba"
 users[0].address = "89 Rue Jean-Pierre Timbaud"
 user_1_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655193961/cuistot1_p0veba.png")
 users[0].image.attach(io: user_1_avatar, filename: 'user1.png', content_type: 'image/png')
-users[0].speciality = "Poissons"
+users[0].speciality = "Poissons & desserts"
 users[0].description = "J'adore cuisiner les meilleurs poissons que je trouve au marché. "
 
+users[1].email = "boris@gmail.com"
 users[1].first_name = "Boris"
 users[1].last_name = "Bourdet"
 users[1].address = "22 Rue de la Folie Méricourt"
@@ -33,6 +36,7 @@ users[1].image.attach(io: user_2_avatar, filename: 'user2.png', content_type: 'i
 users[1].speciality = "Cuisine Marocaine"
 users[1].description = "Je mitonne pour vous les meilleures recettes traditionnelles de la cuisine marocaine. "
 
+users[2].email = "mohamed@gmail.com"
 users[2].first_name = "Mohamed"
 users[2].last_name = "Cheikh"
 users[2].address = "117 Rue Saint-Maur"
@@ -43,6 +47,7 @@ users[2].description = "Découvrez mes recettes inspirées de la cuisine libanai
 
 # Les autres addresses qui ont un même plat commun
 
+users[3].email = "sarah@gmail.com"
 users[3].first_name = "Sarah"
 users[3].last_name = "Mainguy"
 users[3].address = "3 rue Rochebrune"
@@ -51,6 +56,7 @@ users[3].image.attach(io: user_4_avatar, filename: 'user4.png', content_type: 'i
 users[3].speciality = "Quiche Lorraine"
 users[3].description = "Je ne sais faire que des quiches, mais elles sont savoureuses! "
 
+users[4].email = "kenza@gmail.com"
 users[4].first_name = "Kenza"
 users[4].last_name = "Tighrine"
 users[4].address = "29 passage de Ménilmontant"
@@ -59,6 +65,7 @@ users[4].image.attach(io: user_5_avatar, filename: 'user5.png', content_type: 'i
 users[4].speciality = "Quiche Lorraine"
 users[4].description = "Je ne sais faire que des quiches, mais elles sont savoureuses! "
 
+users[5].email = "bruno@gmail.com"
 users[5].first_name = "Bruno"
 users[5].last_name = "Le Lay"
 users[5].address = "7 Rue de la Fontaine au Roi"
@@ -67,6 +74,7 @@ users[5].image.attach(io: user_6_avatar, filename: 'user6.png', content_type: 'i
 users[5].speciality = "Quiche Lorraine"
 users[5].description = "Je ne sais faire que des quiches, mais elles sont savoureuses! "
 
+users[6].email = "aicha@gmail.com"
 users[6].first_name = "Aicha"
 users[6].last_name = "Diagne"
 users[6].address = "107 avenue Parmentier"
@@ -75,6 +83,7 @@ users[6].image.attach(io: user_7_avatar, filename: 'user7.png', content_type: 'i
 users[6].speciality = "Cuisine végétarienne"
 users[6].description = "Venez gouter mes recettes végétariennes gastronomiques! "
 
+users[7].email = "sebastien@gmail.com"
 users[7].first_name = "Sebastien"
 users[7].last_name = "Saunier"
 users[7].address = "1 Rue Saint-Hubert"
@@ -83,6 +92,7 @@ users[7].image.attach(io: user_8_avatar, filename: 'user8.png', content_type: 'i
 users[7].speciality = "Quiche Lorraine"
 users[7].description = "Je ne sais faire que des quiches, mais elles sont savoureuses! "
 
+users[8].email = "maria@gmail.com"
 users[8].first_name = "Maria"
 users[8].last_name = "Leonor"
 users[8].address = "20 rue de l'Orillon"
@@ -91,6 +101,7 @@ users[8].image.attach(io: user_9_avatar, filename: 'user9.png', content_type: 'i
 users[8].speciality = "Quiche Lorraine"
 users[8].description = "Je ne sais faire que des quiches, mais elles sont savoureuses! "
 
+users[9].email = "etienne@gmail.com"
 users[9].first_name = "Etienne"
 users[9].last_name = "de Dianous"
 users[9].address = "4 villa gaudelet"
@@ -100,6 +111,18 @@ users[9].speciality = "Salades de graines"
 users[9].description = "Toutes mes salades sont à base de graines germées. Outre leur goût très agréable, elles ont des vertus indéniables pour la santé "
 
 users.map(&:save!)
+
+# Seed user account Corentin
+client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656175247/Capture_d_e%CC%81cran_2022-06-25_a%CC%80_18.40.24_d513bm.png")
+client = User.create!(first_name: "Corentin",
+                      last_name: "Deseine",
+                      address: "16, Villa Gaudelet",
+                      city: "Paris",
+                      zip_code: 75_011,
+                      email: "user@gmail.com",
+                      phone_number: "+33601020304",
+                      password: "neighborfood")
+client.image.attach(io: client_avatar, filename: 'client.png', content_type: 'image/png')
 
 # Seed meals pour user 1
 
@@ -181,18 +204,6 @@ users.each_with_index do |user, index|
 others_users_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655243158/quiche-removebg-preview_fqgtbe.png")
 quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type: 'image/png')
 end
-
-# Seed user account
-client_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656175247/Capture_d_e%CC%81cran_2022-06-25_a%CC%80_18.40.24_d513bm.png")
-client = User.create!(first_name: "Corentin",
-                      last_name: "Deseine",
-                      address: "16, Villa Gaudelet",
-                      city: "Paris",
-                      zip_code: 75_011,
-                      email: "user@gmail.com",
-                      phone_number: "+33601020304",
-                      password: "neighborfood")
-client.image.attach(io: client_avatar, filename: 'client.png', content_type: 'image/png')
 
 # Seed orders
 
