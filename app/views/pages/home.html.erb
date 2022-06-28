@@ -71,12 +71,11 @@
     <h2>Mon voisin est un chef!</h2>
     <br>
     <p data-home-target = "button" data-action="click->home#play"><%= link_to 'Voir les Cuistots',cookers_path, class: "home-container-content-button" %></p>
+
     <%= link_to about_path do %>
       <p class="home-container-content-more-info" >En savoir plus</p>
     <% end %>
-    <% if user_signed_in? %>
-      <p><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "home-container-content-login1" %></p>
-    <% else %>
+    <% if !user_signed_in? %>
       <p><%= link_to "Connexion", new_user_session_path, class: "home-container-content-login1" %></p>
       <p><%= link_to "Inscription", new_user_registration_path, class: "home-container-content-login2" %></p>
     <% end %>

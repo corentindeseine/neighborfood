@@ -11,6 +11,11 @@
 .avatar-large {
   width: 50px;
   border-radius: 50%;
+
+  &-map {
+  width: 70px;
+  border-radius: 50%;
+  }
 }
 .avatar-bordered {
   width: 40px;

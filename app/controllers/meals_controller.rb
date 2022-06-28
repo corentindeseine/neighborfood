@@ -22,7 +22,7 @@ class MealsController < ApplicationController
     @cooker = current_user
 
     if @meal.save
-      redirect_to  profil_path(@cooker)
+      redirect_to profil_path(@cooker)
     else
       render 'new'
     end

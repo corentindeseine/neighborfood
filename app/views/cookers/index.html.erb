@@ -11,22 +11,22 @@
           <div class="cooker-home-card">
             <%= link_to cooker_path(cooker) do %>
               <div class="cooker-top-container">
-                <%= cl_image_tag(cooker.image.key, class:'avatar-large' ) %>
+                <%= cl_image_tag(cooker.image.key, class:'avatar-large-map' ) %>
                 <div class='cooker-infos'>
                   <h6><%= cooker.first_name %></h6>
                   <% if user_signed_in? %>
-                    <p class='cooker-address'>habite à <%= (Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude])).round(2) %> km</p>
+                      <p class='cooker-address'>habite à <%= sprintf('%.2f',(Geocoder::Calculations.distance_between([current_user.latitude,current_user.longitude],[cooker.latitude,cooker.longitude]))) %> km</p>
                   <% end %>
                 </div>
                 <h6>
-                  <%= cooker.average_rating %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%> " style="color: #ffb016"></i>
+                    <%= "#{cooker.average_rating}   " if Review.where(cooker_id: cooker.id).count >= 2  %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%>" style="color: #ffb016"></i>
                 </h6>
               </div>
               <ul>
                 <li> <%= cooker.speciality %> </li>
                 <li>
                   <% if Order.where(cooker_id: cooker.id).count >= 2 %>
-                    Chef expert
+                    Chef confirmé
                   <% else %>
                     Nouveau chef
                   <% end %>

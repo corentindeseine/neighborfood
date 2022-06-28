@@ -24,7 +24,7 @@ users[0].last_name = "Kaba"
 users[0].address = "89 Rue Jean-Pierre Timbaud"
 user_1_avatar = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655193961/cuistot1_p0veba.png")
 users[0].image.attach(io: user_1_avatar, filename: 'user1.png', content_type: 'image/png')
-users[0].speciality = "Poissons"
+users[0].speciality = "Poissons & desserts"
 users[0].description = "J'adore cuisiner les meilleurs poissons que je trouve au marché. "
 
 users[1].email = "boris@gmail.com"
@@ -204,7 +204,6 @@ users.each_with_index do |user, index|
 others_users_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655243158/quiche-removebg-preview_fqgtbe.png")
 quiche.image.attach(io: others_users_file, filename: 'quiche.png', content_type: 'image/png')
 end
-
 
 # Seed orders
 
