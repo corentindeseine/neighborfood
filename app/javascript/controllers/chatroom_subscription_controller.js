@@ -12,30 +12,36 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
-    if (this.messagesTarget.children.length <= 0) {
-      const chatroom = document.querySelector('.chatroom-show-messages');
-      const loadAnimChat = bodymovin.loadAnimation({
-        wrapper: chatroom,
-        animType: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://assets1.lottiefiles.com/packages/lf20_zwwwgco2.json',
-        preserveAspectRatio: 'xMidYMid meet',
 
-      });
+    // if (this.messagesTarget.children.length <= 0) {
+    //   const chatroom = document.querySelector('.chatroom-show-illust');
+    //   const loadAnimChat = bodymovin.loadAnimation({
+    //     wrapper: chatroom,
+    //     animType: 'svg',
+    //     loop: true,
+    //     autoplay: true,
+    //     path: 'https://assets1.lottiefiles.com/packages/lf20_zwwwgco2.json',
+    //     preserveAspectRatio: 'xMidYMid meet',
+    //   });
 
-      loadAnimChat.goToAndPlay(0, true);
-    } else {
-      this.messagesTarget.classList.remove('chatroom-show-messages-illust')
-    }
+    //   loadAnimChat.goToAndPlay(0, true);
+    // }
 
   }
 
   #insertMessageAndScrollDown(data) {
+
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
+
     this._scrollDown()
   }
   resetForm(event) {
+
+    // if (this.messagesTarget.children.length > 0) {
+    //   this.messagesTarget.classList.remove('chatroom-show-illust')
+
+    // }
+
     event.target.reset()
   }
   disconnect() {

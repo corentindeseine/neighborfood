@@ -2,15 +2,15 @@
   <div class="order-show" data-controller="review" >
     <div class="order-show-header">
       <span>
-      <% if @order.status != 0 %>
-        <%= link_to orders_path do  %>
-          <i class="fas fa-chevron-left order-show-arrow"></i>
+        <% if @order.status != 0 %>
+          <%= link_to orders_path do  %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
+          <% end %>
+        <% else %>
+          <%= link_to cooker_path(@cooker) do  %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to cooker_path(@cooker) do  %>
-          <i class="fas fa-chevron-left order-show-arrow"></i>
-        <% end %>
-      <% end %>
       </span>
     </div>
     <%if @orderdetails.empty?%>
@@ -21,7 +21,6 @@
         <p> <%=@cooker.address%></p>
         <p> <strong> Votre commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
       </div>
-
       <%total = 0%>
       <% @orderdetails.each do |d| %>
         <div class="order-show-detail ">
@@ -39,9 +38,8 @@
         <%total = total + line_price%>
       <%end%>
       <div class= "order-show-body-total"  >
-
-          <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-<%#  %>
+        <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
+        <%#  %>
       </div>
       <div class="order-show-footer">
         <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
@@ -56,9 +54,6 @@
           </div>
         <% end %>
       </div>
-
-
-
       <div class="modal" data-controller="modal" data-review-target="modal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -71,6 +66,6 @@
     <div data-order-show-target = "loader" class = "loader-order">
       <h1>En cours de préparation</h1>
     </div>
-    <% end%>
-  </div>
+  <% end%>
+</div>
 </div>

@@ -13,7 +13,7 @@
       <h1><%= @chatroom.interlocutor(current_user).first_name %></h1>
       <h2></h2>
     </div>
-    <div class="chatroom-show-messages <%= 'chatroom-show-messages-illust' if @chatroom.messages.empty? %> "  data-chatroom-subscription-target="messages" >
+    <div class="chatroom-show-messages <%#= 'chatroom-show-illust' if @chatroom.messages.empty? %> "  data-chatroom-subscription-target="messages" >
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
@@ -28,6 +28,6 @@
       placeholder: "Message",
       wrapper_html: {class: "flex-grow-1"}
     %>
-  <%= f.submit "Envoyer", class: "chatroom-show-button" %>
+  <%= f.submit "Envoyer", class: "chatroom-show-button"%>
 <% end %>
 </div>
