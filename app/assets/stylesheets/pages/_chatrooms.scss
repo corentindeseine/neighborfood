@@ -54,9 +54,12 @@
 }
 
 #user_list {
+  display: flex;
+  justify-content: center;
   height: 100%;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 1.8rem;
+
 }
 
 .chatroom-show {
@@ -101,6 +104,11 @@
     border-radius: 0.55rem;
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
     padding: 1rem;
+  }
+
+  &-illust {
+    height: 70vh;
+    max-height: 70vh;
   }
 
   &-inputs {

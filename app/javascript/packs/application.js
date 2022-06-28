@@ -19,6 +19,7 @@ import "bootstrap"
 import "packs/swiper"
 import "@popperjs/core"
 import "packs/home"
+import "packs/chatroom"
 require("packs/navbar")
 
 document.addEventListener("turbolinks:load", () => {

@@ -119,6 +119,11 @@
     z-index: 1;
     width: 100%;
 
+    svg {
+      width: 100%;
+
+    }
+
     &-button {
       color: #ffffff;
       background: #ff6161;
@@ -173,8 +178,8 @@
 }
 
 .légumes {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
 
 }
 
@@ -203,4 +208,156 @@
 .loader-home.is-active {
   visibility: visible;
   opacity: 1;
+}
+
+@media (min-width: 370px) and (max-width: 385px) {
+  .home-container {
+
+    .légumes {
+      width: 60px;
+      height: 60px;
+
+    }
+
+
+    &-top {
+
+      position: absolute;
+      height: 50%;
+      width: 87%;
+      top: 0;
+      right: 0;
+
+
+      img:nth-child(1) {
+
+        top: 3%;
+        right: 5%;
+      }
+
+      img:nth-child(2) {
+
+        top: 0px;
+        left: 25%;
+      }
+
+      img:nth-child(3) {
+
+        bottom: 28%;
+        right: 0%;
+      }
+
+      img:nth-child(4) {
+
+        bottom: 50%;
+        right: 5%;
+      }
+
+
+      img:nth-child(5) {
+
+        top: 16%;
+        right: 30%;
+      }
+    }
+
+
+
+
+
+
+    &-bottom {
+      position: absolute;
+      height: 50%;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+
+
+      img:nth-child(1) {
+
+        bottom: 1%;
+        left: 5%;
+      }
+
+      img:nth-child(2) {
+
+        bottom: 0;
+        right: 50%;
+      }
+
+      img:nth-child(3) {
+
+        bottom: 23%;
+        right: 60%;
+      }
+
+      img:nth-child(4) {
+
+        bottom: 41%;
+        left: 9%;
+      }
+
+      img:nth-child(5) {
+
+        top: 18%;
+        left: 2%;
+      }
+    }
+
+
+
+    &-content {
+      top: 42%;
+
+      &-more-info {
+
+        left: 50%;
+        top: 215px;
+
+      }
+
+
+      &-login1 {
+
+        top: 265px;
+
+      }
+
+      &-login2 {
+
+        top: 305px;
+
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      &-button {
+
+        padding: 10px 15px;
+
+      }
+    }
+
+    svg {
+      width: 70%;
+
+    }
+    .loader-home {
+
+
+      h1 {
+
+        top: 15%;
+
+
+
+      }
+    }
+
+
+
+  }
 }
