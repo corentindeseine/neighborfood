@@ -17,7 +17,7 @@
                   <div class="meal-card-header-img">
                     <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
                   </div>
-                  <div class="meal-card-header-price"><span><%= meal.unit_price %></span> €</div>
+                  <div class="meal-card-header-price"><span><%=sprintf('%.2f', meal.unit_price) %></span> €</div>
                 </div>
                 <div class="meal-card-body">
                   <div class= "meal-card-body-detail">
