@@ -53,4 +53,9 @@ class User < ApplicationRecord
   def current_order
     orders.find { |e| e.status.zero? } || false
   end
+
+  def is_cooker?
+    meals.any?
+  end
+
 end

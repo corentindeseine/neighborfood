@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", () => {
   //   // Fonction qui fait avancer les bulles d'icons de la navbar
 
   function move(id, position, color) {
-    console.log(position);
+ 
     const current_position = position;
     tl.set('#bgBubble', { left: current_position });
     tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
@@ -33,14 +33,14 @@ document.addEventListener("turbolinks:load", () => {
 
 
   if (window.location.pathname.includes("/cookers")) {
-    move('1', '50px', '#FF6161');
+    move('1', '12.4%', '#FF6161');
   }
 
   //   // menu2.addEventListener("click", (event) => {
   //   //   move('2', '150px', '#FF6161');
   //   // })
   if (window.location.pathname.includes("/orders")) {
-    move('2', '154px', '#FF6161');
+    move('2', '37.5%', '#FF6161');
 
   }
 
@@ -48,13 +48,13 @@ document.addEventListener("turbolinks:load", () => {
   //   //   move('3', '250px', '#FF6161');
   //   // })
   if (window.location.pathname.includes("/chatrooms")) {
-    move('3', '258px', '#FF6161');
+    move('3', '62.3%', '#FF6161');
   }
 
   if (menu4) {
     tl.set('.navigation li', { x: "-125%" });
     menu4.addEventListener("click", (event) => {
-      move('4', '361px', '#FF6161');
+      move('4', '87.5%', '#FF6161');
       tlnav.to(menu, 0.3, { scale: 1, ease: Back.easeOut })
         .staggerTo('.navigation li', 0.4, { x: 0, ease: Sine.easeOut }, 0.2, 0.5)
     })

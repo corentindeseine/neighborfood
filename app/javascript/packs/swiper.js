@@ -19,10 +19,10 @@ document.addEventListener("turbolinks:load", () => {
       300: {
         slidesPerView: 1,
         slidesPerGroup: 1,
-        spaceBetween: -30,
+        spaceBetween: -60,
         grabCursor: true,
         loop: false,
-        centeredSlides: true
+        centeredSlides: false
 
       },
       // when window width is >= 900px

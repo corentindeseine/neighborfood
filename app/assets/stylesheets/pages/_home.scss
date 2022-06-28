@@ -1,14 +1,16 @@
-.container-fluid{
-  height: 100%;
+.container-fluid {
+  min-height: 100%;
   width: 100%;
   padding: 0 1rem;
-  margin-bottom: 160px;
-
+  padding-bottom: 7rem;
 }
+
+
 .home-container {
   position: relative;
   background-color: #e6e7ee;
   height: 100%;
+  width: 100%;
   color: #fff;
   text-align: center;
   // background: image-url("wave.svg") no-repeat center center/ cover;
@@ -30,33 +32,33 @@
 
     img:nth-child(1) {
       position: absolute;
-      top: 9px;
-      right: 18px;
+      top: 3%;
+      right: 5%;
     }
 
     img:nth-child(2) {
       position: absolute;
       top: 0px;
-      left: 100px;
+      left: 25%;
     }
 
     img:nth-child(3) {
       position: absolute;
-      bottom: 118px;
-      right: 13px;
+      bottom: 25%;
+      right: 3%;
     }
 
     img:nth-child(4) {
       position: absolute;
-      bottom: 223px;
-      right: 30px;
+      bottom: 50%;
+      right: 5%;
     }
 
 
     img:nth-child(5) {
       position: absolute;
-      top: 76px;
-      right: 117px;
+      top: 16%;
+      right: 30%;
     }
   }
 
@@ -77,32 +79,32 @@
 
     img:nth-child(1) {
       position: absolute;
-      bottom: 25px;
-      left: 20px;
+      bottom: 9%;
+      left: 5%;
     }
 
     img:nth-child(2) {
       position: absolute;
-      bottom: 24px;
-      right: 105px;
+      bottom: 6%;
+      right: 36%;
     }
 
     img:nth-child(3) {
       position: absolute;
-      bottom: 90px;
-      right: 198px;
+      bottom: 23%;
+      right: 50%;
     }
 
     img:nth-child(4) {
       position: absolute;
-      bottom: 170px;
-      left: 30px;
+      bottom: 41%;
+      left: 9%;
     }
 
     img:nth-child(5) {
       position: absolute;
-      top: 79px;
-      left: 4px;
+      top: 18%;
+      left: 2%;
     }
   }
 
@@ -115,6 +117,7 @@
     transform: translate(-50%, -50%);
     background: transparent;
     z-index: 1;
+    width: 100%;
 
     &-button {
       color: #ffffff;
@@ -130,8 +133,26 @@
 
     &-more-info {
       position: absolute;
-      left: 36%;
+      left: 50%;
       top: 245px;
+      transform: translate(-50%, -50%);
+      border-bottom: 1px solid #ff6161;
+      padding-bottom: 3px;
+      margin-top: 10px;
+    }
+
+    &-login1 {
+      position: absolute;
+      top: 295px;
+      transform: translate(-50%, -50%);
+      border-bottom: 1px solid #ff6161;
+      padding-bottom: 3px;
+    }
+
+    &-login2 {
+      position: absolute;
+      top: 335px;
+      transform: translate(-50%, -50%);
       border-bottom: 1px solid #ff6161;
       padding-bottom: 3px;
     }

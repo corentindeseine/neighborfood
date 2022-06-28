@@ -1,20 +1,10 @@
-<div class='home-container' data-controller = "home" >
-  <div class='home-container-top'>
-    <%= image_tag("aubergines.png", :alt => "aubergines", class: "légumes") %>
-    <%= image_tag("piment.png", :alt => "piment", class:"légumes") %>
-    <%= image_tag("tomates.png", :alt => "tomate", class:"légumes") %>
-    <%= image_tag("carottes.png", :alt => "carotte", class:"légumes") %>
-    <%= image_tag("poivrons.png", :alt => "poivron", class:"légumes") %>
-  </div>
-  <svg width="0" height="0" >
-    <defs>
-      <clipPath id="wave-top">
-        <path id="Vector 1" d="M416.5 430.5V1H1.5C73.6678 81.9875 190.5 84.9614 261.5 224.5C332.5 364.039 411.854 426.505 416.5 430.5Z" stroke="black"/>
-      </clipPath>
-    </defs>
-  </svg>
-  <div class="home-container-content">
-    <h1><svg width="378" height="99" viewBox="0 0 378 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="container-fluid">
+  <div class="about" data-controller = "about">
+    <div class="about-header">
+      <%= link_to root_path do  %>
+        <i class="fas fa-chevron-left about-header-arrow"></i>
+      <% end %>
+      <svg width="378" height="99" viewBox="0 0 378 99" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="Group">
           <g id="N">
             <path d="M62.4893 82.607L57.2243 85.0969L22.6888 62.1996L36.049 95.1112L30.784 97.6011L13.9816 56.2095L19.2465 53.7196L53.7579 76.5576L40.4219 43.7053L45.6868 41.2154L62.4893 82.607Z" fill="#FF6161"/>
@@ -66,35 +56,26 @@
           </g>
         </g>
       </svg>
-    </h1>
-    <br>
-    <h2>Mon voisin est un chef!</h2>
-    <br>
-    <p data-home-target = "button" data-action="click->home#play"><%= link_to 'Voir les Cuistots',cookers_path, class: "home-container-content-button" %></p>
-
-    <%= link_to about_path do %>
-      <p class="home-container-content-more-info" >En savoir plus</p>
-    <% end %>
-    <% if !user_signed_in? %>
-      <p><%= link_to "Connexion", new_user_session_path, class: "home-container-content-login1" %></p>
-      <p><%= link_to "Inscription", new_user_registration_path, class: "home-container-content-login2" %></p>
-    <% end %>
-  </div>
-  <div class="home-container-bottom">
-    <%= image_tag("choux.png", :alt => "choux", class:"légumes") %>
-    <%= image_tag("concombre.png", :alt => "concombre", class:"légumes") %>
-    <%= image_tag("halloween.png", :alt => "halloween", class:"légumes") %>
-    <%= image_tag("oignons.png", :alt => "oignons", class:"légumes") %>
-    <%= image_tag("tomates.png", :alt => "pomme", class:"légumes") %>
-  </div>
-  <svg width="0" height="0" >
-    <defs>
-      <clipPath id="wave-bottom">
-        <path id="Vector 2" d="M1 2V431.5H416C343.832 350.512 227 347.539 156 208C85 68.4614 5.64569 5.99454 1 2Z" stroke="black"/>
-      </clipPath>
-    </defs>
-  </svg>
-  <div data-home-target = "loader" class = "loader-home">
-    <h1>Nous cherchons vos cuistots!</h1>
+    </div>
+    <div class="about-content">
+      <p> Réserver votre plat du soir à l'un des nombreux chefs cuistots de votre quartier ! </p>
+      <div class ="about-content-illustration-1" data-target ="illustration1"></div>
+      <p> Avec neighborfood, rencontrez vos voisins et découvrez de nouvelles saveurs à des prix raisonnables</p>
+      <h1 class ="text-center" >Comment ça marche?</h1>
+      <div class="about-content-process">
+        <div class='about-content-process-bloc1'>
+          <%= image_tag("cooking.png", :alt => "image marmite") %>
+          <p>Les cuistots préparent leurs plats et les proposent sur neighborfood</p>
+        </div>
+        <div class='about-content-process-bloc2'>
+          <%= image_tag("booking.png", :alt => "image réservation") %>
+          <p>Je réserve mon plat sur l'application</p>
+        </div>
+        <div class='about-content-process-bloc3'>
+          <%= image_tag("take.png", :alt => "image take") %>
+          <p>Je récupère mon plat chez le cuistot le jour même</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
