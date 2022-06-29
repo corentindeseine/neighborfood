@@ -52,7 +52,7 @@
               </div>
               <div class="meal-card-body-button" data-quantity-button-target="add">
                 <%= simple_form_for([@cooker, @orderdetail],
-                  url: cooker_order_details_path(@cooker)) do |f| %>
+                url: @orderdetail.persisted? ? order_detail_path(@orderdetail) : cooker_order_details_path(@cooker)) do |f| %>
                   <%= hidden_field_tag :meal_id, meal.id %>
                   <%= f.input :ordered_quantity, wrapper_html: {
                                         class: 'd-none'
