@@ -12,8 +12,8 @@
         <%= cl_image_tag(@cooker.image.key, class:'avatar-large-map' ) %>
         <div>
           <p><strong>Chez <%=@cooker.first_name%></strong></p>
-          <p> <%= @cooker.speciality %></p>
           <p> <%=@cooker.address%></p>
+          <p> Spécialité : <%= @cooker.speciality %></p>
         </div>
       </div>
     </div>

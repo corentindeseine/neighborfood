@@ -147,7 +147,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      bottom: 0;
+      bottom: 10px;
       left: 0;
       padding: 1rem;
       width: 100%;
@@ -166,7 +166,7 @@
         align-items: center;
         justify-content: space-around;
         padding: 4px 0px;
-        width: 30%;
+        width: 26%;
         border-radius: 24px;
         margin: 0 auto 0 auto;
         color: rgb(140, 140, 140);
@@ -218,7 +218,7 @@
     &-button {
       input {
         width: 100%;
-        padding: 10px 55px;
+        padding: 10px 80px;
         background: #FF6161;
         border-bottom-right-radius: 50px;
         border-bottom-left-radius: 50px;
@@ -247,16 +247,4 @@
   h1 {
     margin-bottom: 1rem;
   }
- .meal-add{
- 
-  padding: 8px 15px;
-  color: #ffffff;
-  background: #ff6161;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-top-right-radius: 50px;
-  font-size: 1.2rem;
-  text-align: center;
-  border: none;
- }
 }

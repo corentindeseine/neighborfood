@@ -26,40 +26,30 @@
     &-img {
       position: absolute;
       top: -75px;
-      left: -8px;
+      left: 45px;
       width: 120px;
       height: 160px;
 
       img {
-        width: 164px;
+        width: 160px;
         height: auto;
       }
-    }
-
-
-
-
-    &-price {
-      font-size: 26px;
-      font-weight: bold;
-      color: rgb(140,140,140);
-      position: absolute;
-      left: 16%;
-      bottom: 0%;
     }
   }
 
   &-body {
     height: 150px;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 75px;
 
     &-detail {
       padding-right: 10px;
       margin-top: 18px;
 
       p {
-        color: rgb(120,120,120)
+        color: rgb(120,120,120);
+        margin-left: 6px;
+        min-height: 70px;
       }
     }
 
@@ -67,43 +57,65 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      width: 200%;
+      width: 40%;
       border-radius: 24px;
       margin: 0 auto 0 auto;
       color: rgb(140, 140, 140);
-      background: linear-gradient(145deg, #caced4, #f0f5fd);
-      box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+      margin-top:12px;
 
       &-container{
-        position: absolute;
-        right: -60%;
-        top: 90%;
       }
     }
-
     &-button {
       position: absolute;
-      right: -12px;
-      bottom: -6px;
-      padding: 5px 23px;
-      color: #ffffff;
+      right: -16px;
+      bottom: -8px;
+      padding: 2px 23px;
       background: #ff6161;
       border-bottom-right-radius: 50px;
       border-bottom-left-radius: 50px;
       border-top-right-radius: 50px;
       text-align: center;
-      font-size: 1.2rem;
+
+      input {
+        color: white;
+        font-size: 16px;
+      }
     }
 
     &-more-info {
       position: absolute;
       right: 35%;
-      bottom: 20%;
+      bottom: 17%;
       width: fit-content;
       border-bottom: 1px solid #ff6161;
       padding-bottom: 3px;
       margin-top: 4px;
     }
+
+    &-footer {
+      position: absolute;
+      bottom: 0%;
+      left: 12%;
+    }
+  }
+
+
+  &-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6161;
+    position: absolute;
+    left: 16%;
+    bottom: 0%;
+  }
+
+  &-available {
+    margin-top: 40px;
+    font-size: 16px;
+    color: rgb(120,120,120);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
