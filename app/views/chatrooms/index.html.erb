@@ -12,12 +12,12 @@
               </div>
               <p><strong>Le:</strong>  <%= chatroom.created_at.strftime("%d-%m-%y") %></p>
             </div>
-            <p class="chatroom_message">
+            <p class="chatroom-message">
               <% if chatroom.messages.last %>
                 <%= chatroom.messages.last.content.truncate(70)   %>....
               <% else %>
-           
-                <p>Discutez avec <strong><%= chatroom.cooker.first_name %></strong> </p>
+
+                <p class="chatroom-message">Discutez avec votre cuistot</p>
               <% end %>
             </p>
           </li>

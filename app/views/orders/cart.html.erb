@@ -1,0 +1,64 @@
+<% if @order %>
+  <div class="container-fluid" data-controller = "order-show">
+    <div class="order-show" data-controller="review" >
+    <div class="order-show-header">
+      <div class="order-show-header-content">
+          <%= link_to cooker_path(@cooker) do  %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
+          <% end %>
+          <p>Commande en cours</p>
+      </div>
+      <div class="order-show-body">
+        <%= cl_image_tag(@cooker.image.key, class:'avatar-large-map' ) %>
+        <div>
+          <p><strong>Chez <%=@cooker.first_name%></strong></p>
+          <p> <%=@cooker.address%></p>
+          <p> Spécialité : <%= @cooker.speciality %></p>
+        </div>
+      </div>
+    </div>
+      <%total = 0%>
+      <% @orderdetails.each do |d| %>
+        <div class="order-show-detail ">
+          <div class="order-show-detail-left-img">
+            <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
+          </div>
+          <div class="order-show-detail-center">
+            <p> <%=d.ordered_quantity%> x <%= d.meal.name%></p>
+          </div>
+          <div class="order-show-detail-right-subtotal">
+            <%line_price = (d.ordered_quantity * d.meal.unit_price)%>
+            <p><%=sprintf('%.2f', line_price)%> €</p>
+          </div>
+        </div>
+        <%total = total + line_price%>
+      <%end%>
+        <div class= "order-show-body-total"  >
+            <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
+        </div>
+        <div class="order-show-footer">
+          <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
+          <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
+            <%= simple_form_for( @order, data:{order_show_target: "forms"}) do |f| %>
+              <%= f.button :submit, "Confirmer" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div data-order-show-target = "loader" class = "loader-order">
+        <h1>En cours de préparation</h1>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="container-fluid cart-show" >
+    <%= image_tag("cart-empty.png", :alt => "panier vide") %>
+    <div class="cart-show-description">
+      <h6>Ajouter des plats pour afficher votre panier</h6>
+      <p>Une fois que vous avez ajouté un ou plusieurs plats, votre panier s'affichera ici.</p>
+      <div class="cart-show-button-container">
+        <%= link_to "Voir les cuistots disponibles", cookers_path, class:'cart-show-button'%>
+      </div>
+    </div>
+  </div>
+<% end %>

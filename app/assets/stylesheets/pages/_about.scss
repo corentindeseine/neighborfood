@@ -23,10 +23,9 @@
 
   &-content {
     p {
-      font-size: 1.2rem;
-      line-height: 1.5;
+      font-size: 1rem;
       margin-bottom: 1.5rem;
-      margin-top: 2.5rem;
+      margin-top: 1rem;
       text-align: center;
 
       &-illustration-1 {
@@ -39,11 +38,19 @@
       margin-bottom: 1.5rem;
     }
 
-    &-process {
-      display: flex;
-      align-items: baseline;
-      padding: 8px;
+    h6 {
+      font-size: 1.6rem;
+      color: #FF6161;
+      margin-bottom: 18px;
+    }
 
+    &-process {
+      width: 75%;
+
+      &-container {
+        display: flex;
+        justify-content: center;
+      }
 
 
       &-bloc1 {

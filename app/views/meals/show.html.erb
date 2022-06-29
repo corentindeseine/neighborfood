@@ -52,7 +52,7 @@
     <div class= "meal-show-body-footer">
         <div class='meal-show-body-footer-price-container'>
           <p>Prix total</p>
-          <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %> €</div>
+          <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', @meal.unit_price) %>€</div>
         </div>
         <div class="meal-show-body-button" data-quantity-button-target="add">
                 <%= simple_form_for([@cooker, @orderdetail],
@@ -65,7 +65,7 @@
                                          data: {quantity_button_target: "input"}
                                        } %>
                     <% if @old_order && @old_order.cooker_id != @cooker.id %>
-                      <%= f.button :submit, "AJOUTER", data: { confirm: "Vous avez une commande en cours chez #{@old_order.cooker.first_name}" } %>
+                      <%= f.button :submit, "AJOUTER", data: { confirm: "Voulez-vous passez une nouvelle commmande ? Votre panier avec #{@old_order.cooker.first_name} sera vidé" } %>
                     <% else %>
                       <%= f.button :submit, "AJOUTER" %>
                     <% end %>

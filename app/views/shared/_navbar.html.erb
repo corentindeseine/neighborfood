@@ -31,7 +31,17 @@
         <% end %>
       </div>
       <div id="menu2" class="menuElement" data-nav-target = "menu2" >
-        <%= link_to basket_orders_path do %>
+        <% if user_signed_in? %>
+          <div class="<%= 'cart-notification' unless current_user.orders.where(status: 0).empty? %> "  data-quantity-button-target="notification">
+            <% unless current_user.orders.where(status: 0).empty? %>
+              <% order_details = current_user.orders.where(status: 0).first.order_details %>
+              <% sum = 0%>
+              <% order_details.each { |d| sum += d.ordered_quantity } %>
+              <%= sum %>
+            <% end %>
+          </div>
+        <% end %>
+        <%= link_to cart_orders_path do %>
           <i class="fas fa-shopping-bag"></i>
         <% end %>
       </div>

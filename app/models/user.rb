@@ -14,7 +14,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def full_street_address
-    "#{address}, #{zip_code}, #{city}"
+    "#{address}, #{zip_code} #{city}"
   end
 
   # Foreign key
@@ -37,10 +37,15 @@ class User < ApplicationRecord
   validates :zip_code, presence: true, format: { with: /\d{5}/ }
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, format: { with: /\A((\+)33|0|0033)[1-9](\d{2}){4}\z/ }
+  scope :all_except, ->(user) { where.not(id: user) }
 
   def self.cookers
     User.left_joins(:meals).where('meals.id IS NOT NULL').distinct
   end
+
+  # def self.active_cookers
+  #   User.joins(:meals).where('meals.available_quantity is NOT NULL')
+  # end
 
   def chatrooms
     chatrooms_as_client + chatrooms_as_cooker

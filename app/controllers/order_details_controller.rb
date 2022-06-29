@@ -6,12 +6,10 @@ class OrderDetailsController < ApplicationController
     @order = Order.find_or_create_by(client_id: current_user.id, cooker_id: @cooker.id, status: 0)
     @orderdetail = OrderDetail.find_by(order_id: @order.id, meal_id: @meal.id)
     @old_order = Order.find_by(client: current_user.id, status: 0)
-
+    
     if @old_order
       @old_order.destroy if @old_order.cooker_id != @cooker.id
     end
-
-
       if @orderdetail
         @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity)
       else
@@ -19,7 +17,6 @@ class OrderDetailsController < ApplicationController
         @orderdetail.order = @order
         @orderdetail.meal = @meal
       end
-
       if @orderdetail.save
         redirect_to cooker_path(@cooker)
       else

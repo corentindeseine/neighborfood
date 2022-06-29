@@ -157,7 +157,7 @@ pastilla_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v165
 pastilla.image.attach(io: pastilla_file, filename: 'Pastilla.png', content_type: 'image/png')
 
 # Seed meals pour user 2
-tartare_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1654947934/Tartare-thon_j1ufi0.png")
+tartare_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656500720/Tartare-thon_j1ufi0.png")
 tartare = Meal.create!(name: 'Tartare de thon',
                        description: "Tartare de thon frais façon créole. Mes amis et ma famille se régalent à chaque bouchée de ce plat ! J'espère qu'il sera vous satisfaire ",
                        unit_price: 10,
@@ -174,7 +174,7 @@ tataki = Meal.create!(name: 'Tataki de thon',
                       range_date_time: "06/14/2022 20:00 , 06/14/2022 22:00",
                       available_quantity: 6,
                       user_id: users[0].id)
-tataki_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1654947895/Tataki-thon_biymqi.png")
+tataki_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656500773/Tataki-thon_biymqi.png")
 tataki.image.attach(io: tataki_file, filename: 'Tataki-thon.png', content_type: 'image/png')
 
 # Seed meals pour user 3
