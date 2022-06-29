@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
       @cooker = @order.cooker || @cooker
       @chatroom = Chatroom.new
       @single_chatroom = Chatroom.find_by(client: current_user, cooker: @cooker) ||
-                        Chatroom.find_by(client: @cooker, cooker: current_user) ||
-                        Chatroom.create_private_chatroom(@cooker, current_user)
+                         Chatroom.find_by(client: @cooker, cooker: current_user) ||
+                         Chatroom.create_private_chatroom(@cooker, current_user)
     end
   end
 
