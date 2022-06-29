@@ -139,5 +139,11 @@
 }
 
 .chatroom-message {
-  color: rgb(80,80,80)
+  color: rgb(80, 80, 80)
+}
+
+@media (min-width: 360px) and (max-width: 390px) {
+  .chatroom-show-messages {
+    height: 70vh;
+  }
 }
