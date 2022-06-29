@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 
 export default class extends Controller {
-  static targets = ["quantity","available","less","more","add","price","input"]
+  static targets = ["quantity","available","less","more","add","price","input","notification"]
   static values = { quantity: Number }
 
 
@@ -40,7 +40,7 @@ export default class extends Controller {
     this.inputTarget.value = this.quantityTarget.innerHTML
   }
 
-  updateQuantity () {
-    console.log()
+  submit () {
+    this.notifcationTarget.add.classList = 'cart-notification'
   }
 }

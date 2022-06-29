@@ -100,14 +100,10 @@
 }
 
 .menuElement {
-  opacity: 0.4;
+  opacity: 1;
   transform: translateY(80%);
   cursor: pointer;
-
-
-  &:hover {
-    opacity: 0.5;
-  }
+  color: rgb(140,140,140);
 }
 
 #contentWrapper {
@@ -183,4 +179,17 @@
   // box-shadow: 20px 20px 60px #bec3c9,
   //   -20px -20px 60px #ffffff;
   padding: 15px;
+}
+
+.cart-notification {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff6161;
+  position: absolute;
+  left: 8px;
+  bottom: 14px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
 }

@@ -1,27 +1,29 @@
 <div class="container-fluid" data-controller = "order-show">
   <div class="order-show" data-controller="review" >
     <div class="order-show-header">
-      <span>
-      <% if @order.status != 0 %>
-        <%= link_to orders_path do  %>
-          <i class="fas fa-chevron-left order-show-arrow"></i>
-        <% end %>
-      <% else %>
-        <%= link_to cooker_path(@cooker) do  %>
-          <i class="fas fa-chevron-left order-show-arrow"></i>
-        <% end %>
-      <% end %>
-      </span>
-    </div>
-    <%if @orderdetails.empty?%>
-      <p> Vous n'avez aucun plat dans cette commande</p>
-    <%else%>
-      <div class="order-show-body">
-        <p>Chez: <span class = "order-show-body-name"><%=@cooker.first_name%></span>  </p>
-        <p> <%=@cooker.address%></p>
-        <p> <strong> Votre commande du:</strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
+      <div class="order-show-header-content">
+          <% if @order.status == 0 %>
+            <%= link_to cooker_path(@cooker) do  %>
+              <i class="fas fa-chevron-left order-show-arrow"></i>
+            <% end %>
+              <p>Commande en cours</p>
+          <% else %>
+            <%= link_to orders_path do  %>
+              <i class="fas fa-chevron-left order-show-arrow"></i>
+            <% end %>
+              <p> <strong>Commande du </strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
+          <% end %>
       </div>
-
+      <div class="order-show-body">
+        <%= cl_image_tag(@cooker.image.key, class:'avatar-large-map' ) %>
+        <div>
+          <p><strong>Chez <%=@cooker.first_name%></strong></p>
+          <p> <%= @cooker.speciality %></p>
+          <p> <%=@cooker.address%></p>
+        </div>
+      </div>
+    </div>
+    
       <%total = 0%>
       <% @orderdetails.each do |d| %>
         <div class="order-show-detail ">
@@ -37,12 +39,10 @@
           </div>
         </div>
         <%total = total + line_price%>
-      <%end%>
       <div class= "order-show-body-total"  >
-
           <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-<%#  %>
       </div>
+
       <div class="order-show-footer">
         <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
         <% if @order.status != 0 %>
@@ -56,8 +56,6 @@
           </div>
         <% end %>
       </div>
-
-
 
       <div class="modal" data-controller="modal" data-review-target="modal">
         <div class="modal-dialog">

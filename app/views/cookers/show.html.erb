@@ -1,10 +1,12 @@
-<div class="container-fluid" data-controller="quantity-buttom">
+<div class="container-fluid" data-controller="quantity-button">
   <div class="cookers-show ">
     <div class="cookers-show-header">
       <div class="head">
         <%= cl_image_tag(@cooker.image.key, class:'avatar-large' ) %>
         <h1><%= @cooker.first_name %> </h1>
-        <span class = "rating"><%= @cooker.average_rating%><i class="fas fa-star" style="color: #ffb016"></i></span>
+        <div class="rating">
+         <%= "#{@cooker.average_rating}   " if Review.where(cooker_id: @cooker).count >= 2  %><i class="fas fa-star <%= 'invisible' if Review.where(cooker_id: @cooker).count < 2%>" style="color: #ffb016"></i>
+        </div>
       </div>
       <div class="cookers-show-header-description">
         <p><i class="fas fa-quote-left"></i> <%= @cooker.description %><i class="fas fa-quote-right"></i></p>
@@ -17,14 +19,11 @@
     <div class="cooker-show-cards swiper-container">
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
-          <div class="swiper-slide">
+          <div class="swiper-slide" data-quantity-button-quantity-value="<%= meal.available_quantity %>">
             <div class="meal-card" >
               <div class="meal-card-header">
                 <div class="meal-card-header-img">
                   <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
-                </div>
-              </div>
-              <div class="meal-card-body">
                 <div class="meal-card-body-quantity-container">
                   <div class="meal-card-body-quantity">
                     <% if @quantity == 1 %>
@@ -36,21 +35,43 @@
                     <div class="meal-show-body-footer-more" data-action="click->quantity-button#increment"data-quantity-button-target="more"> <i class="fas fa-plus-circle"></i></div>
                   </div>
                 </div>
+                </div>
+              </div>
+              <div class="meal-card-body">
                 <div class= "meal-card-body-detail">
                   <h2><%= meal.name %></h2>
                   <p> <%= meal.description.truncate(60) %> </p>
+                  <div class='meal-show-available' data-quantity-button-target="available">
+                  <% if meal.available_quantity == 1 %>
+                    <%= meal.available_quantity %> plat disponible !
+                  <% else %>
+                    <%= meal.available_quantity %> plats sont encore disponibles !
+                  <% end %>
+                  </div>
                 </div>
                 <%= link_to cooker_meal_path(@cooker, meal) do %>
                   <p class="meal-card-body-more-info">Plus d'infos</p>
                 <% end%>
               </div>
               <div class="meal-card-body-footer">
-                <div class="meal-card-header-price"><span><%= sprintf('%.2f', meal.unit_price) %></span> €</div>
-                <%= simple_form_for([@cooker, @orderdetail],
-                url: cooker_order_details_path(@cooker)) do |f| %>
-                  <%= hidden_field_tag :meal_id, meal.id %>
-                  <%= f.button :submit, "Ajouter", class: 'meal-card-body-button' %>
-                <% end %>
+                <div class="meal-show-price" data-quantity-button-target="price"><%=sprintf('%.2f', meal.unit_price) %> €</div>
+                <div class="meal-show-body-button" data-quantity-button-target="add">
+                  <%= simple_form_for([@cooker, @orderdetail],
+                  url: cooker_order_details_path(@cooker)) do |f| %>
+                    <%= hidden_field_tag :meal_id, meal.id %>
+                    <%= f.input :ordered_quantity, wrapper_html: {
+                                          class: 'd-none'
+                                        },
+                                        input_html: {
+                                          data: {quantity_button_target: "input"}
+                                        } %>
+                      <% if @old_order && @old_order.cooker_id != @cooker.id %>
+                        <%= f.button :submit, "AJOUTER", data: { confirm: "Voulez-vous passez une nouvelle commmande ? Votre panier avec #{@old_order.cooker.first_name} sera vidé"  } %>
+                      <% else %>
+                        <%= f.button :submit, "AJOUTER" %>
+                      <% end %>
+                    <% end %>
+               </div>
               </div>
             </div>
           </div>
@@ -58,6 +79,7 @@
       </div>
     </div>
     <div class="cookers-show-reviews" >
+    <h6> <%= "#{@cooker.reviews.count} avis" if @cooker.reviews.length > 0 %> </h6>
       <% @cooker.reviews.each do |review| %>
         <div class="review-content">
           <div class="review-content-header">
