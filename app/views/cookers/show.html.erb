@@ -6,7 +6,7 @@
         <%= cl_image_tag(@cooker.image.key, class:'avatar-large' ) %>
         <h1><%= @cooker.first_name %> </h1>
         <div class="rating">
-         <%= "#{@cooker.average_rating}   " if Review.where(cooker_id: @cooker).count >= 2  %><i class="fas fa-star <%= 'invisible' if Review.where(cooker_id: @cooker).count < 2%>" style="color: #ffb016"></i>
+          <%= "#{@cooker.average_rating}   " if Review.where(cooker_id: @cooker).count >= 2  %><i class="fas fa-star <%= 'invisible' if Review.where(cooker_id: @cooker).count < 2%>" style="color: #ffb016"></i>
         </div>
       </div>
       <div class="cookers-show-header-description">
@@ -60,13 +60,13 @@
                                       input_html: {
                                         data: {quantity_button_target: "input"}
                                       } %>
-                    <% if @old_order && @old_order.cooker_id != @cooker.id %>
-                      <%= f.button :submit, "AJOUTER", data: { confirm: "Voulez-vous passez une nouvelle commmande ? Votre panier avec #{@old_order.cooker.first_name} sera vidé"  } %>
-                    <% else %>
-                      <%= f.button :submit, "AJOUTER" %>
-                    <% end %>
-                 <% end %>
-                </div>
+                  <% if @old_order && @old_order.cooker_id != @cooker.id %>
+                    <%= f.button :submit, "AJOUTER", data: { confirm: "Voulez-vous passez une nouvelle commmande ? Votre panier avec #{@old_order.cooker.first_name} sera vidé"  } %>
+                  <% else %>
+                    <%= f.button :submit, "AJOUTER" %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
             <div class="meal-card-available" data-quantity-button-target="available">
               <% if meal.available_quantity == 1 %>
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="cookers-show-reviews" >
-    <h6> <%= "Avis (#{@cooker.reviews.count})" if @cooker.reviews.length > 0 %> </h6>
+      <h6> <%= "Avis (#{@cooker.reviews.count})" if @cooker.reviews.length > 0 %> </h6>
       <% @cooker.reviews.each do |review| %>
         <div class="review-content">
           <div class="review-content-header">
