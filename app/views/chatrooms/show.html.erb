@@ -1,6 +1,6 @@
 <%#= render 'chatrooms/chatroom', chatroom: @chatroom, message: @message %>
 <div class="container-fluid chatroom-show" data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-messages-length-value ="<%= @chatroom.messages.length%>">
   <div class="overflow-y-scroll"
        data-chatrooms-target="scrollableMessages"
        data-chatroom-subscription-target="scrollableMessages">
@@ -13,10 +13,12 @@
       <h1><%= @chatroom.interlocutor(current_user).first_name %></h1>
       <h2></h2>
     </div>
-    <div class="chatroom-show-messages <%#= 'chatroom-show-illust' if @chatroom.messages.empty? %> "  data-chatroom-subscription-target="messages" >
+    <div class="chatroom-show-messages "  data-chatroom-subscription-target="messages"  >
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
+    </div>
+    <div class="<%= 'chatroom-show-illust' if @chatroom.messages.empty? %> ">
     </div>
   </div>
   <%= simple_form_for [@chatroom, @message],

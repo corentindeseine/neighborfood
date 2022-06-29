@@ -105,11 +105,18 @@
     border-radius: 0.55rem;
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
     padding: 1rem;
+
   }
 
   &-illust {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 70vh;
     max-height: 70vh;
+    width: 100%;
+   background: transparent;
   }
 
   &-inputs {
@@ -141,6 +148,11 @@
 .chatroom-message {
   color: rgb(80, 80, 80)
 }
+
+.overflow-y-scroll{
+  position: relative;
+}
+
 
 @media (min-width: 360px) and (max-width: 390px) {
   .chatroom-show-messages {
