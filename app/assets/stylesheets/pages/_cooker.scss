@@ -51,9 +51,12 @@
   }
 
   &-reviews {
+    margin-top: 3rem;
 
-    margin-top: 3.5rem;
-
+    h6 {
+      font-size: 22px;
+      margin-bottom: 22px;
+    }
   }
 }
 

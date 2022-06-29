@@ -37,19 +37,16 @@ class MealsController < ApplicationController
     redirect_to profil_path(@cooker)
   end
 
- def update
-  @meal.update(meal_params)
-  redirect_to profil_path(@cooker)
- end
+  def update
+    @meal.update(meal_params)
+    redirect_to profil_path(@cooker)
+  end
+
   private
 
-  # def set_cooker
-  #   @cooker = User.find(params[:cooker_id])
-  # end
   def set_meal
     @meal = Meal.find(params[:id])
   end
-
 
   def meal_params
     params.require(:meal).permit(:name, :description, :unit_price, :ingredients, :range_date_time, :available_quantity, :image)
