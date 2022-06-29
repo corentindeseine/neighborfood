@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :order_details, only: %i[destroy update]
   resources :orders, only: %i[show index destroy update] do
     collection do
-      get :basket
+      get :cart
     end
   end
   resources :meals, only: %i[new create edit update destroy]

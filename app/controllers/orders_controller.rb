@@ -3,8 +3,16 @@ class OrdersController < ApplicationController
     @current_user_orders = Order.where(["client_id = ?", current_user.id])
   end
 
-  def basket
+  def cart
     @order = current_user.current_order
+    if @order
+      @orderdetails = @order.order_details
+      @cooker = @order.cooker || @cooker
+      @chatroom = Chatroom.new
+      @single_chatroom = Chatroom.find_by(client: current_user, cooker: @cooker) ||
+                        Chatroom.find_by(client: @cooker, cooker: current_user) ||
+                        Chatroom.create_private_chatroom(@cooker, current_user)
+    end
   end
 
   def show
