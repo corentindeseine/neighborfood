@@ -98,13 +98,14 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  bottom: 42px;
 }
 
 .menuElement {
   opacity: 1;
   transform: translateY(80%);
   cursor: pointer;
-
+font-size: 1.3rem;
   color: rgb(140, 140, 140);
 
 }
