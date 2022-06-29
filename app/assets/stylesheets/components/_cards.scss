@@ -15,7 +15,7 @@
     -20px -20px 60px #ffffff;
   // text-align: center;
   padding: 15px;
-  margin: 0 auto;
+  margin: 0 58px;
   margin-top: 100px;
 
   &-header {
@@ -48,7 +48,7 @@
       text-align: center;
 
       p {
-        color: rgb(120,120,120);
+        color: rgb(120, 120, 120);
         min-height: 70px;
       }
     }
@@ -61,11 +61,11 @@
       border-radius: 24px;
       margin: 0 auto 0 auto;
       color: rgb(140, 140, 140);
-      margin-top:12px;
+      margin-top: 12px;
 
-      &-container{
-      }
+      &-container {}
     }
+
     &-button {
       position: absolute;
       right: -16px;
@@ -113,7 +113,7 @@
   &-available {
     margin-top: 40px;
     font-size: 16px;
-    color: rgb(120,120,120);
+    color: rgb(120, 120, 120);
     text-align: center;
     font-family: 'Poppins', sans-serif;
   }
