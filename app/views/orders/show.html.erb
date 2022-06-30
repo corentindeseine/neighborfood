@@ -2,7 +2,11 @@
   <div class="order-show" data-controller="review" >
     <div class="order-show-header">
       <div class="order-show-header-content">
-          <% if @order.status == 0 %>
+      <% if @current_user.id == @cooker.id %>
+        <%= link_to profil_path do %>
+        <i class="fas fa-chevron-left order-show-arrow"></i>
+            <% end %>
+          <% elsif @order.status == 0 %>
             <%= link_to cooker_path(@cooker) do  %>
               <i class="fas fa-chevron-left order-show-arrow"></i>
             <% end %>
@@ -49,19 +53,21 @@
       <div class= "order-show-body-total"  >
           <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
       </div>
-      <div class="order-show-footer ">
-        <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
-        <% if @order.status != 0 %>
-          <p data-action="click->review#launchReview">Laisser un avis</p>
-        <% else %>
-          <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
-            <%= simple_form_for([@cooker, @order],
-            url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
-              <%= f.button :submit, "Confirmer" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <% if @current_user != @cooker %>
+        <div class='order-show-footer'>
+          <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
+          <% if @order.status != 0 %>
+            <p data-action="click->review#launchReview">Laisser un avis</p>
+          <% else %>
+            <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
+              <%= simple_form_for([@cooker, @order],
+              url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
+                <%= f.button :submit, "Confirmer" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end%>
       <div class="modal" data-controller="modal" data-review-target="modal">
         <div class="modal-dialog">
           <div class="modal-content">

@@ -37,4 +37,28 @@
         margin-top: 34px;
       }
     }
+
+    &-footer {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      bottom: 105px;
+      left: 0;
+      padding: 1rem;
+      width: 100%;
+      background-color: #e6e7ee;
+
+      &-current {
+        bottom: 110px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        opacity: 0.8;
+        border-bottom: 1px solid #ff6161;
+        padding-bottom: 3px;
+      }
+    }
 }

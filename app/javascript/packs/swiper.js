@@ -17,9 +17,9 @@ document.addEventListener("turbolinks:load", () => {
     breakpoints: {
       // when window width is >= 600px
       300: {
-        slidesPerView: 1,
+        slidesPerView: 1.1,
         slidesPerGroup: 1,
-        spaceBetween: -60,
+        spaceBetween: -40,
         grabCursor: true,
         loop: false,
         centeredSlides: false
