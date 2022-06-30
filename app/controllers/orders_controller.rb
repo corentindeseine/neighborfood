@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     @order = current_user.current_order
     if @order
       @orderdetails = @order.order_details
-      @cooker = @order.cooker || @cooker
+      @cooker = @order.cooker
       @chatroom = Chatroom.new
       @single_chatroom = Chatroom.find_by(client: current_user, cooker: @cooker) ||
                          Chatroom.find_by(client: @cooker, cooker: current_user) ||
