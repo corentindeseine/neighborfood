@@ -10,6 +10,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= render 'shared/ios_pwa_links' %>
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -24,6 +25,7 @@
     <% unless action_name == 'home' ||
     (controller_name == 'meals' && action_name == 'show') ||
     (controller_name == 'orders' && action_name == 'show') ||
+    (controller_name == 'chatrooms' && action_name == 'show') ||
     (controller_name == 'orders' && action_name == 'cart' && current_user.orders.find { |e| e.status.zero? } )%>
       <%= render 'shared/navbar' %>
     <% end %>

@@ -24,7 +24,9 @@
       }
 
       .rating {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(80,80,80);
       }
 
     }
@@ -51,9 +53,12 @@
   }
 
   &-reviews {
+    margin-top: 3rem;
 
-    margin-top: 3.5rem;
-
+    h6 {
+      font-size: 22px;
+      margin-bottom: 22px;
+    }
   }
 }
 

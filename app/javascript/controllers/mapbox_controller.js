@@ -52,7 +52,6 @@ export default class extends Controller {
       const cardCooker = document.querySelector('.swiper-wrapper')
       // Entoure le marqueur selectionné quand on click dessus
       element.addEventListener('click', () => {
-        console.log('mouse enter')
         cardCooker.classList.remove('d-none')
         element.style.border = '2px solid  #ff6161'
         element.style.width = '45px'

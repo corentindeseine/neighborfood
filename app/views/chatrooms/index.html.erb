@@ -1,5 +1,5 @@
 <div data-controller="chatrooms" class = "chatrooms-index container-fluid" >
-  <h1>Vos messages</h1>
+  <h1>Discussions</h1>
   <div id="user_list">
     <ul>
       <% @chatrooms.each do |chatroom| %>
@@ -10,14 +10,14 @@
                 <%= cl_image_tag(chatroom.interlocutor(current_user).image.key, class:'avatar' ) %>
                 <h2 class="interlocutor"><%= chatroom.interlocutor(current_user).first_name   %></h2>
               </div>
-              <p><strong>Le:</strong>  <%= chatroom.created_at.strftime("%d-%m-%y") %></p>
+              <p><strong>Le </strong>  <%= chatroom.created_at.strftime("%d-%m-%y") %></p>
             </div>
-            <p class="chatroom_message">
+            <p class="chatroom-message">
               <% if chatroom.messages.last %>
                 <%= chatroom.messages.last.content.truncate(70)   %>....
               <% else %>
-           
-                <p>Discutez avec <strong><%= chatroom.cooker.first_name %></strong> </p>
+
+                <p class="chatroom-message">Discutez avec votre cuistot</p>
               <% end %>
             </p>
           </li>

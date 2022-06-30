@@ -18,7 +18,7 @@ class CookersController < ApplicationController
     @cooker = User.find(params[:id])
     @meals = @cooker.meals.select { |meal| meal.available_quantity.positive? }
     @order = Order.find_by(client: current_user, cooker: @cooker, status: 0) || Order.new(client: current_user, cooker: @cooker)
-    @orderdetail = OrderDetail.find_by(order: @order, meal: @meal) || OrderDetail.new
+    @orderdetail = OrderDetail.find_by(order: @order) || OrderDetail.new
     @quantity = @orderdetail.ordered_quantity || 1
     @old_order = Order.find_by(client: current_user.id, status: 0)
     @review = Review.new

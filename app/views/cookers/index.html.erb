@@ -21,7 +21,7 @@
                 </div>
               </div>
                 <h6>
-                    <%= "#{cooker.average_rating}   " if Review.where(cooker_id: cooker.id).count >= 2  %><i class="fas fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%>" style="color: #ffb016"></i>
+                    <%= "#{cooker.average_rating}   " if Review.where(cooker_id: cooker.id).count >= 2  %><i class="fa fa-star <%= 'd-none' if Review.where(cooker_id: cooker.id).count < 2%>" style="color: #ffb016"></i>
                 </h6>
               </div>
               <ul>

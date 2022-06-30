@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @chatrooms = current_user.chatrooms
+    @chatrooms = current_user.chatrooms.sort_by(&:created_at).reverse
     render 'index'
   end
 
@@ -13,7 +13,6 @@ class ChatroomsController < ApplicationController
 
     @users = User.where.not(id: current_user.id)
     respond_to do |format|
-
       format.json do
         render json: {
           html: render_to_string(partial: 'chatrooms/chatroom', locals: { chatroom: @chatroom, message: @message }, layout: false, formats: [:html])
