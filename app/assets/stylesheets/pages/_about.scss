@@ -3,18 +3,26 @@
   width: 100%;
 
   &-header {
+    margin-top: 20px;
+    p{
+      font-size: 1.5rem;
+ 
+    }
+
     svg {
       width: 100% !important;
       height: 100%;
     }
 
     i {
+
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 1.2rem;
       height: 40PX;
       width: 40PX;
+
       border-radius: 15px;
       border-color: #d1d9e6;
       box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
