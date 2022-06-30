@@ -61,7 +61,7 @@
   </div>
 </div>
 <div>
-  <svg width="0" height="0" >  <defs>
+  <%# <svg width="0" height="0" >  <defs>
       <filter id="goo">
         <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" id="blurFilter"/>
         <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0
@@ -72,12 +72,12 @@
         <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
       </filter>
     </defs>
-  </svg>
+  </svg> %>
   <style>
-    #bgWrapper {
+    /* #bgWrapper {
          -webkit-filter: url(#goo);
          filter: url(#goo);
-    }
+    } */
   </style>
 </div>
 <div class="menu" >
@@ -90,7 +90,6 @@
         <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "mobile_menu_link" %></li>
       <% else %>
         <li><%= link_to "Connexion", new_user_session_path, class: "mobile_menu_link" %></li>
-        <li><%= link_to "Inscription", new_user_registration_path, class: "mobile_menu_link" %></li>
       <% end %>
     </ul>
   </nav>

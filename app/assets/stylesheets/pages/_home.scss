@@ -2,7 +2,7 @@
   min-height: 90%;
   width: 100%;
   padding: 0 1rem;
-  padding-bottom: 4rem;
+  padding-bottom: 100px;
 }
 
 
@@ -208,6 +208,11 @@
 .loader-home.is-active {
   visibility: visible;
   opacity: 1;
+}
+
+.more-info-login {
+  border-bottom: 1px solid #ff6161;
+  padding-bottom: 3px;
 }
 
 @media (min-width: 360px) and (max-width: 390px) {

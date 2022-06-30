@@ -4,15 +4,13 @@ import { end } from "@popperjs/core"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static targets = ["messages", 'scrollableMessages']
+  static targets = ["messages", 'scrollableMessages', 'illust']
   static values = { chatroomId: Number, messagesLength: Number }
 
 
   initialize() {
     console.log(this.messagesLengthValue)
     console.log(typeof this.messagesLengthValue)
-
-
   }
   connect() {
     this.channel = consumer.subscriptions.create(
@@ -39,17 +37,18 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
+    if (this.messagesLengthValue === 0) {
+      console.log('hide illust');
+      this.illustTarget.innerHTML = '';
+    }
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this._scrollDown()
 
   }
   resetForm(event) {
-    const chatroom = document.querySelector('.chatroom-show-illust');
+
     console.log(this.messagesLengthValue);
-    if (this.messagesLengthValue > 0) {
-      console.log('hide illust');
-      chatroom.classList.add("d-none");
-    }
+
     event.target.reset()
 
   }

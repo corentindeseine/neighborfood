@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", () => {
   //   // Fonction qui fait avancer les bulles d'icons de la navbar
 
   function move(id, position, color) {
- 
+
     const current_position = position;
     tl.set('#bgBubble', { left: current_position });
     tl.to("#bgBubble", { duration: 0.15, bottom: "-30px", ease: "ease-out" }, 0)
@@ -57,6 +57,7 @@ document.addEventListener("turbolinks:load", () => {
       move('4', '87.5%', '#FF6161');
       tlnav.to(menu, 0.3, { scale: 1, ease: Back.easeOut })
         .staggerTo('.navigation li', 0.4, { x: 0, ease: Sine.easeOut }, 0.2, 0.5)
+        
     })
   }
 
