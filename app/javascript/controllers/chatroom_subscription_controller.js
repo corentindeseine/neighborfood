@@ -45,7 +45,9 @@ export default class extends Controller {
   }
   resetForm(event) {
     const chatroom = document.querySelector('.chatroom-show-illust');
+    console.log(this.messagesLengthValue);
     if (this.messagesLengthValue > 0) {
+      console.log('hide illust');
       chatroom.classList.add("d-none");
     }
     event.target.reset()
