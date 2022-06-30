@@ -19,6 +19,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @orderdetails = @order.order_details.includes(:meal)
     @cooker = @order.cooker
+    return unless @current_user != @cooker
+    
     @chatroom = Chatroom.new
     @review = Review.new
     @single_chatroom = Chatroom.find_by(client: current_user, cooker: @cooker) ||
