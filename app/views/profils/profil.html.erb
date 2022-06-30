@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="profil">
-    <h1> <%=current_user.first_name%> </h1>
-    <h2 class="text-center" >Vos plats en vente</h2>
+    <h1 class ="mt-3" > <%=current_user.first_name%> </h1>
+    <h2 class="text-center mt-3" >Vos plats en vente</h2>
     <% if  @meals.empty? %>
       <p class ="text-center" >Vous n'avez pas de plats en vente</p>
       <div class="profil-add-meal">
@@ -17,22 +17,22 @@
                   <div class="meal-card-header-img">
                     <%= cl_image_tag meal.image.key, alt: meal.name if meal.image.key != nil%>
                   </div>
-                  <div class="meal-card-header-price"><span><%=sprintf('%.2f', meal.unit_price) %></span> €</div>
                 </div>
                 <div class="meal-card-body">
                   <div class= "meal-card-body-detail">
                     <h2><%= meal.name %></h2>
                     <p> <%= meal.description.truncate(80) %></p>
                   </div>
+                  <div class="profile-meal-card-header-price mt-3 "><span><%=sprintf('%.2f', meal.unit_price) %></span> €</div>
                 </div>
-                <div class="profil-available-quantity">
+                <div class="profil-available-quantity mt-3">
                   <p>Quantité disponible : <%= meal.available_quantity %></p>
                 </div>
                 <div class="profil-actions">
                   <%#= simple_form_for(meal) do |f| %>
                     <%#= f.submit "Modifier", class: "profil-more-info" %>
                     <%#end %>
-                    <div class="profil-more-info">
+                    <div class="profil-more-info mt-2">
                       <%= link_to "Modifier", edit_meal_path(meal), class: "" %>
                     </div>
                     <% if meal.order_details.empty? %>
@@ -45,6 +45,9 @@
               </div>
             <% end %>
           </div>
+        </div>
+        <div class="profil-add-meal mt-5">
+          <%= link_to 'Ajouter un plat', new_meal_path %>
         </div>
       <%end%>
       <h2 class="mt-5 text-center">Vos Commandes</h2>

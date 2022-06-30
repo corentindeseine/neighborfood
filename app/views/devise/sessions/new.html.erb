@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <h2>Log in</h2>
+<div class="container-fluid mt-5">
+  <h1 class = "mb-5 text-center" >Connectez-vous</h1>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+      <p><%= f.button :submit, "Connexion", class: "meal-add mb-3" %></p>
     </div>
   <% end %>
 

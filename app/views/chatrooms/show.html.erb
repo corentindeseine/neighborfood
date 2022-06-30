@@ -18,7 +18,7 @@
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
-    <div class="<%= 'chatroom-show-illust' if @chatroom.messages.empty? %> ">
+    <div class="<%= 'chatroom-show-illust' if @chatroom.messages.empty? %> " data-chatroom-subscription-target = "illust">
     </div>
   </div>
   <%= simple_form_for [@chatroom, @message],

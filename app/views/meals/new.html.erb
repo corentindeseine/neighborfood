@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <div class="meal-new">
+    <%= link_to profil_path do  %>
+      <i class="fas fa-chevron-left about-header-arrow"></i>
+    <% end %>
     <%= simple_form_for @meal do |f| %>
       <h1 class="text-center">Ajoutez votre plat 😋</h1>
       <%= f.input :image, as: :file %>
