@@ -1,12 +1,19 @@
 // *******************************
 // index html orders
 // *******************************
-.orders-list {
-  margin-top: 20px;
-  padding: 2px 8px;
-  margin-bottom: 160px;
+.orders-index {
   height: 100%;
   width: 100%;
+  margin-top: 1rem;
+}
+.orders-list {
+  margin-top: 1.8rem;
+  // padding: 2px 8px;
+  // margin-bottom: 160px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .orders-list-order {
@@ -14,6 +21,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
+  width: 350px;
   margin: 40px 0px;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
@@ -97,11 +105,22 @@
   }
 }
 
+
+.orders-show-list {
+  margin-top: 0px;
+  padding: 2px 8px;
+  margin-bottom: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .order-show-detail {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 120px;
+  width: 350px;
   margin: 40px 0px;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;

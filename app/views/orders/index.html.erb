@@ -1,12 +1,16 @@
-<div class="container-fluid">
-  <h1 class = "text-center mt-4">Commandes</h1>
+
+<div class="container-fluid orders-index">
+  <h1 class = "text-center">Mes commandes</h1>
+
   <%if @current_user_orders.empty?%>
     <p> Vous n'avez aucune commande</p>
   <%else%>
     <div class="orders-list">
+    <ul>
       <% @current_user_orders.order(created_at: :desc).each do |order| %>
+      <li>
         <%= link_to order_path(order) do %>
-          <div class="orders-list-order">
+          <div class="orders-list-order" >
               <%= cl_image_tag(order.cooker.image.key, class:'avatar-order' ) %>
             <div>
               <p>Commande du
@@ -24,6 +28,8 @@
           </div>
         <%end%>
       <%end%>
+      </li>
     </div>
+    </ul>
   <%end%>
 </div>

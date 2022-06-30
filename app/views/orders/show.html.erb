@@ -23,8 +23,11 @@
         </div>
       </div>
     </div>
+    <div class="orders-show-list">
       <%total = 0%>
+      <ul>
       <% @orderdetails.each do |d| %>
+      <li>
         <div class="order-show-detail ">
           <div class="order-show-detail-left-img">
             <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
@@ -37,12 +40,15 @@
             <p><%=sprintf('%.2f', line_price)%> €</p>
           </div>
         </div>
+        </li>
         <%total = total + line_price%>
-      <% end%>
-        <div class= "order-show-body-total"  >
-            <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-        </div>
 
+      <% end %>
+      </ul>
+    </div>
+      <div class= "order-show-body-total"  >
+          <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
+      </div>
       <div class="order-show-footer">
         <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
         <% if @order.status != 0 %>
@@ -64,6 +70,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <div data-order-show-target = "loader" class = "loader-order">
       <h1>En cours de préparation</h1>
