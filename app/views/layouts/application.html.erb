@@ -26,8 +26,9 @@
     (controller_name == 'meals' && action_name == 'show') ||
     (controller_name == 'orders' && action_name == 'show') ||
     (controller_name == 'chatrooms' && action_name == 'show') ||
-    (controller_name == 'orders' && action_name == 'cart' && current_user.orders.find { |e| e.status.zero? } )%>
-      <%= render 'shared/navbar' %>
-    <% end %>
-  </body>
+    (controller_name == 'orders' && action_name == 'cart' && current_user.orders.find { |e| e.status.zero? } ) ||
+    (action_name == 'about')%>
+    <%= render 'shared/navbar' %>
+  <% end %>
+</body>
 </html>

@@ -6,6 +6,7 @@
   width: 100%;
   margin-top: 1rem;
 }
+
 .orders-list {
   margin-top: 1.8rem;
   // padding: 2px 8px;
@@ -31,6 +32,7 @@
   box-shadow: 20px 20px 60px #BEC3C9,
     -20px -20px 60px #FFFFFF;
 }
+
 .circle-empty {
   width: 30px;
   height: 30px;
@@ -91,7 +93,7 @@
 
     p {
       font-size: 1rem;
-      color: rgb(80,80,80)
+      color: rgb(80, 80, 80)
     }
 
     &-name {
@@ -115,6 +117,7 @@
   display: flex;
   justify-content: center;
 }
+
 .order-show-detail {
   display: flex;
   justify-content: space-around;
