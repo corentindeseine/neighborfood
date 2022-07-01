@@ -65,7 +65,7 @@ export default class extends Controller {
       });
 
       // Centre sur le marker sur lequel on clique
-      element.addEventListener('click', () => { this.map.flyTo({ center: [marker.lng, marker.lat - 0.005] }) });
+      element.addEventListener('click', () => { this.map.flyTo({ center: [marker.lng, marker.lat - 0.002] }) });
 
       // Ajoute les markers à la map
       markers.addTo(this.map)

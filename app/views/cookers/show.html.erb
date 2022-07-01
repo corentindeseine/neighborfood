@@ -1,5 +1,4 @@
-<div class="container-fluid" data-controller="quantity-button"
-  data-quantity-button-quantity-value="<%= @quantity %>">
+<div class="container-fluid" data-controller="quantity-button" data-quantity-button-quantity-value="<%= @quantity %>">
   <div class="cookers-show ">
     <div class="cookers-show-header">
       <div class="head">
@@ -14,13 +13,19 @@
       </div>
       <div class = "cookers-show-header-footer" >
         <p class="speciality"><%= @cooker.speciality %></p>
-        <p class="speciality"> Chef expert</p>
+        <p class="speciality">
+          <% if Order.where(cooker_id: @cooker).count >= 2 %>
+            Chef confirmé
+          <% else %>
+            Nouveau chef
+          <% end %>
+        </p>
       </div>
     </div>
     <div class="cooker-show-cards swiper-container">
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
-          <div class="swiper-slide" data-quantity-button-quantity-value="<%= meal.available_quantity %>">
+          <div class="swiper-slide">
             <div class="meal-card" >
               <div class="meal-card-header">
                 <div class="meal-card-header-img">

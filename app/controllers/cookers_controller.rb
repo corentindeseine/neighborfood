@@ -22,6 +22,5 @@ class CookersController < ApplicationController
     @orderdetail = OrderDetail.find_by(order: @order, meal: @meal) || OrderDetail.new
     @quantity = @orderdetail.ordered_quantity || 1
     @old_order = Order.find_by(client: current_user.id, status: 0)
-    @review = Review.new
   end
 end
