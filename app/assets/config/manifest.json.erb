@@ -10,7 +10,7 @@
       <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
       {
         "src": "<%= image_path "icons/#{file}" %>",
-        "sizes": "<%= match && match[:size] %>",
+        "sizes": "64x64 32x32 24x24 16x16",
         "type": "image/png"
       }<%= "," unless (files.size - 1) == index %>
     <% end %>
