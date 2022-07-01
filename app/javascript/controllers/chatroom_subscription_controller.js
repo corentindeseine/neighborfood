@@ -9,8 +9,7 @@ export default class extends Controller {
 
 
   initialize() {
-    console.log(this.messagesLengthValue)
-    console.log(typeof this.messagesLengthValue)
+
   }
   connect() {
     this.channel = consumer.subscriptions.create(
@@ -28,7 +27,6 @@ export default class extends Controller {
     });
 
     if (this.messagesLengthValue === 0) {
-      console.log('show illust');
       loadAnimChat.goToAndPlay(0, true);
     }
 
@@ -38,7 +36,6 @@ export default class extends Controller {
 
   #insertMessageAndScrollDown(data) {
     if (this.messagesLengthValue === 0) {
-      console.log('hide illust');
       this.illustTarget.innerHTML = '';
     }
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
@@ -46,8 +43,6 @@ export default class extends Controller {
 
   }
   resetForm(event) {
-
-    console.log(this.messagesLengthValue);
 
     event.target.reset()
 

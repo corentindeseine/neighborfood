@@ -2,21 +2,21 @@
   <div class="order-show" data-controller="review" >
     <div class="order-show-header">
       <div class="order-show-header-content">
-      <% if @current_user.id == @cooker.id %>
-        <%= link_to profil_path do %>
-        <i class="fas fa-chevron-left order-show-arrow"></i>
-            <% end %>
-          <% elsif @order.status == 0 %>
-            <%= link_to cooker_path(@cooker) do  %>
-              <i class="fas fa-chevron-left order-show-arrow"></i>
-            <% end %>
-              <p>Commande en cours</p>
-          <% else %>
-            <%= link_to orders_path do  %>
-              <i class="fas fa-chevron-left order-show-arrow"></i>
-            <% end %>
-              <p> <strong>Commande du </strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
+        <% if @current_user.id == @cooker.id %>
+          <%= link_to profil_path do %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
           <% end %>
+        <% elsif @order.status == 0 %>
+          <%= link_to cooker_path(@cooker) do  %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
+          <% end %>
+          <p>Commande en cours</p>
+        <% else %>
+          <%= link_to orders_path do  %>
+            <i class="fas fa-chevron-left order-show-arrow"></i>
+          <% end %>
+          <p> <strong>Commande du </strong>  <%= @order.created_at.strftime("%d-%m-%y") %></p>
+        <% end %>
       </div>
       <div class="order-show-body">
         <%= cl_image_tag(@cooker.image.key, class:'avatar-large-map' ) %>
@@ -30,56 +30,54 @@
     <div class="orders-show-list">
       <%total = 0%>
       <ul>
-      <% @orderdetails.each do |d| %>
-      <li>
-        <div class="order-show-detail ">
-          <div class="order-show-detail-left-img">
-            <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
-          </div>
-          <div class="order-show-detail-center">
-            <p> <%=d.ordered_quantity%> x <%= d.meal.name%></p>
-          </div>
-          <div class="order-show-detail-right-subtotal">
-            <%line_price = (d.ordered_quantity * d.meal.unit_price)%>
-            <p><%=sprintf('%.2f', line_price)%> €</p>
-          </div>
-        </div>
-        </li>
-        <%total = total + line_price%>
-
-      <% end %>
+        <% @orderdetails.each do |d| %>
+          <li>
+            <div class="order-show-detail ">
+              <div class="order-show-detail-left-img">
+                <%= cl_image_tag d.meal.image.key, alt: d.meal.name if d.meal.image.key != nil%>
+              </div>
+              <div class="order-show-detail-center">
+                <p> <%=d.ordered_quantity%> x <%= d.meal.name%></p>
+              </div>
+              <div class="order-show-detail-right-subtotal">
+                <%line_price = (d.ordered_quantity * d.meal.unit_price)%>
+                <p><%=sprintf('%.2f', line_price)%> €</p>
+              </div>
+            </div>
+          </li>
+          <%total = total + line_price%>
+        <% end %>
       </ul>
     </div>
-      <div class= "order-show-body-total"  >
-          <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
-      </div>
-      <% if @current_user != @cooker %>
-        <div class='order-show-footer'>
-          <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
-          <% if @order.status != 0 %>
-            <p data-action="click->review#launchReview">Laisser un avis</p>
-          <% else %>
-            <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
-              <%= simple_form_for([@cooker, @order],
-              url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
-                <%= f.button :submit, "Confirmer" %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end%>
-      <div class="modal" data-controller="modal" data-review-target="modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <button class ="modal-content-close" data-action="click->modal#close"><i class="fas fa-times"></i></button>
-            <%= render 'reviews/form', cooker: @cooker, review: @review %>
-          </div>
-        </div>
-      </div>
-
+    <div class= "order-show-body-total"  >
+      <h3>Total: <%=sprintf('%.2f', total)%> €</h3>
     </div>
-    <div data-order-show-target = "loader" class = "loader-order">
-      <h1>En cours de préparation</h1>
+    <% if @current_user != @cooker %>
+      <div class='order-show-footer'>
+        <p> <%= link_to 'Contacter', chatroom_path(@single_chatroom) %></p>
+        <% if @order.status != 0 %>
+          <p data-action="click->review#launchReview">Laisser un avis</p>
+        <% else %>
+          <div class="order-show-button"  data-order-show-target ="button" data-action="click->order-show#play">
+            <%= simple_form_for([@cooker, @order],
+              url: cooker_order_path(@cooker), data:{order_show_target: "forms"}) do |f| %>
+              <%= f.button :submit, "Confirmer" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end%>
+    <div class="modal" data-controller="modal" data-review-target="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button class ="modal-content-close" data-action="click->modal#close"><i class="fas fa-times"></i></button>
+          <%= render 'reviews/form', cooker: @cooker, review: @review %>
+        </div>
+      </div>
     </div>
   </div>
+  <div data-order-show-target = "loader" class = "loader-order">
+    <h1 class = "loader-order-h1" ></h1>
+  </div>
+</div>
 </div>

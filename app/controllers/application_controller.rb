@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:accept_invitation, keys: user_params)
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   def user_params
     %i[first_name last_name city address zip_code phone_number email].freeze
   end
