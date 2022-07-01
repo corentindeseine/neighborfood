@@ -170,8 +170,8 @@ couscous = Meal.create!(name: 'Couscous',
                         range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
                         available_quantity: 8,
                         user_id: users[1].id)
-couscous_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655039167/couscous-removebg-preview_1_ay6jrr.png")
-couscous.image.attach(io: couscous_file, filename: 'couscous.jpg', content_type: 'image/jpg')
+couscous_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656448357/couscous_dsh4ke.png")
+couscous.image.attach(io: couscous_file, filename: 'couscous.png', content_type: 'image/png')
 
 tajine = Meal.create!(name: "Tajine de poulet",
                       description: 'Comme un retour au Maroc !',
@@ -190,7 +190,7 @@ pastilla = Meal.create!(name: 'Pastilla',
                         range_date_time: "06/14/2022 17:00 , 06/14/2022 19:00",
                         available_quantity: 5,
                         user_id: users[1].id)
-pastilla_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655038011/Pastilla-au-poulet-et-amandes-le-traiteur-de-la-bourse-removebg-preview_fjyynx.png")
+pastilla_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1656448337/pastilla_ypthey.png")
 pastilla.image.attach(io: pastilla_file, filename: 'Pastilla.png', content_type: 'image/png')
 
 # Seed meals pour user 2
