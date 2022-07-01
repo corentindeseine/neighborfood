@@ -1,16 +1,16 @@
-<div class="container-fluid">
+<div class="container-fluid" data-controller='form-meal-remove-green'>
   <div class="meal-new">
     <%= link_to profil_path do  %>
       <i class="fas fa-chevron-left nav-button"></i>
+      <h6 class="text-center h2" style="margin:-78px 0 30px 0">Modifiez votre plat 🍜</h6>
     <% end %>
     <%= simple_form_for @meal do |f| %>
-      <h1 class="text-center" >Modifiez Votre plat 😋</h1>
-      <%= f.input :image, as: :file %>
-      <%= f.input :unit_price, label: "Prix unitaire"%>
-      <%= f.input :name, label: "Nom" %>
-      <%= f.input :description%>
-      <%= f.input :ingredients%>
-      <%= f.input :available_quantity %>
+      <%= f.input :image, as: :file, input_html: { data: {form_meal_remove_green_target: 'input' }} %>
+      <%= f.input :unit_price, label: "Prix unitaire", input_html: { data: {form_meal_remove_green_target: 'input' }}%>
+      <%= f.input :name, label: "Nom du plat", input_html: { data: {form_meal_remove_green_target: 'input' }} %>
+      <%= f.input :description, input_html: { data: {form_meal_remove_green_target: 'input' }}%>
+      <%= f.input :ingredients, label: "Ingrédients", input_html: { data: {form_meal_remove_green_target: 'input' }}%>
+      <%= f.input :available_quantity, label: "Quantité disponible", input_html: { data: {form_meal_remove_green_target: 'input' }} %>
       <%= f.submit "Valider", class: "meal-add" %>
     <% end %>
   </div>
