@@ -24,7 +24,7 @@ export default class extends Controller {
       preserveAspectRatio: 'xMidYMid meet',
     });
     let target = e.target.href;
-    
+
     this.loaderTarget.classList.add("is-active")
     loadAnim.goToAndPlay(0, true);
     setTimeout(() => {

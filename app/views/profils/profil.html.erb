@@ -53,7 +53,7 @@
       <h2 class="mt-5 text-center">Vos Commandes</h2>
       <%if @current_user_orders_cooker_accepted.empty?%>
         <p class ="text-center" > Vous n'avez aucune commande</p>
-      <%else%>
+       <%else%>
         <div class="orders-list">
           <% @current_user_orders_cooker_accepted.order(created_at: :desc).each do |order| %>
             <%= link_to order_path(order) do %>
