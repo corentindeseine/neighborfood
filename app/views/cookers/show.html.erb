@@ -1,5 +1,4 @@
-<div class="container-fluid" data-controller="quantity-button"
-  data-quantity-button-quantity-value="<%= @quantity %>">
+<div class="container-fluid" data-controller="quantity-button" data-quantity-button-quantity-value="<%= @quantity %>">
   <div class="cookers-show ">
     <div class="cookers-show-header">
       <div class="head">
@@ -20,7 +19,7 @@
     <div class="cooker-show-cards swiper-container">
       <div class="swiper-wrapper">
         <% @meals.each do |meal| %>
-          <div class="swiper-slide" data-quantity-button-quantity-value="<%= meal.available_quantity %>">
+          <div class="swiper-slide">
             <div class="meal-card" >
               <div class="meal-card-header">
                 <div class="meal-card-header-img">
