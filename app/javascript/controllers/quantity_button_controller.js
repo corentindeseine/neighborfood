@@ -21,7 +21,7 @@ export default class extends Controller {
   }
 
   increment() {
-    this.lessTargets.style.color = '#ff6161'
+    this.lessTarget.style.color = '#ff6161'
     if (this.quantityTarget.innerHTML < parseInt(this.availableTarget.innerHTML)) {
       this.quantityTarget.innerHTML++
       this.priceTarget.innerHTML = (this.unitPrice * (parseFloat(this.quantityTarget.innerHTML))).toFixed(2) + "€";
