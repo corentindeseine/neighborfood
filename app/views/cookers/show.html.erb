@@ -13,7 +13,13 @@
       </div>
       <div class = "cookers-show-header-footer" >
         <p class="speciality"><%= @cooker.speciality %></p>
-        <p class="speciality"> Chef expert</p>
+        <p class="speciality">
+          <% if Order.where(cooker_id: @cooker).count >= 2 %>
+            Chef confirmé
+          <% else %>
+            Nouveau chef
+          <% end %>
+        </p>
       </div>
     </div>
     <div class="cooker-show-cards swiper-container">
