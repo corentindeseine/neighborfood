@@ -6,6 +6,9 @@ document.addEventListener("turbolinks:load", () => {
   const textAnim = gsap.timeline();
 
 
+
+
+
   textAnim.to(".loader-order-h1", { text: "Préparation en cours", ease: "power1.in", duration: 2, repeat: 10, yoyo: true, repeatDelay: 0.4 })
 
   tlhome.from(légumes, {
