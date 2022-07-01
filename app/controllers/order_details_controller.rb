@@ -1,5 +1,4 @@
 class OrderDetailsController < ApplicationController
-
   def create
     @cooker = User.find(params[:cooker_id])
     @meal = Meal.find(params[:meal_id])
@@ -13,18 +12,20 @@ class OrderDetailsController < ApplicationController
       @old_order.destroy if @old_order.cooker_id != @cooker.id
       @old_chatroom.destroy if @old_chatroom.messages.empty?
     end
-      if @orderdetail
-        @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity)
-      else
-        @orderdetail = OrderDetail.new(order_details_params)
-        @orderdetail.order = @order
-        @orderdetail.meal = @meal
-      end
-      if @orderdetail.save
-        redirect_to cooker_path(@cooker)
-      else
-        redirect_to cooker_path(@cooker), warning: "Nope"
-      end
+
+    if @orderdetail
+      @orderdetail.update(ordered_quantity: @orderdetail.ordered_quantity)
+    else
+      @orderdetail = OrderDetail.new(order_details_params)
+      @orderdetail.order = @order
+      @orderdetail.meal = @meal
+    end
+
+    if @orderdetail.save
+      redirect_to cooker_path(@cooker)
+    else
+      redirect_to cooker_path(@cooker), warning: "Nope"
+    end
   end
 
   def update
