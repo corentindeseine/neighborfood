@@ -53,11 +53,12 @@
 
     &-description {
       margin-top: 16px;
-        p {
-          text-align: center;
-          font-family: 'Mali', cursive;
-          color: rgb(120, 120, 120)
-        }
+
+      p {
+        text-align: center;
+        font-family: 'Mali', cursive;
+        color: rgb(120, 120, 120)
+      }
 
       p {
         text-align: center;
@@ -124,7 +125,7 @@
     }
 
     &-detail {
-      color: rgb(120,120,120);
+      color: rgb(120, 120, 120);
       text-align: center;
       margin-top: 8px;
 
@@ -137,7 +138,7 @@
 
     &-ingredients {
       margin: 6px 0px 24px 12px;
-      color:rgb(120, 120, 120);
+      color: rgb(120, 120, 120);
       font-family: 'Mali', cursive;
     }
 
@@ -155,6 +156,7 @@
 
       &-price-container {
         margin-left: 6px;
+
         p {
           color: black;
           font-size: 18px;
@@ -188,9 +190,10 @@
       &-less {
         font-size: 20px;
         color: #FF6161;
+
         &-one {
           font-size: 20px;
-          color: rgb(140,140,140);
+          color: rgb(140, 140, 140);
         }
       }
 
@@ -240,6 +243,7 @@
 }
 
 .meal-new {
+  position: relative;
   margin-top: 2rem;
   height: 100%;
   width: 100%;
@@ -249,7 +253,7 @@
   }
 }
 
-.meal-add{
+.meal-add {
 
   padding: 6px 26px;
   color: #ffffff;
@@ -262,5 +266,5 @@
   border: none;
   position: absolute;
   right: 20px;
-  margin-top:12px;
- }
+  margin-top: 12px;
+}

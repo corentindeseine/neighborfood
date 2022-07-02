@@ -2,7 +2,7 @@
   min-height: 90%;
   width: 100%;
   padding: 0 1rem;
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 }
 
 
@@ -23,7 +23,7 @@
   &-top {
     position: relative;
     height: 50%;
-    width: 100%;
+    width: 102%;
     background-color: #FF6161;
     clip-path: url(#wave-top);
     border-bottom: 1px solid #000;
@@ -111,7 +111,7 @@
 
   &-content {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     color: #000;
     transform: translate(-50%, -50%);
