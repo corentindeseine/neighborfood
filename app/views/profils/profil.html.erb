@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="profil">
     <h1 class ="mt-3" > <%=current_user.first_name%> </h1>
-    <h2 class="text-center mt-3" >Vos plats en vente</h2>
+    <h2 class="text-center mt-3" >Vos plats disponibles</h2>
     <% if  @meals.empty? %>
-      <p class ="text-center" >Vous n'avez pas de plats en vente</p>
+      <p class ="text-center" >Vous n'avez pas encore ajouté de plats</p>
       <div class="profil-add-meal">
         <%= link_to 'Ajouter un plat', new_meal_path %>
       </div>
@@ -23,7 +23,7 @@
                     <h2><%= meal.name %></h2>
                     <p> <%= meal.description.truncate(80) %></p>
                   </div>
-                  <div class="profile-meal-card-header-price mt-3 "><span><%=sprintf('%.2f', meal.unit_price) %></span> €</div>
+                  <div class="profile-meal-card-header-price "><span><%=sprintf('%.2f', meal.unit_price) %></span> €</div>
                 </div>
                 <div class="profil-available-quantity mt-3">
                   <p>Quantité disponible : <%= meal.available_quantity %></p>
