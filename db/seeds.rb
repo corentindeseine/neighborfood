@@ -352,7 +352,7 @@ Review.create!(user_id: User.find_by(first_name: "Mohamed").id,
                content: "Tout simplement les meilleurs poissons de Paris ! Ibrahima est un cuistot qui sait vous
                accueillir et vous fera découvrir ses spécialités")
 
-Review.create!(user_id: User.find_by(first_name: "Bruno").id,
+Review.create!(user_id: User.find_by(first_name: "Sarah").id,
                cooker_id: User.find_by(first_name: "Ibrahima").id,
                rating: 5,
                content: "INCROYABLE ! C'est le seul mot que j'ai trouvé pour décrire les plat proposés par Ibrahima")
