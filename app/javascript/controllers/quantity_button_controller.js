@@ -17,7 +17,6 @@ export default class extends Controller {
 
   connect() {
     this.inputTarget.value = this.quantityValue
-    console.log(this.quantityTargets)
   }
 
   increment() {
