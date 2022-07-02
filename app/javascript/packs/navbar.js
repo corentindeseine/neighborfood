@@ -55,7 +55,7 @@ document.addEventListener("turbolinks:load", () => {
     tl.set('.navigation li', { x: "-125%" });
     menu4.addEventListener("click", (event) => {
       move('4', '87.5%', '#FF6161');
-      tlnav.to(menu, 0.3, { opacity: 1, ease: Back.easeOut })
+      tlnav.to(menu, 0.3, { opacity: 1, autoAlpha: 1, ease: Back.easeOut })
         .staggerTo('.navigation li', 0.4, { x: 0, ease: Sine.easeOut }, 0.2, 0.5)
 
     })
