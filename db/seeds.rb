@@ -234,7 +234,6 @@ falafels = Meal.create!(name: 'Falafels',
 falafels_file = URI.open("https://res.cloudinary.com/dj1mlcnes/image/upload/v1655037803/1200px-Bowl_of_falafel-removebg-preview_mi9x1u.png")
 falafels.image.attach(io: falafels_file, filename: 'Falafels.png', content_type: 'image/png')
 
-
 # Seed meals pour users de 4 à 10
 
 users.each_with_index do |user, index|
@@ -256,7 +255,7 @@ end
 # Order 1 - User
 
 order1 = Order.create!(client_id: client.id,
-                       cooker_id: User.find_by(first_name: "Ibrahima").id,
+                       cooker_id: User.find_by(first_name: "Ghita").id,
                        delivery_date_time: "Vendredi 10 Juin 2022 18H00",
                        status: 1)
 OrderDetail.create!(order_id: order1.id,
@@ -266,7 +265,7 @@ OrderDetail.create!(order_id: order1.id,
 # Order 2 - User
 
 order2 = Order.create!(client_id: client.id,
-                       cooker_id: User.find_by(first_name: "Ibrahima").id,
+                       cooker_id: User.find_by(first_name: "Kenza").id,
                        delivery_date_time: "Samedi 11 Juin 2022 18H00",
                        status: 1)
 OrderDetail.create!(order_id: order2.id,
@@ -275,7 +274,7 @@ OrderDetail.create!(order_id: order2.id,
 
 # Order 3 - User
 order3 = Order.create!(client_id: client.id,
-                       cooker_id: User.find_by(first_name: "Boris").id,
+                       cooker_id: User.find_by(first_name: "Isabelle").id,
                        delivery_date_time: "Lundi 13 Juin 2022 17H00",
                        status: 1)
 
@@ -323,3 +322,37 @@ order7 = Order.create!(client_id: User.find_by(first_name: "Sarah").id,
 OrderDetail.create!(order_id: order7.id,
                     meal_id: couscous.id,
                     ordered_quantity: 4)
+
+# Reviews pour Boris
+Review.create!(user_id: User.find_by(first_name: "Sophiana").id,
+               cooker_id: User.find_by(first_name: "Boris").id,
+               rating: 4,
+               content: "Très bon couscous ! Boris est un cuistot très sympathique et ses plats sont très savoureux")
+
+Review.create!(user_id: User.find_by(first_name: "Bruno").id,
+               cooker_id: User.find_by(first_name: "Boris").id,
+               rating: 5,
+               content: " J'adore les pastilas de Boris ! Un délice ! Je recommande fortement")
+
+Review.create!(user_id: User.find_by(first_name: "Ghita").id,
+               cooker_id: User.find_by(first_name: "Boris").id,
+               rating: 5,
+               content: " Très très bon ! ")
+
+Review.create!(user_id: User.find_by(first_name: "Maria").id,
+               cooker_id: User.find_by(first_name: "Boris").id,
+               rating: 5,
+               content: " J'adore j'adore j'adore !!! ")
+
+# Reviews pour Ibrahima
+
+Review.create!(user_id: User.find_by(first_name: "Mohamed").id,
+               cooker_id: User.find_by(first_name: "Ibrahima").id,
+               rating: 5,
+               content: "Tout simplement les meilleurs poissons de Paris ! Ibrahima est un cuistot qui sait vous
+               accueillir et vous fera découvrir ses spécialités")
+
+Review.create!(user_id: User.find_by(first_name: "Bruno").id,
+               cooker_id: User.find_by(first_name: "Ibrahima").id,
+               rating: 5,
+               content: "INCROYABLE ! C'est le seul mot que j'ai trouvé pour décrire les plat proposés par Ibrahima")
