@@ -26,6 +26,9 @@
     border: none;
 
     &-button {
+      position: absolute;
+      right: 0;
+      bottom: -65px;
       padding: 5px 20px;
       color: #ffffff;
       background: #FF6161;
