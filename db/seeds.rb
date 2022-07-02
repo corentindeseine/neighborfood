@@ -355,4 +355,4 @@ Review.create!(user_id: User.find_by(first_name: "Mohamed").id,
 Review.create!(user_id: User.find_by(first_name: "Sarah").id,
                cooker_id: User.find_by(first_name: "Ibrahima").id,
                rating: 5,
-               content: "INCROYABLE ! C'est le seul mot que j'ai trouvé pour décrire les plat proposés par Ibrahima")
+               content: "INCROYABLE ! C'est le seul mot que j'ai trouvé pour décrire les plats proposés par Ibrahima")
