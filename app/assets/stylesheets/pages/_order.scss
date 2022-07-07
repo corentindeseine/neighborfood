@@ -206,9 +206,10 @@
   justify-content: space-between;
   align-items: center;
   bottom: 20px;
-  left: 0;
   padding: 1rem;
   width: 100%;
+  max-width: 414px;
+  margin: auto;
   background-color: #e6e7ee;
 
   &-current {
