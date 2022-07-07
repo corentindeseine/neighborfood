@@ -6,10 +6,10 @@ import 'swiper/swiper-bundle.min.css'
 document.addEventListener("turbolinks:load", () => {
 
   const swiper = new Swiper(".swiper-container", {
-    slidesPerView: 5,
-    slidesPerGroup: 2,
-    spaceBetween: 10,
-    centeredSlides: true,
+    slidesPerView: 1.1,
+    slidesPerGroup: 1,
+    spaceBetween: -40,
+    centeredSlides: false,
     grabCursor: true,
     loop: false,
 
@@ -24,43 +24,16 @@ document.addEventListener("turbolinks:load", () => {
         loop: false,
         centeredSlides: false
 
-      },
-      // when window width is >= 900px
-      700: {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        grabCursor: true,
-        loop: false,
-        centeredSlides: false
+      }
 
-      },
-      // when window width is >= 1200px
-      900: {
-        slidesPerView: 3,
-        slidesPerGroup: 2,
-        grabCursor: true,
-        loop: false,
-        spaceBetween: 5,
-        centeredSlides: false
-      },
 
-      // when window width is >= 1500px
-      1500: {
-        slidesPerView: 5,
-        slidesPerGroup: 2,
-        grabCursor: true,
-        loop: false,
-        spaceBetween: 5,
-        centeredSlides: false
-      },
     }
   });
 
   new Swiper(".swiper-container-map", {
-    slidesPerView: 5,
-    slidesPerGroup: 2,
-    spaceBetween: 10,
-    centeredSlides: true,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    centeredSlides: false,
     grabCursor: true,
     loop: false,
 
@@ -76,33 +49,7 @@ document.addEventListener("turbolinks:load", () => {
 
       },
       // when window width is >= 900px
-      700: {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        grabCursor: true,
-        loop: false,
-        centeredSlides: false
 
-      },
-      // when window width is >= 1200px
-      900: {
-        slidesPerView: 3,
-        slidesPerGroup: 2,
-        grabCursor: true,
-        loop: false,
-        spaceBetween: 5,
-        centeredSlides: false
-      },
-
-      // when window width is >= 1500px
-      1500: {
-        slidesPerView: 5,
-        slidesPerGroup: 2,
-        grabCursor: true,
-        loop: false,
-        spaceBetween: 5,
-        centeredSlides: false
-      },
     }
   });
 })
