@@ -1,5 +1,6 @@
 
 .cart-show {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +46,7 @@
       align-items: center;
       bottom: 105px;
       padding: 1rem;
-      width: 100%;
+      width: 96%;
       max-width: 414px;
       margin: auto;
       background-color: #e6e7ee;

@@ -162,22 +162,15 @@
   }
 }
 
-@media (min-width: 360px) {
+@media (min-width: 1000px) {
   .chatroom-show-inputs {
-    width: 26%;
-  }
-
-  .chatroom-show-inputs {
-    width: 26%;
+    width: 20%;
   }
 
   .meal-show-body-footer {
-    width: 26%;
+    width: 20%;
   }
 
-  .meal-show-body-footer{
-    width: 26%;
-  }
 
   h2 {
     font-size: 1.6rem;
@@ -191,7 +184,12 @@
     height: 103%;
     overflow: hidden;
   }
-  .cart-show-footer{
-    width: 26%;
+
+  .cart-show-footer {
+    width: 20% !important;
+  }
+
+  .order-show-footer {
+    width: 20%;
   }
 }

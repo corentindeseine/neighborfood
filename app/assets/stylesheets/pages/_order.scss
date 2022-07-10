@@ -207,7 +207,7 @@
   align-items: center;
   bottom: 20px;
   padding: 1rem;
-  width: 100%;
+  width: 96%;
   max-width: 414px;
   margin: auto;
   background-color: #e6e7ee;
@@ -228,6 +228,7 @@
 .loader-order {
   height: 90vh;
   width: 100vw;
+  max-width: 414px;
   position: absolute;
   top: 0;
   left: 0;
