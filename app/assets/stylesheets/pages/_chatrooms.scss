@@ -193,3 +193,35 @@
     width: 20%;
   }
 }
+
+@media (min-width: 1400px) {
+  .chatroom-show-inputs {
+    width: 20%;
+  }
+
+  .meal-show-body-footer {
+    width: 27%;
+  }
+
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .home-container {
+    height: 103%;
+    overflow: hidden;
+  }
+
+  .cart-show-footer {
+    width: 20% !important;
+  }
+
+  .order-show-footer {
+    width: 27%;
+  }
+}
